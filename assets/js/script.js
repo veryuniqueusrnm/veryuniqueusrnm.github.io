@@ -277,9 +277,9 @@ $(document).ready(async function() {
         if (user.identities && user.identities.length > 0) {
             authMethod = user.identities[0].provider;
 
-            // If GitHub, use the nickname (GitHub username) instead of the email
-            if (authMethod === 'github' && user.nickname) {
-                displayName = user.nickname; // Use GitHub username
+            // If GitHub, use the user.name (GitHub full name) instead of nickname
+            if (authMethod === 'github') {
+                displayName = user.name; // Use GitHub full name
             }
         }
 
@@ -303,4 +303,3 @@ $(document).ready(async function() {
         });
     }
 });
-
