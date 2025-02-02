@@ -220,21 +220,24 @@ $(document).ready(async function() {
         client_id: 'hmazRwxDb4pAbdbjgQAwu8xwcTufV6Ev'
     });
 
-    // Handle redirect callback after authentication
+    // Handle Auth0 redirect callback
     if (window.location.search.includes('code=') && window.location.search.includes('state=')) {
         await auth0Client.handleRedirectCallback();
-        window.history.replaceState({}, document.title, window.location.pathname);
+        window.history.replaceState({}, document.title, window.location.pathname);  // Clean up URL after callback
     }
 
     accountButton.on('click', function() {
-        overlay.show(); // Ensure the overlay is shown when clicking on the account button
+        overlay.toggle();
     });
 
-    // Close the overlay when the close button is clicked
-    closeButton.on('click', function() {
-        overlay.css('display', 'none');
-    });
+    // Close overlay button
+    function addCloseButtonListener() {
+        $('.close-btn').on('click', function() {
+            overlay.hide();
+        });
+    }
 
+    // Check if user is authenticated
     const isAuthenticated = await auth0Client.isAuthenticated();
 
     if (!isAuthenticated) {
@@ -243,9 +246,10 @@ $(document).ready(async function() {
             <p style="margin-top: 0px !important;">Sign in with Auth0</p>
             <button class="auth0-login-btn" id="google-login">Login with Google</button>
             <button class="auth0-login-btn" id="github-login">Login with GitHub</button>
-            <p class="footnote" style="color: #000">Good to know! By signing in you don't get any extra features. These are coming soon later this year.</p>
-            <a style="color: #000; text-decoration: none;" href="https://www.okta.com/privacy-policy/" target="_blank">Click here to learn more about how Auth0 manages your data</a>
+            <p class="footnote" style="color: #000;">Good to know! By signing in you don't get any extra features. These are coming soon later this year.</p>
+            <a style="color: #000; text-decoration: none; font-size: 50%;" href="https://www.okta.com/privacy-policy/" target="_blank">Click here to learn more about how Auth0 manages your data</a>
         `);
+        addCloseButtonListener();
 
         $('#google-login').on('click', async function() {
             await auth0Client.loginWithRedirect({
@@ -262,33 +266,14 @@ $(document).ready(async function() {
         });
     } else {
         const user = await auth0Client.getUser();
-        const currentTime = new Date().toLocaleString();
-
-        // Display the appropriate name (for Google, fallback to given_name if available)
-        const displayName = user.nickname || user.given_name || user.name;
-        const userEmail = user.email || 'No email available';
         
-        // Check if connection exists in identities array
-        const authMethod = user.identities && user.identities[0] 
-            ? user.identities[0].connection 
-            : 'Unknown';
-
         loginPopup.html(`
             <span class="close-btn"><i class="fa-solid fa-x"></i></span>
-            <p>Welcome, ${displayName}</p>
+            <p style="margin-top: 0px !important;">Welcome, ${user.name}</p>
             <img src="${user.picture}" alt="Profile Picture" class="profile-img" draggable="false"/>
-            <p class="user-info-blurred">
-                Email: <span class="email-blurred">${userEmail}</span> <br>
-                Authentication Method: ${authMethod} <br>
-                Current Time: ${currentTime}
-            </p>
             <button class="auth0-logout-btn">Logout</button>
         `);
-
-        // Ensure the close button is bound after login
-        closeButton.on('click', function() {
-            overlay.css('display', 'none'); // Hide overlay when clicked
-        });
+        addCloseButtonListener();  // Re-attach close button listener for logged-in state
 
         $('.auth0-logout-btn').on('click', function() {
             auth0Client.logout({
