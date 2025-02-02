@@ -220,15 +220,17 @@ $(document).ready(async function() {
         client_id: 'hmazRwxDb4pAbdbjgQAwu8xwcTufV6Ev'
     });
 
+    // Handle redirect callback after authentication
     if (window.location.search.includes('code=') && window.location.search.includes('state=')) {
         await auth0Client.handleRedirectCallback();
         window.history.replaceState({}, document.title, window.location.pathname);
     }
 
     accountButton.on('click', function() {
-        overlay.toggle();
+        overlay.show(); // Ensure the overlay is shown when clicking on the account button
     });
 
+    // Close the overlay when the close button is clicked
     closeButton.on('click', function() {
         overlay.hide();
     });
@@ -244,10 +246,6 @@ $(document).ready(async function() {
             <p class="footnote" style="color: #000;">Good to know! By signing in you don't get any extra features. These are coming soon later this year.</p>
             <a style="color: #000; text-decoration: none; font-size: 50%;" href="https://www.okta.com/privacy-policy/" target="_blank">Click here to learn more about how Auth0 manages your data</a>
         `);
-
-        closeButton.on('click', function() {
-            overlay.hide();
-        });
 
         $('#google-login').on('click', async function() {
             await auth0Client.loginWithRedirect({
@@ -266,11 +264,13 @@ $(document).ready(async function() {
         const user = await auth0Client.getUser();
         const currentTime = new Date().toLocaleString();
 
-        const displayName = user.connection === 'github' ? user.nickname : user.name;
+        const displayName = user.nickname || user.name;
         const userEmail = user.email || 'No email available';
         
-        // Check if connection exists before using it
-        const authMethod = user.connection ? user.connection.charAt(0).toUpperCase() + user.connection.slice(1) : 'Unknown';
+        // If connection is not defined, fall back to a default message
+        const authMethod = user.identities && user.identities.length > 0 
+            ? user.identities[0].connection 
+            : 'Unknown';
 
         loginPopup.html(`
             <span class="close-btn"><i class="fa-solid fa-x"></i></span>
@@ -295,3 +295,4 @@ $(document).ready(async function() {
         });
     }
 });
+

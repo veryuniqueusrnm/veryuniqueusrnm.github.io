@@ -851,4 +851,8 @@ span.close-btn div.bar:nth-child(2) {
 .user-info-blurred .email-blurred {
     filter: blur(5px);
 }
+
+.user-info-blurred:hover .email-blurred:hover {
+    filter: blur(0px);
+}
 /* /login popup */
