@@ -54,7 +54,91 @@ $('<style>').prop('type', 'text/css').html(`
     }
 `).appendTo('head');
 
-// jQuery dropdown menu with slide effect and advanced menu system
+// Auth0 stuff
+$(document).ready(async function() {
+    const accountButton = $('.nav-btn.account');
+    const overlay = $('.overlay');
+    const closeButton = $('.close-btn');
+    const loginPopup = $('.login-popup');
+
+    const auth0Client = await createAuth0Client({
+        domain: 'dev-z438nuxdqetp1wld.eu.auth0.com',
+        client_id: 'hmazRwxDb4pAbdbjgQAwu8xwcTufV6Ev'
+    });
+
+    // Handle Auth0 redirect callback
+    if (window.location.search.includes('code=') && window.location.search.includes('state=')) {
+        await auth0Client.handleRedirectCallback();
+        window.history.replaceState({}, document.title, window.location.pathname);  // Clean up URL after callback
+    }
+
+    accountButton.on('click', function() {
+        overlay.toggle();
+    });
+
+    function addCloseButtonListener() {
+        $('.close-btn').on('click', function() {
+            overlay.hide();
+        });
+    }
+
+    const isAuthenticated = await auth0Client.isAuthenticated();
+
+    if (!isAuthenticated) {
+        loginPopup.html(`
+            <span class="close-btn"><i class="fa-solid fa-x"></i></span>
+            <p style="margin-top: 0px !important;">Sign in with Auth0</p>
+            <button class="auth0-login-btn" id="google-login">Login with Google</button>
+            <p class="footnote" style="color: #000;">Good to know! By signing in you don't get any extra features. These are coming soon later this year.</p>
+            <a style="color: #000; text-decoration: none; font-size: 50%;" href="https://www.okta.com/privacy-policy/" target="_blank">Click here to learn more about how Auth0 manages your data. <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        `);
+        addCloseButtonListener();
+
+        $('#google-login').on('click', async function() {
+            await auth0Client.loginWithRedirect({
+                redirect_uri: window.location.origin,
+                connection: 'google-oauth2'
+            });
+        });
+    } else {
+        const user = await auth0Client.getUser();
+
+        const currentDate = new Date().toLocaleDateString();
+
+        let authMethod = "Unknown";
+        let displayName = user.name;
+
+        if (user.identities && user.identities.length > 0) {
+            authMethod = user.identities[0].provider;
+
+            if (authMethod === 'google-oauth2') {
+                displayName = user.name;
+            }
+        }
+
+        const lastSignInDate = new Date(user.created_at).toLocaleDateString();
+
+        loginPopup.html(`
+            <span class="close-btn"><i class="fa-solid fa-x"></i></span>
+            <p style="margin-top: 0px !important;">Welcome, ${displayName}</p>
+            <img src="${user.picture}" alt="Profile Picture" class="profile-img" draggable="false"/>
+            <div class="userDetails">
+            <p>Email: <span class="email-blurred">${user.email}</span></p>
+            <p>Last sign in: ${lastSignInDate}</p>
+            </div>
+            <button class="auth0-logout-btn">Logout</button>
+        `);
+        addCloseButtonListener();
+
+        $('.auth0-logout-btn').on('click', function() {
+            auth0Client.logout({
+                returnTo: window.location.origin
+            });
+        });
+    }
+});
+
+// jQuery menu (mobile)
 $(document).ready(function () {
     $('.hamburger').click(function () {
         $(this).toggleClass('active');
@@ -73,6 +157,17 @@ $(document).ready(function () {
     });
 });
 
+// Jquery menu (desktop)
+$(document).ready(function(){
+    $(".menu-container").hover(function(){
+        $(this).find(".menu").stop(true, true).fadeIn(300);
+        $(this).find(".menu-button i").css("transform", "rotate(180deg)");
+    }, function(){
+        $(this).find(".menu").stop(true, true).fadeOut(300);
+        $(this).find(".menu-button i").css("transform", "rotate(0deg)");
+    });
+});
+
 // Function to handle screen width changes
 $(document).ready(function() {
     function checkScreenWidth() {
@@ -84,14 +179,12 @@ $(document).ready(function() {
     $(window).on('resize', checkScreenWidth);
 });
 
-
 // Script to display device details
 $(document).ready(function () {
     function getBrowserAndDeviceDetails() {
         var userAgent = navigator.userAgent;
         var browserName, deviceType;
 
-        // Detect browser
         if (userAgent.indexOf("Firefox") > -1) {
             browserName = "Mozilla Firefox";
         } else if (userAgent.indexOf("SamsungBrowser") > -1) {
@@ -110,7 +203,6 @@ $(document).ready(function () {
             browserName = "Unknown Browser";
         }
 
-        // Detect device
         if (/Mobi|Android/i.test(userAgent)) {
             deviceType = "Mobile";
         } else if (/Tablet|iPad/i.test(userAgent)) {
@@ -125,28 +217,16 @@ $(document).ready(function () {
     $("#browserDetails").text(getBrowserAndDeviceDetails());
 });
 
-// Desktop menu
-$(document).ready(function(){
-    $(".menu-container").hover(function(){
-        $(this).find(".menu").stop(true, true).fadeIn(300);
-        $(this).find(".menu-button i").css("transform", "rotate(180deg)");
-    }, function(){
-        $(this).find(".menu").stop(true, true).fadeOut(300);
-        $(this).find(".menu-button i").css("transform", "rotate(0deg)");
-    });
-});
-
 /**
  * cookies.js
  * ===================
  * Module to show an alert about the cookies the first time a user visits a website
  */
-
 !function ($) {
 
   "use strict"; // jshint ;_;
 
-  var cookieName = 'cookiebanner' // recurring user
+  var cookieName = 'cookiebanner'
   var cookieExpiry = 3650 // in days. If 0 session cookie, if -1 show always the modal
   var timeoutModal = 20000  // timeout until the modal closes. If zero, don't close it
 
@@ -208,92 +288,3 @@ $(document).ready(function(){
   }
 }(window.jQuery);
 
-// Auth0 stuff
-$(document).ready(async function() {
-    const accountButton = $('.nav-btn.account');
-    const overlay = $('.overlay');
-    const closeButton = $('.close-btn');
-    const loginPopup = $('.login-popup');
-
-    const auth0Client = await createAuth0Client({
-        domain: 'dev-z438nuxdqetp1wld.eu.auth0.com',
-        client_id: 'hmazRwxDb4pAbdbjgQAwu8xwcTufV6Ev'
-    });
-
-    // Handle Auth0 redirect callback
-    if (window.location.search.includes('code=') && window.location.search.includes('state=')) {
-        await auth0Client.handleRedirectCallback();
-        window.history.replaceState({}, document.title, window.location.pathname);  // Clean up URL after callback
-    }
-
-    accountButton.on('click', function() {
-        overlay.toggle();
-    });
-
-    // Close overlay button
-    function addCloseButtonListener() {
-        $('.close-btn').on('click', function() {
-            overlay.hide();
-        });
-    }
-
-    // Check if user is authenticated
-    const isAuthenticated = await auth0Client.isAuthenticated();
-
-    if (!isAuthenticated) {
-        loginPopup.html(`
-            <span class="close-btn"><i class="fa-solid fa-x"></i></span>
-            <p style="margin-top: 0px !important;">Sign in with Auth0</p>
-            <button class="auth0-login-btn" id="google-login">Login with Google</button>
-            <p class="footnote" style="color: #000;">Good to know! By signing in you don't get any extra features. These are coming soon later this year.</p>
-            <a style="color: #000; text-decoration: none; font-size: 50%;" href="https://www.okta.com/privacy-policy/" target="_blank">Click here to learn more about how Auth0 manages your data</a>
-        `);
-        addCloseButtonListener();
-
-        $('#google-login').on('click', async function() {
-            await auth0Client.loginWithRedirect({
-                redirect_uri: window.location.origin,
-                connection: 'google-oauth2'
-            });
-        });
-    } else {
-        const user = await auth0Client.getUser();
-
-        // Get current date
-        const currentDate = new Date().toLocaleDateString();
-
-        // Get authentication method, ensure identities array is defined and non-empty
-        let authMethod = "Unknown";
-        let displayName = user.name;
-
-        if (user.identities && user.identities.length > 0) {
-            authMethod = user.identities[0].provider;
-
-            // If Google, use displayName
-            if (authMethod === 'google-oauth2') {
-                displayName = user.name; // Use Google displayName
-            }
-        }
-
-        // Format the last sign-in date (user.created_at is used here as a fallback)
-        const lastSignInDate = new Date(user.created_at).toLocaleDateString();
-
-        loginPopup.html(`
-            <span class="close-btn"><i class="fa-solid fa-x"></i></span>
-            <p style="margin-top: 0px !important;">Welcome, ${displayName}</p>
-            <img src="${user.picture}" alt="Profile Picture" class="profile-img" draggable="false"/>
-            <div class="userDetails">
-            <p>Email: <span class="email-blurred">${authMethod === 'github' ? 'Not available for GitHub users' : user.email}</span></p>
-            <p>Last sign in: ${lastSignInDate}</p>
-            </div>
-            <button class="auth0-logout-btn">Logout</button>
-        `);
-        addCloseButtonListener();  // Re-attach close button listener for logged-in state
-
-        $('.auth0-logout-btn').on('click', function() {
-            auth0Client.logout({
-                returnTo: window.location.origin
-            });
-        });
-    }
-});
