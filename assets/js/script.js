@@ -266,17 +266,20 @@ $(document).ready(async function() {
         });
     } else {
         const user = await auth0Client.getUser();
-        
+
         // Get current date
         const currentDate = new Date().toLocaleDateString();
 
-        // Get authentication method
-        const authMethod = user.identities[0].provider;
-
-        // Handle GitHub username properly
+        // Get authentication method, ensure identities array is defined and non-empty
+        let authMethod = "Unknown";
         let displayName = user.name;
-        if (authMethod === 'github' && user.nickname) {
-            displayName = user.nickname; // Use GitHub username
+
+        if (user.identities && user.identities.length > 0) {
+            authMethod = user.identities[0].provider;
+            // Handle GitHub username properly
+            if (authMethod === 'github' && user.nickname) {
+                displayName = user.nickname; // Use GitHub username
+            }
         }
 
         loginPopup.html(`
@@ -297,4 +300,3 @@ $(document).ready(async function() {
         });
     }
 });
-
