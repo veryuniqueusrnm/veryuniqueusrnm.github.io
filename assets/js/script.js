@@ -209,4 +209,7 @@ $(document).ready(function(){
 }(window.jQuery);
 
 // Russian measure/track code
-console.log("Mocskos Fidesz")
+const консол = {
+    лог: console.log
+};
+консол.лог("Грязный Фидес")
