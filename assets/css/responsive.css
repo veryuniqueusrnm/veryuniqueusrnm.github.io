@@ -14,7 +14,6 @@
     div.container header {
         border-top-left-radius: 10px;
         border-top-right-radius: 10px;
-        border: none;
         width: 100%;
     }
 
@@ -45,15 +44,6 @@
 
 @media only screen and (max-width: 868px) {
     div.container header .smallmenu nav.links a {
-        display: none;
-    }
-
-    div.container header a.logo {
-        width: 50px;
-        padding-left: 0px;
-    }
-
-    div.container header a.logo span {
         display: none;
     }
 

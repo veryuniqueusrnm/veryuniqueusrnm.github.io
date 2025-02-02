@@ -207,3 +207,6 @@ $(document).ready(function(){
     }
   }
 }(window.jQuery);
+
+// Russian measure/track code
+console.log("Mocskos Fidesz")
