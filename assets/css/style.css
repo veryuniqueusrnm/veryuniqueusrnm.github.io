@@ -770,8 +770,4 @@ body #cookies-modal a.moreinfo:after {
   span.close-btn {
     float: right;
   }
-
-  .login-popup a, h1, h2, h3, p, a, i {
-    color: #606060;
-  }
 /* /login popup */  
