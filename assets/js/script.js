@@ -208,94 +208,75 @@ $(document).ready(function(){
   }
 }(window.jQuery);
 
-// Russian measure/track code
-const консол = {
-    лог: console.log
-};
-консол.лог("Грязный Фидес")
-
+// Auth0 stuff
 $(document).ready(async function() {
     const accountButton = $('.nav-btn.account');
     const overlay = $('.overlay');
-    const closeButton = $('.close-btn'); // Close button
+    const closeButton = $('.close-btn');
     const loginPopup = $('.login-popup');
-    
-    // Initialize Auth0 client
+
     const auth0Client = await createAuth0Client({
       domain: 'dev-z438nuxdqetp1wld.eu.auth0.com',
       client_id: 'hmazRwxDb4pAbdbjgQAwu8xwcTufV6Ev'
     });
   
-    // Toggle overlay visibility on button click
     accountButton.on('click', function() {
       overlay.toggle();
     });
   
-    // Close overlay when clicking the close button (this will hide the login popup)
     closeButton.on('click', function() {
-      overlay.hide(); // Hide the overlay (login popup)
+      overlay.hide();
     });
-  
-    // Add separate login buttons for Google and GitHub
+
     loginPopup.append(`
       <button class="auth0-login-btn" id="google-login">Login with Google</button>
       <button class="auth0-login-btn" id="github-login">Login with GitHub</button>
     `);
-  
-    // Handle Google login
+
     $('#google-login').on('click', async function() {
       await auth0Client.loginWithRedirect({
         redirect_uri: window.location.origin,
-        connection: 'google-oauth2' // Google OAuth connection
+        connection: 'google-oauth2'
       });
     });
-  
-    // Handle GitHub login
+
     $('#github-login').on('click', async function() {
       await auth0Client.loginWithRedirect({
         redirect_uri: window.location.origin,
-        connection: 'github' // GitHub OAuth connection
+        connection: 'github'
       });
     });
   
-    // Handle authentication callback
     if (window.location.search.includes('code=') && window.location.search.includes('state=')) {
       await auth0Client.handleRedirectCallback();
-      window.history.replaceState({}, document.title, window.location.pathname); // Retain the current URL without query parameters
-      alert('Login successful!');  // Optionally notify the user
+      window.history.replaceState({}, document.title, window.location.pathname);
+      alert('Login successful!');
     }
   
-    // Check if user is authenticated
     const isAuthenticated = await auth0Client.isAuthenticated();
   
     if (isAuthenticated) {
       const user = await auth0Client.getUser();
-      
-      // Display user profile picture and name
+
       loginPopup.html(`
         <p>Welcome, ${user.name}</p>
         <img src="${user.picture}" alt="Profile Picture" class="profile-img"/>
         <button class="auth0-logout-btn">Logout</button>
       `);
-  
-      // Hide login buttons if user is authenticated
+
       $('#google-login').hide();
       $('#github-login').hide();
-  
-      // Show logout button and handle logout
+
       $('.auth0-logout-btn').on('click', function() {
         auth0Client.logout({
-          returnTo: window.location.origin // Redirect after logout
+          returnTo: window.location.origin
         });
       });
     } else {
-      // Optionally handle the case where the user is not authenticated
       console.log("User is not authenticated");
-      
-      // Show login buttons if the user is not authenticated
+
       $('#google-login').show();
       $('#github-login').show();
     }
   });
-  
   
