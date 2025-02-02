@@ -27,7 +27,7 @@ $(document).ready(function () {
                     },
                     error: function () {
                         console.error('Failed to include:', file);
-                        $this.html('<div class="fallback">Content could not be loaded, using fallback. Please try again later.</div>');
+                        $this.html('<div class="fallback">Content could not be loaded, using fallback. Please check the console for more information.</div>');
                     },
                     complete: function () {
                         $this.removeAttr('include-html');
