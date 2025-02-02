@@ -220,47 +220,49 @@ $(document).ready(async function() {
         client_id: 'hmazRwxDb4pAbdbjgQAwu8xwcTufV6Ev'
     });
 
+    // Handle Auth0 redirect callback
+    if (window.location.search.includes('code=') && window.location.search.includes('state=')) {
+        await auth0Client.handleRedirectCallback();
+        window.history.replaceState({}, document.title, window.location.pathname);  // Clean up URL after callback
+    }
+
     accountButton.on('click', function() {
         overlay.toggle();
     });
 
-    // Make sure the close button works by hiding the overlay when clicked
+    // Close overlay button
     function addCloseButtonListener() {
         $('.close-btn').on('click', function() {
             overlay.hide();
         });
     }
 
-    // Add the close button and the login options when logged out
-    if (!await auth0Client.isAuthenticated()) {
+    // Check if user is authenticated
+    const isAuthenticated = await auth0Client.isAuthenticated();
+
+    if (!isAuthenticated) {
         loginPopup.html(`
             <span class="close-btn"><i class="fa-solid fa-x"></i></span>
             <p>Sign in with Auth0</p>
             <button class="auth0-login-btn" id="google-login">Login with Google</button>
             <button class="auth0-login-btn" id="github-login">Login with GitHub</button>
         `);
-        addCloseButtonListener();  // Re-attach close button listener when rendered
-    }
+        addCloseButtonListener();
 
-    // Handle login with Google or GitHub
-    $('#google-login').on('click', async function() {
-        await auth0Client.loginWithRedirect({
-            redirect_uri: window.location.origin,
-            connection: 'google-oauth2'
+        $('#google-login').on('click', async function() {
+            await auth0Client.loginWithRedirect({
+                redirect_uri: window.location.origin,
+                connection: 'google-oauth2'
+            });
         });
-    });
 
-    $('#github-login').on('click', async function() {
-        await auth0Client.loginWithRedirect({
-            redirect_uri: window.location.origin,
-            connection: 'github'
+        $('#github-login').on('click', async function() {
+            await auth0Client.loginWithRedirect({
+                redirect_uri: window.location.origin,
+                connection: 'github'
+            });
         });
-    });
-
-    // Check if the user is authenticated
-    const isAuthenticated = await auth0Client.isAuthenticated();
-
-    if (isAuthenticated) {
+    } else {
         const user = await auth0Client.getUser();
         
         loginPopup.html(`
@@ -269,7 +271,6 @@ $(document).ready(async function() {
             <img src="${user.picture}" alt="Profile Picture" class="profile-img" draggable="false"/>
             <button class="auth0-logout-btn">Logout</button>
         `);
-        
         addCloseButtonListener();  // Re-attach close button listener for logged-in state
 
         $('.auth0-logout-btn').on('click', function() {
@@ -277,9 +278,6 @@ $(document).ready(async function() {
                 returnTo: window.location.origin
             });
         });
-    } else {
-        $('#google-login').show();
-        $('#github-login').show();
     }
 });
 
