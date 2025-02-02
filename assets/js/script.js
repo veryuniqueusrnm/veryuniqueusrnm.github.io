@@ -116,7 +116,20 @@ $(document).ready(async function() {
             }
         }
 
-        const lastSignInDate = new Date(user.created_at).toLocaleDateString();
+        // Set the current date in a cookie (Last sign-in date)
+        document.cookie = `lastSignIn=${currentDate}; path=/; max-age=${60 * 60 * 24 * 365}`; // Expires in 1 year
+
+        // Get the Last sign-in date from the cookie
+        const cookies = document.cookie.split('; ');
+        let lastSignInDate = "No previous sign-in date found.";
+
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].split('=');
+            if (cookie[0] === 'lastSignIn') {
+                lastSignInDate = cookie[1];
+                break;
+            }
+        }
 
         loginPopup.html(`
             <span class="close-btn"><i class="fa-solid fa-x"></i></span>
