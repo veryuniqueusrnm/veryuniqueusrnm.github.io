@@ -39,18 +39,13 @@
         <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
         <script type="text/javascript" src="/assets/js/script.js"></script>
         <script src="https://unpkg.com/github-calendar@latest/dist/github-calendar.min.js"></script>
+        <script src="https://cdn.auth0.com/js/auth0-spa-js/1.18/auth0-spa-js.production.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/5.0.0/anchor.min.js"></script>
         <script>
             anchors.add();
         </script>
     </head>
     <body>
-
-        <!-- Google Tag Manager -->
-        <noscript><iframe src="http://www.googletagmanager.com/ns.html?id=GTM-G3BC" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-        <script type="text/javascript">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='http://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-G3BC');</script>
-        <!-- End Google Tag Manager -->
-
         <!-- Outdated browser notice (IE 11 and older) -->
         <p id="browserUpdateNotice">Your browser is not supported by this website. Please consider updating to a modern, more secure browser.</p>
         <p id="browserDetails"></p>
@@ -96,6 +91,7 @@
                                 <a href="https://github.com/veryuniqueusrnm/jquery-include-html" target="_blank"><i class="fa-solid fa-code"></i> Jquery Include HTML</a>
                             </div>
                         </div>
+                        <div class="nav-btn account"><i class="fa-solid fa-user"></i></div>
                         <div class="hamburger">
                             <span class="bar"></span>
                             <span class="bar"></span>
@@ -281,20 +277,12 @@
         $('#cookies-modal').cookiesmodal()
         </script>
 
-        <!-- Google Code for F&#337; -->
-        <script type="text/javascript">
-        /* <![CDATA[ */
-        var google_conversion_id = #;
-        var google_conversion_label = "#";
-        var google_custom_params = window.google_tag_params;
-        var google_remarketing_only = false;
-        /* ]]> */
-        </script>
-        <script type="text/javascript" src="http://www.googleadservices.com/pagead/conversion.js"></script>
-        <noscript>
-        <div style="display:inline;">
-        <img height="1" width="1" style="border-style:none;" alt="" src="http://googleads.g.doubleclick.net/pagead/viewthroughconversion/#/?value=0&amp;label=#&amp;guid=ON&amp;script=0"/>
-        </div>
-        </noscript>
+<div class="overlay">
+    <div class="login-popup">
+      <span class="close-btn"><i class="fa-solid fa-x"></i></span>
+      <p style="margin-top: 0px !important;">Sign in with Auth0</p>
+    </div>
+  </div>
+  
     </body>
 </html>

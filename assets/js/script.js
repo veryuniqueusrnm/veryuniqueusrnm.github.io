@@ -213,3 +213,73 @@ const консол = {
     лог: console.log
 };
 консол.лог("Грязный Фидес")
+
+// jQuery to handle Auth0 SSO/OAuth login
+
+$(document).ready(async function() {
+    const accountButton = $('.nav-btn.account');
+    const overlay = $('.overlay');
+    const closeButton = $('.close-btn');
+    const loginPopup = $('.login-popup');
+  
+    // Initialize Auth0 client
+    const auth0Client = await createAuth0Client({
+      domain: 'dev-z438nuxdqetp1wld.eu.auth0.com',
+      client_id: 'hmazRwxDb4pAbdbjgQAwu8xwcTufV6Ev'
+    });
+  
+    // Toggle overlay visibility on button click
+    accountButton.on('click', function() {
+      overlay.toggle();
+    });
+  
+    // Close overlay on click outside the login popup
+    overlay.on('click', function(event) {
+      if ($(event.target).is('.overlay')) {
+        overlay.hide();
+      }
+    });
+  
+    // Close overlay when clicking the close button
+    closeButton.on('click', function() {
+      overlay.hide();
+    });
+  
+    // Add SSO login button
+    loginPopup.append('<button class="auth0-sso-login-btn">Login with SSO/OAuth</button>');
+  
+    // Handle SSO/OAuth login
+    $('.auth0-sso-login-btn').on('click', async function() {
+      await auth0Client.loginWithRedirect({
+        redirect_uri: window.location.origin,
+        connection: 'google-oauth2' // Adjust this based on your authentication provider
+      });
+    });
+  
+    // Handle authentication callback
+    if (window.location.search.includes('code=') && window.location.search.includes('state=')) {
+      await auth0Client.handleRedirectCallback();
+      window.history.replaceState({}, document.title, window.location.pathname); // Retain the current URL without query parameters
+      alert('Login successful!');  // Optionally notify the user
+    }
+  
+    // Check if user is authenticated
+    const isAuthenticated = await auth0Client.isAuthenticated();
+  
+    if (isAuthenticated) {
+      const user = await auth0Client.getUser();
+      loginPopup.html(`<p>Welcome, ${user.name}</p><button class="auth0-logout-btn">Logout</button>`);
+  
+      // Show logout button and handle logout
+      $('.auth0-logout-btn').on('click', function() {
+        auth0Client.logout({
+          returnTo: window.location.origin // Redirect after logout
+        });
+      });
+    } else {
+      // Optionally, handle the case where the user is not authenticated
+      console.log("User is not authenticated");
+    }
+  });
+  
+  

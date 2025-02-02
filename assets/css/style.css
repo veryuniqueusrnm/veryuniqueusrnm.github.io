@@ -72,6 +72,14 @@ div.container header .nav-btn:hover {
     background-color: #e0e0e0;
 }
 
+div.container header .account {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 10px;
+    margin-top: 5px;
+}
+
 div.container header nav.links .hamburger {
     display: flex;
     flex-direction: column;
@@ -82,7 +90,7 @@ div.container header nav.links .hamburger {
 div.container header nav.links .bar {
     height: 3px;
     width: 25px;
-    background-color: #000;
+    background-color:#606060;
     border-radius: 10px;
     margin: 3px 0;
     transition: 0.4s;
@@ -122,7 +130,7 @@ div.container .dropdown-menu {
 div.container .dropdown-menu .nav-btn {
     text-decoration: none;
     font-size: 18px;
-    color: #000;
+    color: #606060;
     padding: 10px 15px;
     transition: background-color 0.3s ease;
 }
@@ -161,7 +169,7 @@ div.menu {
 
 div.menu a {
     display: block;
-    color: #000;
+    color: #606060;
     padding: 8px;
     text-decoration: none;
     white-space: nowrap;
@@ -182,7 +190,7 @@ div.submenu {
 
 div.submenu a {
     display: block;
-    color: #000;
+    color: #606060;
     padding: 8px;
     text-decoration: none;
     white-space: nowrap;
@@ -191,7 +199,7 @@ div.submenu a {
 a.menu-button-mobile {
     text-decoration: none;
     font-size: 18px;
-    color: #000;
+    color: #606060;
     transition: background-color 0.3s ease;
 }
 
@@ -734,3 +742,36 @@ body #cookies-modal a.moreinfo:after {
     content: " "
 }
 /* /cookie popup */
+
+/* login popup */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Darker background */
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 69696972;
+  }
+  
+  .login-popup {
+    margin-top: 200px !important;
+    background: #fff; /* White background */
+    padding: 20px;
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 30%;
+    margin: auto;
+  }
+
+  span.close-btn {
+    float: right;
+  }
+
+  .login-popup a, h1, h2, h3, p, a, i {
+    color: #606060;
+  }
+/* /login popup */  
