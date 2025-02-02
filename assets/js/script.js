@@ -219,7 +219,7 @@ const консол = {
 $(document).ready(async function() {
     const accountButton = $('.nav-btn.account');
     const overlay = $('.overlay');
-    const closeButton = $('.close-btn');
+    const closeButton = $('.close-btn'); // Close button
     const loginPopup = $('.login-popup');
     
     // Initialize Auth0 client
@@ -245,7 +245,7 @@ $(document).ready(async function() {
       overlay.hide();
     });
   
-    // Add the login buttons for Google, GitHub, and Apple
+    // Add separate login buttons for Google and GitHub
     loginPopup.append(`
       <button class="auth0-login-btn" id="google-login">Login with Google</button>
       <button class="auth0-login-btn" id="github-login">Login with GitHub</button>
@@ -267,5 +267,49 @@ $(document).ready(async function() {
       });
     });
   
-   
+    // Handle authentication callback
+    if (window.location.search.includes('code=') && window.location.search.includes('state=')) {
+      await auth0Client.handleRedirectCallback();
+      window.history.replaceState({}, document.title, window.location.pathname); // Retain the current URL without query parameters
+      alert('Login successful!');  // Optionally notify the user
+    }
+  
+    // Check if user is authenticated
+    const isAuthenticated = await auth0Client.isAuthenticated();
+  
+    if (isAuthenticated) {
+      const user = await auth0Client.getUser();
+      
+      // Display user profile picture and name
+      loginPopup.html(`
+        <p>Welcome, ${user.name}</p>
+        <img src="${user.picture}" alt="Profile Picture" class="profile-img"/>
+        <button class="auth0-logout-btn">Logout</button>
+      `);
+  
+      // Hide login buttons if user is authenticated
+      $('#google-login').hide();
+      $('#github-login').hide();
+  
+      // Show logout button and handle logout
+      $('.auth0-logout-btn').on('click', function() {
+        auth0Client.logout({
+          returnTo: window.location.origin // Redirect after logout
+        });
+      });
+  
+      // Show close button if user is authenticated
+      closeButton.show(); // Show the close button when the user is signed in
+    } else {
+      // Optionally handle the case where the user is not authenticated
+      console.log("User is not authenticated");
+      
+      // Show login buttons if the user is not authenticated
+      $('#google-login').show();
+      $('#github-login').show();
+      
+      // Hide close button if user is not signed in
+      closeButton.hide(); // Hide the close button when the user is not signed in
+    }
+  });
   
