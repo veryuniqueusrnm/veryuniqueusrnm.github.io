@@ -848,12 +848,12 @@ span.close-btn div.bar:nth-child(2) {
     border: 2.5px solid #606060;
 }
 
-.user-info-blurred .email-blurred {
+.userDetails .email-blurred {
     filter: blur(5px);
     transition: filter 1s ease;
 }
 
-.user-info-blurred:hover .email-blurred:hover {
+.userDetails:hover .email-blurred:hover {
     filter: blur(0px);
     transition: filter 1s ease;
 }
