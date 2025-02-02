@@ -848,5 +848,7 @@ span.close-btn div.bar:nth-child(2) {
     border: 2.5px solid #606060;
 }
 
-
+.user-info-blurred .email-blurred {
+    filter: blur(5px);
+}
 /* /login popup */

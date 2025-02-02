@@ -244,10 +244,10 @@ $(document).ready(async function() {
         loginPopup.html(`
             <span class="close-btn"><i class="fa-solid fa-x"></i></span>
             <p style="margin-top: 0px !important;">Sign in with Auth0</p>
-            <button class="auth0-login-btn" id="google-login">Login with Google</button>
-            <button class="auth0-login-btn" id="github-login">Login with GitHub</button>
             <p class="footnote" style="color: #000">Good to know! By signing in you don't get any extra features. These are coming soon later this year.</p>
             <a style="color: #000; text-decoration: none;" href="https://www.okta.com/privacy-policy/" target="_blank">Click here to learn more about how Auth0 manages your data</a>
+            <button class="auth0-login-btn" id="google-login">Login with Google</button>
+            <button class="auth0-login-btn" id="github-login">Login with GitHub</button>
         `);
         addCloseButtonListener();
 
@@ -278,7 +278,7 @@ $(document).ready(async function() {
             <p>Welcome, ${displayName}</p>
             <img src="${user.picture}" alt="Profile Picture" class="profile-img" draggable="false"/>
             <p class="user-info-blurred">
-                Email: ${userEmail} <br>
+                Email: <span class="email-blurred">${userEmail}</span> <br>
                 Authentication Method: ${authMethod} <br>
                 Current Time: ${currentTime}
             </p>
