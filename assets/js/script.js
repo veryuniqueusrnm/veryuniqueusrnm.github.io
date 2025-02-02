@@ -259,6 +259,7 @@ $(document).ready(async function() {
         const user = await auth0Client.getUser();
         
         loginPopup.html(`
+            <span class="close-btn"><i class="fa-solid fa-x"></i></span>
             <p>Welcome, ${user.name}</p>
             <img src="${user.picture}" alt="Profile Picture" class="profile-img" draggable="false"/>
             <button class="auth0-logout-btn">Logout</button>

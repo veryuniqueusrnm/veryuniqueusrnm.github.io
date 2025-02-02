@@ -798,10 +798,13 @@ body #cookies-modal a.moreinfo:after {
   }
   
   .profile-img {
+    display: block;
+    position: relative;
     width: 50px;
     height: 50px;
     border-radius: 5px;
     margin: 10px 0;
+    border: 2.5px solid #606060;
   }
   
   
