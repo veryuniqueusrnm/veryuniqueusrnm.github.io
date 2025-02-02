@@ -245,7 +245,6 @@ $(document).ready(async function() {
             <span class="close-btn"><i class="fa-solid fa-x"></i></span>
             <p style="margin-top: 0px !important;">Sign in with Auth0</p>
             <button class="auth0-login-btn" id="google-login">Login with Google</button>
-            <button class="auth0-login-btn" id="github-login">Login with GitHub</button>
             <p class="footnote" style="color: #000;">Good to know! By signing in you don't get any extra features. These are coming soon later this year.</p>
             <a style="color: #000; text-decoration: none; font-size: 50%;" href="https://www.okta.com/privacy-policy/" target="_blank">Click here to learn more about how Auth0 manages your data</a>
         `);
@@ -255,13 +254,6 @@ $(document).ready(async function() {
             await auth0Client.loginWithRedirect({
                 redirect_uri: window.location.origin,
                 connection: 'google-oauth2'
-            });
-        });
-
-        $('#github-login').on('click', async function() {
-            await auth0Client.loginWithRedirect({
-                redirect_uri: window.location.origin,
-                connection: 'github'
             });
         });
     } else {
@@ -277,20 +269,22 @@ $(document).ready(async function() {
         if (user.identities && user.identities.length > 0) {
             authMethod = user.identities[0].provider;
 
-            // If GitHub, use the user.name (GitHub full name) instead of nickname
-            if (authMethod === 'github') {
-                displayName = user.name; // Use GitHub full name
+            // If Google, use displayName
+            if (authMethod === 'google-oauth2') {
+                displayName = user.name; // Use Google displayName
             }
         }
+
+        // Format the last sign-in date (user.created_at is used here as a fallback)
+        const lastSignInDate = new Date(user.created_at).toLocaleDateString();
 
         loginPopup.html(`
             <span class="close-btn"><i class="fa-solid fa-x"></i></span>
             <p style="margin-top: 0px !important;">Welcome, ${displayName}</p>
             <img src="${user.picture}" alt="Profile Picture" class="profile-img" draggable="false"/>
             <div class="userDetails">
-                <p>Email: <span class="email-blurred">${authMethod === 'github' ? 'Not available for GitHub users' : user.email}</span></p>
-                <p>Authentication method: ${authMethod.charAt(0).toUpperCase() + authMethod.slice(1)}</p>
-                <p>Last signed in: ${currentDate}</p>
+            <p>Email: <span class="email-blurred">${authMethod === 'github' ? 'Not available for GitHub users' : user.email}</span></p>
+            <p>Last sign in: ${lastSignInDate}</p>
             </div>
             <button class="auth0-logout-btn">Logout</button>
         `);
