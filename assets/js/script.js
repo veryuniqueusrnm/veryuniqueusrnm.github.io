@@ -267,9 +267,24 @@ $(document).ready(async function() {
     } else {
         const user = await auth0Client.getUser();
         
+        // Get current date
+        const currentDate = new Date().toLocaleDateString();
+
+        // Get authentication method
+        const authMethod = user.identities[0].provider;
+
+        // Handle GitHub username properly
+        let displayName = user.name;
+        if (authMethod === 'github' && user.nickname) {
+            displayName = user.nickname; // Use GitHub username
+        }
+
         loginPopup.html(`
             <span class="close-btn"><i class="fa-solid fa-x"></i></span>
-            <p style="margin-top: 0px !important;">Welcome, ${user.name}</p>
+            <p style="margin-top: 0px !important;">Welcome, ${displayName}</p>
+            <p>Email: ${user.email}</p>
+            <p>Authentication method: ${authMethod.charAt(0).toUpperCase() + authMethod.slice(1)}</p>
+            <p>Current date: ${currentDate}</p>
             <img src="${user.picture}" alt="Profile Picture" class="profile-img" draggable="false"/>
             <button class="auth0-logout-btn">Logout</button>
         `);
@@ -282,3 +297,4 @@ $(document).ready(async function() {
         });
     }
 });
+
