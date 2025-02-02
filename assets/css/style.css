@@ -769,6 +769,7 @@ body #cookies-modal a.moreinfo:after {
 
   span.close-btn {
     float: right;
+    cursor: pointer;
   }
 
   .auth0-login-btn {

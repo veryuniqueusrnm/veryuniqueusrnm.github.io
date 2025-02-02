@@ -214,7 +214,7 @@ $(document).ready(async function() {
     const overlay = $('.overlay');
     const closeButton = $('.close-btn');
     const loginPopup = $('.login-popup');
-    
+
     const auth0Client = await createAuth0Client({
         domain: 'dev-z438nuxdqetp1wld.eu.auth0.com',
         client_id: 'hmazRwxDb4pAbdbjgQAwu8xwcTufV6Ev'
@@ -224,15 +224,25 @@ $(document).ready(async function() {
         overlay.toggle();
     });
 
-    closeButton.on('click', function() {
-        overlay.hide();
-    });
+    // Make sure the close button works by hiding the overlay when clicked
+    function addCloseButtonListener() {
+        $('.close-btn').on('click', function() {
+            overlay.hide();
+        });
+    }
 
-    loginPopup.append(`
-        <button class="auth0-login-btn" id="google-login">Login with Google</button>
-        <button class="auth0-login-btn" id="github-login">Login with GitHub</button>
-    `);
+    // Add the close button and the login options when logged out
+    if (!await auth0Client.isAuthenticated()) {
+        loginPopup.html(`
+            <span class="close-btn"><i class="fa-solid fa-x"></i></span>
+            <p>Sign in with Auth0</p>
+            <button class="auth0-login-btn" id="google-login">Login with Google</button>
+            <button class="auth0-login-btn" id="github-login">Login with GitHub</button>
+        `);
+        addCloseButtonListener();  // Re-attach close button listener when rendered
+    }
 
+    // Handle login with Google or GitHub
     $('#google-login').on('click', async function() {
         await auth0Client.loginWithRedirect({
             redirect_uri: window.location.origin,
@@ -247,12 +257,7 @@ $(document).ready(async function() {
         });
     });
 
-    if (window.location.search.includes('code=') && window.location.search.includes('state=')) {
-        await auth0Client.handleRedirectCallback();
-        window.history.replaceState({}, document.title, window.location.pathname);
-        alert('Login successful!');
-    }
-
+    // Check if the user is authenticated
     const isAuthenticated = await auth0Client.isAuthenticated();
 
     if (isAuthenticated) {
@@ -264,9 +269,8 @@ $(document).ready(async function() {
             <img src="${user.picture}" alt="Profile Picture" class="profile-img" draggable="false"/>
             <button class="auth0-logout-btn">Logout</button>
         `);
-
-        $('#google-login').hide();
-        $('#github-login').hide();
+        
+        addCloseButtonListener();  // Re-attach close button listener for logged-in state
 
         $('.auth0-logout-btn').on('click', function() {
             auth0Client.logout({
@@ -278,6 +282,7 @@ $(document).ready(async function() {
         $('#github-login').show();
     }
 });
+
 
   
   
