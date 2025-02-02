@@ -264,13 +264,25 @@ $(document).ready(async function() {
         });
     } else {
         const user = await auth0Client.getUser();
-        
+        const currentTime = new Date().toLocaleString();  // Get current time
+        const firstAuthenticationDate = new Date(user.created_at).toLocaleString();  // Format first authentication time
+
+        // Check if the user logged in with GitHub
+        const displayName = user.connection === 'github' ? user.nickname : user.name;
+        const userEmail = user.email || 'No email available';  // Fallback if email is not available
+
         loginPopup.html(`
             <span class="close-btn"><i class="fa-solid fa-x"></i></span>
-            <p>Welcome, ${user.name}</p>
+            <p>Welcome, ${displayName}</p>
             <img src="${user.picture}" alt="Profile Picture" class="profile-img" draggable="false"/>
+            <p class="user-info-blurred">
+                Email: ${userEmail} <br>
+                First Authentication: ${firstAuthenticationDate} <br>
+                Current Time: ${currentTime}
+            </p>
             <button class="auth0-logout-btn">Logout</button>
         `);
+        
         addCloseButtonListener();  // Re-attach close button listener for logged-in state
 
         $('.auth0-logout-btn').on('click', function() {
@@ -280,8 +292,3 @@ $(document).ready(async function() {
         });
     }
 });
-
-
-  
-  
-  
