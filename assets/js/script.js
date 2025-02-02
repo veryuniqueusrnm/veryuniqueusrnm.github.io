@@ -232,7 +232,7 @@ $(document).ready(async function() {
 
     // Close overlay button
     function addCloseButtonListener() {
-        $('.close-btn').on('click', function() {
+        closeButton.on('click', function() {
             overlay.hide();
         });
     }
@@ -243,9 +243,11 @@ $(document).ready(async function() {
     if (!isAuthenticated) {
         loginPopup.html(`
             <span class="close-btn"><i class="fa-solid fa-x"></i></span>
-            <p>Sign in with Auth0</p>
+            <p style="margin-top: 0px !important;">Sign in with Auth0</p>
             <button class="auth0-login-btn" id="google-login">Login with Google</button>
             <button class="auth0-login-btn" id="github-login">Login with GitHub</button>
+            <p class="footnote" style="color: #000">Good to know! By signing in you don't get any extra features. These are coming soon later this year.</p>
+            <a style="color: #000; text-decoration: none;" href="https://www.okta.com/privacy-policy/" target="_blank">Click here to learn more about how Auth0 manages your data</a>
         `);
         addCloseButtonListener();
 
