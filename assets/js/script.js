@@ -220,22 +220,19 @@ $(document).ready(async function() {
         client_id: 'hmazRwxDb4pAbdbjgQAwu8xwcTufV6Ev'
     });
 
-    // Handle Auth0 redirect callback
     if (window.location.search.includes('code=') && window.location.search.includes('state=')) {
         await auth0Client.handleRedirectCallback();
-        window.history.replaceState({}, document.title, window.location.pathname);  // Clean up URL after callback
+        window.history.replaceState({}, document.title, window.location.pathname);
     }
 
     accountButton.on('click', function() {
         overlay.toggle();
     });
 
-    // Close overlay button
     closeButton.on('click', function() {
         overlay.hide();
     });
 
-    // Check if user is authenticated
     const isAuthenticated = await auth0Client.isAuthenticated();
 
     if (!isAuthenticated) {
@@ -244,11 +241,10 @@ $(document).ready(async function() {
             <p style="margin-top: 0px !important;">Sign in with Auth0</p>
             <button class="auth0-login-btn" id="google-login">Login with Google</button>
             <button class="auth0-login-btn" id="github-login">Login with GitHub</button>
-            <p class="footnote" style="color: #000">Good to know! By signing in you don't get any extra features. These are coming soon later this year.</p>
-            <a style="color: #000; font-size: 50%; text-decoration: none;" href="https://www.okta.com/privacy-policy/" target="_blank">Click here to learn more about how Auth0 manages your data</a>
+            <p class="footnote" style="color: #000;">Good to know! By signing in you don't get any extra features. These are coming soon later this year.</p>
+            <a style="color: #000; text-decoration: none; font-size: 50%;" href="https://www.okta.com/privacy-policy/" target="_blank">Click here to learn more about how Auth0 manages your data</a>
         `);
 
-        // Re-attach close button listener for non-authenticated state
         closeButton.on('click', function() {
             overlay.hide();
         });
@@ -268,12 +264,13 @@ $(document).ready(async function() {
         });
     } else {
         const user = await auth0Client.getUser();
-        const currentTime = new Date().toLocaleString();  // Get current time
+        const currentTime = new Date().toLocaleString();
 
-        // Check if the user logged in with GitHub
-        const displayName = user.connection === 'github' ? user.nickname : user.name;  // GitHub username if GitHub login, else full name
-        const userEmail = user.email || 'No email available';  // Fallback if email is not available
-        const authMethod = user.connection.charAt(0).toUpperCase() + user.connection.slice(1); // Capitalize connection method (e.g., "google-oauth2" -> "Google")
+        const displayName = user.connection === 'github' ? user.nickname : user.name;
+        const userEmail = user.email || 'No email available';
+        
+        // Check if connection exists before using it
+        const authMethod = user.connection ? user.connection.charAt(0).toUpperCase() + user.connection.slice(1) : 'Unknown';
 
         loginPopup.html(`
             <span class="close-btn"><i class="fa-solid fa-x"></i></span>
@@ -287,12 +284,10 @@ $(document).ready(async function() {
             <button class="auth0-logout-btn">Logout</button>
         `);
 
-        // Re-attach close button listener after user is authenticated
         closeButton.on('click', function() {
             overlay.hide();
         });
 
-        // Handle logout
         $('.auth0-logout-btn').on('click', function() {
             auth0Client.logout({
                 returnTo: window.location.origin
