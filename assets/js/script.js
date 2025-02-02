@@ -272,10 +272,7 @@ $(document).ready(async function() {
         const authMethod = user.connection.charAt(0).toUpperCase() + user.connection.slice(1); // Capitalize connection method (e.g., "google-oauth2" -> "Google")
 
         loginPopup.html(`
-            <span class="close-btn">
-                <div class="bar"></div>
-                <div class="bar"></div>
-            </span>
+            <span class="close-btn"><i class="fa-solid fa-x"></i></span>
             <p>Welcome, ${displayName}</p>
             <img src="${user.picture}" alt="Profile Picture" class="profile-img" draggable="false"/>
             <p class="user-info-blurred">
