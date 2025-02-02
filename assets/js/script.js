@@ -264,11 +264,12 @@ $(document).ready(async function() {
         const user = await auth0Client.getUser();
         const currentTime = new Date().toLocaleString();
 
-        const displayName = user.nickname || user.name;
+        // Use nickname or given_name for Google login display
+        const displayName = user.nickname || user.given_name || user.name;
         const userEmail = user.email || 'No email available';
         
-        // If connection is not defined, fall back to a default message
-        const authMethod = user.identities && user.identities.length > 0 
+        // Check if connection exists in identities array
+        const authMethod = user.identities && user.identities[0] 
             ? user.identities[0].connection 
             : 'Unknown';
 
@@ -284,6 +285,7 @@ $(document).ready(async function() {
             <button class="auth0-logout-btn">Logout</button>
         `);
 
+        // Ensure the close button is bound after login
         closeButton.on('click', function() {
             overlay.hide();
         });
@@ -295,4 +297,3 @@ $(document).ready(async function() {
         });
     }
 });
-
