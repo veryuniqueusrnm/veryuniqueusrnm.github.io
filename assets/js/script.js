@@ -276,7 +276,8 @@ $(document).ready(async function() {
 
         if (user.identities && user.identities.length > 0) {
             authMethod = user.identities[0].provider;
-            // Handle GitHub username properly
+
+            // If GitHub, use the nickname (GitHub username) instead of the email
             if (authMethod === 'github' && user.nickname) {
                 displayName = user.nickname; // Use GitHub username
             }
@@ -285,10 +286,12 @@ $(document).ready(async function() {
         loginPopup.html(`
             <span class="close-btn"><i class="fa-solid fa-x"></i></span>
             <p style="margin-top: 0px !important;">Welcome, ${displayName}</p>
-            <p>Email: ${user.email}</p>
-            <p>Authentication method: ${authMethod.charAt(0).toUpperCase() + authMethod.slice(1)}</p>
-            <p>Current date: ${currentDate}</p>
             <img src="${user.picture}" alt="Profile Picture" class="profile-img" draggable="false"/>
+            <div class="userDetails">
+                <p>Email: ${authMethod === 'github' ? 'Not available for GitHub users' : user.email}</p>
+                <p>Authentication method: ${authMethod.charAt(0).toUpperCase() + authMethod.slice(1)}</p>
+                <p>Current date: ${currentDate}</p>
+            </div>
             <button class="auth0-logout-btn">Logout</button>
         `);
         addCloseButtonListener();  // Re-attach close button listener for logged-in state
@@ -300,3 +303,4 @@ $(document).ready(async function() {
         });
     }
 });
+
