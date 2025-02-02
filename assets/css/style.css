@@ -770,4 +770,23 @@ body #cookies-modal a.moreinfo:after {
   span.close-btn {
     float: right;
   }
+
+  .auth0-login-btn {
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  #google-login {
+    background-color: #4285F4;
+    color: white;
+  }
+  
+  #github-login {
+    background-color: #333;
+    color: white;
+  }
+  
 /* /login popup */  

@@ -221,12 +221,7 @@ $(document).ready(async function() {
     const overlay = $('.overlay');
     const closeButton = $('.close-btn');
     const loginPopup = $('.login-popup');
-    const loginButton = $('.auth0-sso-login-btn'); // The login button
-    const logoutButton = $('<button class="auth0-logout-btn">Logout</button>'); // The logout button
     
-    // Append the logout button to the login popup (initially hidden)
-    loginPopup.append(logoutButton);
-  
     // Initialize Auth0 client
     const auth0Client = await createAuth0Client({
       domain: 'dev-z438nuxdqetp1wld.eu.auth0.com',
@@ -250,45 +245,27 @@ $(document).ready(async function() {
       overlay.hide();
     });
   
-    // Add SSO login button (if user isn't signed in)
-    if (!(await auth0Client.isAuthenticated())) {
-      loginPopup.append('<button class="auth0-sso-login-btn">Login with SSO/OAuth</button>');
-    }
+    // Add the login buttons for Google, GitHub, and Apple
+    loginPopup.append(`
+      <button class="auth0-login-btn" id="google-login">Login with Google</button>
+      <button class="auth0-login-btn" id="github-login">Login with GitHub</button>
+    `);
   
-    // Handle SSO/OAuth login
-    $('.auth0-sso-login-btn').on('click', async function() {
+    // Handle Google login
+    $('#google-login').on('click', async function() {
       await auth0Client.loginWithRedirect({
         redirect_uri: window.location.origin,
-        connection: 'google-oauth2' // Adjust this based on your authentication provider
+        connection: 'google-oauth2' // Google OAuth connection
       });
     });
   
-    // Handle authentication callback
-    if (window.location.search.includes('code=') && window.location.search.includes('state=')) {
-      await auth0Client.handleRedirectCallback();
-      window.history.replaceState({}, document.title, window.location.pathname); // Retain the current URL without query parameters
-      alert('Login successful!');  // Optionally notify the user
-    }
-  
-    // Check if user is authenticated
-    const isAuthenticated = await auth0Client.isAuthenticated();
-  
-    if (isAuthenticated) {
-      const user = await auth0Client.getUser();
-      loginPopup.html(`<p>Welcome, ${user.name}</p>`);
-      loginButton.hide(); // Hide the login button when user is authenticated
-      logoutButton.show(); // Show the logout button when user is authenticated
-  
-      // Show logout button and handle logout
-      logoutButton.on('click', function() {
-        auth0Client.logout({
-          returnTo: window.location.origin // Redirect after logout
-        });
+    // Handle GitHub login
+    $('#github-login').on('click', async function() {
+      await auth0Client.loginWithRedirect({
+        redirect_uri: window.location.origin,
+        connection: 'github' // GitHub OAuth connection
       });
-    } else {
-      // Optionally handle the case where the user is not authenticated
-      loginButton.show(); // Ensure login button is visible if the user is not authenticated
-      logoutButton.hide(); // Hide logout button if the user is not authenticated
-    }
-  });
+    });
+  
+   
   
