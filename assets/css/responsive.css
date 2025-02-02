@@ -91,6 +91,16 @@
     div.menu-container {
         display: none;
     }
+
+    .login-popup {
+        margin-top: 200px !important;
+        background: #fff; /* White background */
+        padding: 20px;
+        border-radius: 5px; /* Rounded corners */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        width: 80%;
+        margin: auto;
+      }
 }
 
 @media only screen and (min-width: 869px) {

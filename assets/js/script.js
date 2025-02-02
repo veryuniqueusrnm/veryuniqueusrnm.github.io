@@ -221,6 +221,11 @@ $(document).ready(async function() {
     const overlay = $('.overlay');
     const closeButton = $('.close-btn');
     const loginPopup = $('.login-popup');
+    const loginButton = $('.auth0-sso-login-btn'); // The login button
+    const logoutButton = $('<button class="auth0-logout-btn">Logout</button>'); // The logout button
+    
+    // Append the logout button to the login popup (initially hidden)
+    loginPopup.append(logoutButton);
   
     // Initialize Auth0 client
     const auth0Client = await createAuth0Client({
@@ -245,8 +250,10 @@ $(document).ready(async function() {
       overlay.hide();
     });
   
-    // Add SSO login button
-    loginPopup.append('<button class="auth0-sso-login-btn">Login with SSO/OAuth</button>');
+    // Add SSO login button (if user isn't signed in)
+    if (!(await auth0Client.isAuthenticated())) {
+      loginPopup.append('<button class="auth0-sso-login-btn">Login with SSO/OAuth</button>');
+    }
   
     // Handle SSO/OAuth login
     $('.auth0-sso-login-btn').on('click', async function() {
@@ -268,18 +275,20 @@ $(document).ready(async function() {
   
     if (isAuthenticated) {
       const user = await auth0Client.getUser();
-      loginPopup.html(`<p>Welcome, ${user.name}</p><button class="auth0-logout-btn">Logout</button>`);
+      loginPopup.html(`<p>Welcome, ${user.name}</p>`);
+      loginButton.hide(); // Hide the login button when user is authenticated
+      logoutButton.show(); // Show the logout button when user is authenticated
   
       // Show logout button and handle logout
-      $('.auth0-logout-btn').on('click', function() {
+      logoutButton.on('click', function() {
         auth0Client.logout({
           returnTo: window.location.origin // Redirect after logout
         });
       });
     } else {
-      // Optionally, handle the case where the user is not authenticated
-      console.log("User is not authenticated");
+      // Optionally handle the case where the user is not authenticated
+      loginButton.show(); // Ensure login button is visible if the user is not authenticated
+      logoutButton.hide(); // Hide logout button if the user is not authenticated
     }
   });
-  
   
