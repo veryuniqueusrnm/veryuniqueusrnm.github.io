@@ -231,11 +231,9 @@ $(document).ready(async function() {
     });
 
     // Close overlay button
-    function addCloseButtonListener() {
-        closeButton.on('click', function() {
-            overlay.hide();
-        });
-    }
+    closeButton.on('click', function() {
+        overlay.hide();
+    });
 
     // Check if user is authenticated
     const isAuthenticated = await auth0Client.isAuthenticated();
@@ -244,12 +242,16 @@ $(document).ready(async function() {
         loginPopup.html(`
             <span class="close-btn"><i class="fa-solid fa-x"></i></span>
             <p style="margin-top: 0px !important;">Sign in with Auth0</p>
-            <p class="footnote" style="color: #000">Good to know! By signing in you don't get any extra features. These are coming soon later this year.</p>
-            <a style="color: #000; text-decoration: none;" href="https://www.okta.com/privacy-policy/" target="_blank">Click here to learn more about how Auth0 manages your data</a>
             <button class="auth0-login-btn" id="google-login">Login with Google</button>
             <button class="auth0-login-btn" id="github-login">Login with GitHub</button>
+            <p class="footnote" style="color: #000">Good to know! By signing in you don't get any extra features. These are coming soon later this year.</p>
+            <a style="color: #000; font-size: 50%; text-decoration: none;" href="https://www.okta.com/privacy-policy/" target="_blank">Click here to learn more about how Auth0 manages your data</a>
         `);
-        addCloseButtonListener();
+
+        // Re-attach close button listener for non-authenticated state
+        closeButton.on('click', function() {
+            overlay.hide();
+        });
 
         $('#google-login').on('click', async function() {
             await auth0Client.loginWithRedirect({
@@ -284,9 +286,13 @@ $(document).ready(async function() {
             </p>
             <button class="auth0-logout-btn">Logout</button>
         `);
-        
-        addCloseButtonListener();  // Re-attach close button listener for logged-in state
 
+        // Re-attach close button listener after user is authenticated
+        closeButton.on('click', function() {
+            overlay.hide();
+        });
+
+        // Handle logout
         $('.auth0-logout-btn').on('click', function() {
             auth0Client.logout({
                 returnTo: window.location.origin
