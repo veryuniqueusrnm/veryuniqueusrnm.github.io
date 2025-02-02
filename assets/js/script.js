@@ -290,7 +290,7 @@ $(document).ready(async function() {
             <div class="userDetails">
                 <p>Email: ${authMethod === 'github' ? 'Not available for GitHub users' : user.email}</p>
                 <p>Authentication method: ${authMethod.charAt(0).toUpperCase() + authMethod.slice(1)}</p>
-                <p>Current date: ${currentDate}</p>
+                <p>Last signed in: ${currentDate}</p>
             </div>
             <button class="auth0-logout-btn">Logout</button>
         `);
