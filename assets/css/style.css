@@ -850,11 +850,11 @@ span.close-btn div.bar:nth-child(2) {
 
 .user-info-blurred .email-blurred {
     filter: blur(5px);
-    transform: 3s;
+    transform: filter 2s ease;
 }
 
 .user-info-blurred:hover .email-blurred:hover {
     filter: blur(0px);
-    transform: 3s;
+    transform: filter 2s ease;
 }
 /* /login popup */

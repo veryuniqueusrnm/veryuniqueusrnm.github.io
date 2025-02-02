@@ -212,7 +212,7 @@ $(document).ready(function(){
 $(document).ready(async function() {
     const accountButton = $('.nav-btn.account');
     const overlay = $('.overlay');
-    const closeButton = $('.close-btn');
+    const closeButton = $('span.close-btn');
     const loginPopup = $('.login-popup');
 
     const auth0Client = await createAuth0Client({
@@ -232,7 +232,7 @@ $(document).ready(async function() {
 
     // Close the overlay when the close button is clicked
     closeButton.on('click', function() {
-        overlay.hide();
+        overlay.css('display', 'none');
     });
 
     const isAuthenticated = await auth0Client.isAuthenticated();
@@ -264,7 +264,7 @@ $(document).ready(async function() {
         const user = await auth0Client.getUser();
         const currentTime = new Date().toLocaleString();
 
-        // Use nickname or given_name for Google login display
+        // Display the appropriate name (for Google, fallback to given_name if available)
         const displayName = user.nickname || user.given_name || user.name;
         const userEmail = user.email || 'No email available';
         
@@ -275,7 +275,7 @@ $(document).ready(async function() {
 
         loginPopup.html(`
             <span class="close-btn"><i class="fa-solid fa-x"></i></span>
-            <p>Welcome, ${displayName}</p>
+            <p style="margin-top: 0px !important;">Welcome, ${displayName}</p>
             <img src="${user.picture}" alt="Profile Picture" class="profile-img" draggable="false"/>
             <p class="user-info-blurred">
                 Email: <span class="email-blurred">${userEmail}</span> <br>
@@ -287,7 +287,7 @@ $(document).ready(async function() {
 
         // Ensure the close button is bound after login
         closeButton.on('click', function() {
-            overlay.hide();
+            overlay.css('display', 'none'); // Hide overlay when clicked
         });
 
         $('.auth0-logout-btn').on('click', function() {
