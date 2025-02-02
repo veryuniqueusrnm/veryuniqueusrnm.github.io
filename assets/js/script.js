@@ -214,8 +214,6 @@ const консол = {
 };
 консол.лог("Грязный Фидес")
 
-// jQuery to handle Auth0 SSO/OAuth login
-
 $(document).ready(async function() {
     const accountButton = $('.nav-btn.account');
     const overlay = $('.overlay');
@@ -233,16 +231,9 @@ $(document).ready(async function() {
       overlay.toggle();
     });
   
-    // Close overlay on click outside the login popup
-    overlay.on('click', function(event) {
-      if ($(event.target).is('.overlay')) {
-        overlay.hide();
-      }
-    });
-  
-    // Close overlay when clicking the close button
+    // Close overlay when clicking the close button (this will hide the login popup)
     closeButton.on('click', function() {
-      overlay.hide();
+      overlay.hide(); // Hide the overlay (login popup)
     });
   
     // Add separate login buttons for Google and GitHub
@@ -297,9 +288,6 @@ $(document).ready(async function() {
           returnTo: window.location.origin // Redirect after logout
         });
       });
-  
-      // Show close button if user is authenticated
-      closeButton.show(); // Show the close button when the user is signed in
     } else {
       // Optionally handle the case where the user is not authenticated
       console.log("User is not authenticated");
@@ -307,9 +295,6 @@ $(document).ready(async function() {
       // Show login buttons if the user is not authenticated
       $('#google-login').show();
       $('#github-login').show();
-      
-      // Hide close button if user is not signed in
-      closeButton.hide(); // Hide the close button when the user is not signed in
     }
   });
   
