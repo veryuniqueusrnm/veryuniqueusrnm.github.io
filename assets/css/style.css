@@ -76,8 +76,8 @@ div.container header .account {
     display: flex;
     flex-direction: column;
     cursor: pointer;
-    padding: 10px;
-    margin-top: 5px;
+    padding: 13px;
+    font-size: 20px;
 }
 
 div.container header nav.links .hamburger {
