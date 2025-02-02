@@ -216,68 +216,68 @@ $(document).ready(async function() {
     const loginPopup = $('.login-popup');
     
     const auth0Client = await createAuth0Client({
-      domain: 'dev-z438nuxdqetp1wld.eu.auth0.com',
-      client_id: 'hmazRwxDb4pAbdbjgQAwu8xwcTufV6Ev'
+        domain: 'dev-z438nuxdqetp1wld.eu.auth0.com',
+        client_id: 'hmazRwxDb4pAbdbjgQAwu8xwcTufV6Ev'
     });
-  
+
     accountButton.on('click', function() {
-      overlay.toggle();
+        overlay.toggle();
     });
-  
+
     closeButton.on('click', function() {
-      overlay.hide();
+        overlay.hide();
     });
-  
+
     loginPopup.append(`
-      <button class="auth0-login-btn" id="google-login">Login with Google</button>
-      <button class="auth0-login-btn" id="github-login">Login with GitHub</button>
+        <button class="auth0-login-btn" id="google-login">Login with Google</button>
+        <button class="auth0-login-btn" id="github-login">Login with GitHub</button>
     `);
-  
+
     $('#google-login').on('click', async function() {
-      await auth0Client.loginWithRedirect({
-        redirect_uri: window.location.origin,
-        connection: 'google-oauth2'
-      });
-    });
-  
-    $('#github-login').on('click', async function() {
-      await auth0Client.loginWithRedirect({
-        redirect_uri: window.location.origin,
-        connection: 'github'
-      });
-    });
-  
-    if (window.location.search.includes('code=') && window.location.search.includes('state=')) {
-      await auth0Client.handleRedirectCallback();
-      window.history.replaceState({}, document.title, window.location.pathname);
-      alert('Login successful!');
-    }
-  
-    const isAuthenticated = await auth0Client.isAuthenticated();
-  
-    if (isAuthenticated) {
-      const user = await auth0Client.getUser();
-      
-      loginPopup.html(`
-        <span class="close-btn"><i class="fa-solid fa-x"></i></span>
-        <p>Welcome, ${user.name}</p>
-        <img src="${user.picture}" alt="Profile Picture" class="profile-img" draggable="false"/>
-        <button class="auth0-logout-btn">Logout</button>
-      `);
-  
-      $('#google-login').hide();
-      $('#github-login').hide();
-  
-      $('.auth0-logout-btn').on('click', function() {
-        auth0Client.logout({
-          returnTo: window.location.origin
+        await auth0Client.loginWithRedirect({
+            redirect_uri: window.location.origin,
+            connection: 'google-oauth2'
         });
-      });
-    } else {
-      $('#google-login').show();
-      $('#github-login').show();
+    });
+
+    $('#github-login').on('click', async function() {
+        await auth0Client.loginWithRedirect({
+            redirect_uri: window.location.origin,
+            connection: 'github'
+        });
+    });
+
+    if (window.location.search.includes('code=') && window.location.search.includes('state=')) {
+        await auth0Client.handleRedirectCallback();
+        window.history.replaceState({}, document.title, window.location.pathname);
+        alert('Login successful!');
     }
-  });
+
+    const isAuthenticated = await auth0Client.isAuthenticated();
+
+    if (isAuthenticated) {
+        const user = await auth0Client.getUser();
+        
+        loginPopup.html(`
+            <p>Welcome, ${user.name}</p>
+            <img src="${user.picture}" alt="Profile Picture" class="profile-img" draggable="false"/>
+            <button class="auth0-logout-btn">Logout</button>
+        `);
+
+        $('#google-login').hide();
+        $('#github-login').hide();
+
+        $('.auth0-logout-btn').on('click', function() {
+            auth0Client.logout({
+                returnTo: window.location.origin
+            });
+        });
+    } else {
+        $('#google-login').show();
+        $('#github-login').show();
+    }
+});
+
   
   
   
