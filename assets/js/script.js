@@ -269,6 +269,7 @@ $(document).ready(async function() {
       // Display user profile picture and name
       loginPopup.html(`
         <p>Welcome, ${user.name}</p>
+        <span class="close-btn"><i class="fa-solid fa-x"></i></span>
         <img src="${user.picture}" alt="Profile Picture" class="profile-img" draggable="false"/>
         <button class="auth0-logout-btn">Logout</button>
       `);
