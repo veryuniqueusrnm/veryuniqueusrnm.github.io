@@ -288,7 +288,7 @@ $(document).ready(async function() {
             <p style="margin-top: 0px !important;">Welcome, ${displayName}</p>
             <img src="${user.picture}" alt="Profile Picture" class="profile-img" draggable="false"/>
             <div class="userDetails">
-                <p>Email: ${authMethod === 'github' ? 'Not available for GitHub users' : user.email}</p>
+                <p>Email: <span class="email-blurred">${authMethod === 'github' ? 'Not available for GitHub users' : user.email}</span></p>
                 <p>Authentication method: ${authMethod.charAt(0).toUpperCase() + authMethod.slice(1)}</p>
                 <p>Last signed in: ${currentDate}</p>
             </div>
