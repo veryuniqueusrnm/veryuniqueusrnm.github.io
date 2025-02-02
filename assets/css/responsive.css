@@ -42,7 +42,7 @@
     }
 }
 
-@media only screen and (max-width: 868px) {
+@media only screen and (max-width: 894px) {
     div.container header .smallmenu nav.links a {
         display: none;
     }
@@ -103,7 +103,7 @@
       }
 }
 
-@media only screen and (min-width: 869px) {
+@media only screen and (min-width: 895px) {
     div.container .dropdown {
         display: none;
     }
