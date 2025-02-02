@@ -1,5 +1,6 @@
 /* layout */
-html, body {
+html,
+body {
     background-color: #282a2e;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     -webkit-user-select: none;
@@ -7,6 +8,7 @@ html, body {
     user-select: none;
     margin: 0px;
 }
+
 /* /layout */
 
 /* container */
@@ -20,6 +22,7 @@ div.container {
     height: auto;
     margin-bottom: -20px;
 }
+
 /* /container */
 
 /* header styles */
@@ -90,7 +93,7 @@ div.container header nav.links .hamburger {
 div.container header nav.links .bar {
     height: 3px;
     width: 25px;
-    background-color:#606060;
+    background-color: #606060;
     border-radius: 10px;
     margin: 3px 0;
     transition: 0.4s;
@@ -208,6 +211,7 @@ a.menu-button-mobile {
     display: inline-block;
     padding: 10px 15px;
 }
+
 /* header styles */
 
 /* hero styles */
@@ -273,6 +277,7 @@ div.container div.hero div.description img.youhuu {
     height: 350px;
     float: right;
 }
+
 /* /hero styles */
 
 /* section styles */
@@ -325,7 +330,7 @@ p.censored {
 }
 
 p.censored:hover {
-    filter: blur(0); 
+    filter: blur(0);
     cursor: pointer;
 }
 
@@ -335,17 +340,17 @@ p#youhuu {
 
 .warning {
     text-align: center;
-    padding:6px;
+    padding: 6px;
 }
 
 .warning-red {
-    background-color:#fdd;
+    background-color: #fdd;
 }
 
 .warning-yellow {
-    background-color:#ffd;
-    color:#a80;
-    font-weight:bold;
+    background-color: #ffd;
+    color: #a80;
+    font-weight: bold;
 }
 
 i.modrinth {
@@ -359,6 +364,7 @@ i.modrinth {
     color: #000;
     margin-top: 3px;
 }
+
 /* /section styles */
 
 /* about styles */
@@ -377,6 +383,7 @@ div.container div.about img.youhuu {
     margin-top: -65px;
     width: 250px;
 }
+
 /* /about styles */
 
 /* contact styles */
@@ -388,6 +395,7 @@ div.contact {
     min-height: 200px;
     z-index: 1;
 }
+
 /* /contact styles */
 
 /* pc specifications styles */
@@ -407,11 +415,13 @@ div.container div.pc-specs table.table {
     width: 100%;
 }
 
-div.container div.pc-specs table.table td, th {
+div.container div.pc-specs table.table td,
+th {
     border: 1px solid #000;
     text-align: left;
     padding: 8px;
 }
+
 /* /pc specifications styles */
 
 /* social styles */
@@ -423,6 +433,7 @@ div.container div.social {
     z-index: 1;
     border-radius: 10px;
 }
+
 /* /social styles */
 
 /* footer styles */
@@ -455,6 +466,7 @@ footer p.footnote {
     color: #000;
     max-width: 100%;
 }
+
 /* /footer styles */
 
 /* Discord User Card by Sybrax */
@@ -639,6 +651,7 @@ footer p.footnote {
     margin-top: 14px;
     cursor: pointer;
 }
+
 /* /Discord User Card by Sybrax */
 
 /* cookie popup */
@@ -650,9 +663,9 @@ body #cookies-modal {
     height: auto;
     margin: 0;
     padding: 20px;
-    box-shadow: -1px 0px 5px rgba(0,0,0,0.5);
+    box-shadow: -1px 0px 5px rgba(0, 0, 0, 0.5);
     border: 1px solid #000;
-    border: 1px solid rgba(28,28,28, 0.2);
+    border: 1px solid rgba(28, 28, 28, 0.2);
     border-radius: 5px;
     background-color: #FFF;
     color: #000;
@@ -666,7 +679,8 @@ body #cookies-modal {
     display: none
 }
 
-body #cookies-modal h3, body #cookies-modal p {
+body #cookies-modal h3,
+body #cookies-modal p {
     margin: 0 0 20px 0;
     padding: 0
 }
@@ -719,7 +733,9 @@ body #cookies-modal a.accept:active {
     background-repeat: no-repeat;
 }
 
-body #cookies-modal a.moreinfo,a.moreinfo:visited,a.moreinfo:active {
+body #cookies-modal a.moreinfo,
+a.moreinfo:visited,
+a.moreinfo:active {
     float: right;
     font-weight: bold;
     color: #2c97fc;
@@ -741,6 +757,7 @@ body #cookies-modal a.moreinfo:after {
     border-left: 6px solid #2c97fc;
     content: " "
 }
+
 /* /cookie popup */
 
 /* login popup */
@@ -750,55 +767,78 @@ body #cookies-modal a.moreinfo:after {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.7); /* Darker background */
+    background: rgba(0, 0, 0, 0.7);
+    /* Darker background */
     display: none;
     justify-content: center;
     align-items: center;
     z-index: 69696972;
-  }
-  
-  .login-popup {
+}
+
+.login-popup {
     margin-top: 200px !important;
-    background: #fff; /* White background */
+    background: #fff;
+    /* White background */
     padding: 20px;
-    border-radius: 5px; /* Rounded corners */
+    border-radius: 5px;
+    /* Rounded corners */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     width: 50%;
     margin: auto;
-  }
+}
 
-  span.close-btn {
+span.close-btn {
     float: right;
     cursor: pointer;
-  }
+}
 
-  .auth0-login-btn {
+span.close-btn div.bar {
+    height: 3px;
+    width: 25px;
+    background-color: #606060;
+    border-radius: 10px;
+    margin: 3px 0;
+    transition: 0.4s;
+}
+
+span.close-btn div.bar:nth-child(1) {
+    transform: rotate(-45deg) translate(-7px, 6px);
+}
+
+span.close-btn div.bar:nth-child(2) {
+    transform: rotate(45deg) translate(-6px, -6px);
+}
+
+.auth0-login-btn {
     padding: 10px 20px;
     margin: 10px;
     border: none;
     cursor: pointer;
     font-size: 16px;
-  }
-  
-  #google-login {
+}
+
+#google-login {
     background-color: #4285F4;
     color: white;
-  }
-  
-  #github-login {
+    border-radius: 5px;
+}
+
+#github-login {
     background-color: #333;
     color: white;
-  }
-  
-  .auth0-logout-btn {
+    border-radius: 5px;
+}
+
+.auth0-logout-btn {
     padding: 10px 20px;
     background-color: #FF5733;
     color: white;
     border: none;
     cursor: pointer;
-  }
-  
-  .profile-img {
+    border-radius: 5px;
+}
+
+.profile-img {
     display: block;
     position: relative;
     width: 50px;
@@ -806,7 +846,7 @@ body #cookies-modal a.moreinfo:after {
     border-radius: 5px;
     margin: 10px 0;
     border: 2.5px solid #606060;
-  }
-  
-  
-/* /login popup */  
+}
+
+
+/* /login popup */
