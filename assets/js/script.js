@@ -88,7 +88,7 @@ $(document).ready(async function() {
         loginPopup.html(`
             <span class="close-btn"><i class="fa-solid fa-x"></i></span>
             <p style="margin-top: 0px !important;">Sign in</p>
-            <p style="color: #f5c6cb;">This option is currently disabled!</p>
+            <p style="color: #721c24;">This feature is currently disabled!</p>
             <!--button class="auth0-login-btn" id="google-login">Sign in with Google*</button-->
             <p class="footnote" style="color: #000;">Good to know! By signing in you don't get any extra features. These are coming later this year.</p>
             <a style="color: #000; text-decoration: none; font-size: 50%;" href="https://www.okta.com/privacy-policy/" target="_blank">Click here to learn more about how Auth0 manages your data. <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
