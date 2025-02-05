@@ -669,6 +669,7 @@ footer p.footnote {
 /* cookie popup */
 body #cookies-modal {
     position: fixed;
+    display: block;
     bottom: 30px;
     right: 30px;
     width: 280px;
@@ -685,6 +686,11 @@ body #cookies-modal {
     font-size: 12px;
     text-align: left;
     z-index: 69696971
+}
+
+/* If it's here then it's not showing, if not there then it's not disappearing... */
+body #cookies-modal {
+    display: none
 }
 
 body #cookies-modal h3,
