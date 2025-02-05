@@ -687,10 +687,6 @@ body #cookies-modal {
     z-index: 69696971
 }
 
-body #cookies-modal {
-    display: none
-}
-
 body #cookies-modal h3,
 body #cookies-modal p {
     margin: 0 0 20px 0;
