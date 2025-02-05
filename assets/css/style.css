@@ -365,6 +365,18 @@ i.modrinth {
     margin-top: 3px;
 }
 
+i.ko-fi {
+    position: relative;
+    display: block;
+    background-image: url(/assets/i/badges/kofi_logo.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 30px;
+    height: 30px;
+    color: #000;
+    margin-top: 3px;
+}
+
 /* /section styles */
 
 /* about styles */
