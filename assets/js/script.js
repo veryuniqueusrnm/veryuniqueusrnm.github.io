@@ -1,5 +1,5 @@
 // Debugging stuff
-$(document).ready(function() {
+$(document).ready(function () {
     if (typeof jQuery !== 'undefined') {
         console.log("jQuery is loaded.");
         console.log("jQuery version:", jQuery.fn.jquery);
@@ -55,7 +55,7 @@ $('<style>').prop('type', 'text/css').html(`
 `).appendTo('head');
 
 // Auth0 stuff
-$(document).ready(async function() {
+$(document).ready(async function () {
     const accountButton = $('.nav-btn.account');
     const overlay = $('.overlay');
     const closeButton = $('.close-btn');
@@ -72,12 +72,12 @@ $(document).ready(async function() {
         window.history.replaceState({}, document.title, window.location.pathname);  // Clean up URL after callback
     }
 
-    accountButton.on('click', function() {
+    accountButton.on('click', function () {
         overlay.toggle();
     });
 
     function addCloseButtonListener() {
-        $('.close-btn').on('click', function() {
+        $('.close-btn').on('click', function () {
             overlay.hide();
         });
     }
@@ -96,7 +96,7 @@ $(document).ready(async function() {
         `);
         addCloseButtonListener();
 
-        $('#google-login').on('click', async function() {
+        $('#google-login').on('click', async function () {
             await auth0Client.loginWithRedirect({
                 redirect_uri: window.location.origin,
                 connection: 'google-oauth2'
@@ -145,13 +145,84 @@ $(document).ready(async function() {
         `);
         addCloseButtonListener();
 
-        $('.auth0-logout-btn').on('click', function() {
+        $('.auth0-logout-btn').on('click', function () {
             auth0Client.logout({
                 returnTo: window.location.origin
             });
         });
     }
 });
+
+/**
+ * cookies.js
+ * ===================
+ * Module to show an alert about the cookies the first time a user visits a website
+ */
+!function ($) {
+
+    "use strict"; // jshint ;_;
+
+    var cookieName = 'cookiebanner'
+    var cookieExpiry = 3650 // in days. If 0 session cookie, if -1 show always the modal
+    var timeoutModal = 20000  // timeout until the modal closes. If zero, don't close it
+
+    var getCookie = function () {
+        if (cookieExpiry === -1) {
+            return false
+        }
+
+        var cookies = document.cookie.split('; ')
+        var value = null
+
+        $(cookies).each(function (key, el) {
+            var cookie = el.split('=')
+            if (cookie[0] === cookieName) {
+                value = cookie[1]
+            }
+        })
+        return value
+    }
+
+    var setCookie = function () {
+        var expiryDate
+
+        if (cookieExpiry === -1) {
+            return
+        }
+
+        var cookie = cookieName + '=1'
+
+        if (cookieExpiry > 0) {
+            expiryDate = new Date()
+            expiryDate.setTime(expiryDate.getTime() + (cookieExpiry * 24 * 60 * 60 * 1000))
+            cookie += "; expires=" + expiryDate.toGMTString()
+        }
+        document.cookie = cookie
+    }
+
+    $.fn.cookiesmodal = function () {
+        var timeout
+        var modal = this
+
+        if (!getCookie()) {
+            setCookie()
+
+            modal.fadeIn('fast')
+
+            if (timeoutModal) {
+                timeout = window.setTimeout(function () {
+                    modal.fadeOut('fast')
+                }, timeoutModal)
+            }
+
+            modal.find('[data-dismiss="modal"]').click(function (evt) {
+                evt.preventDefault()
+                modal.fadeOut('fast')
+                window.clearTimeout(timeout)
+            })
+        }
+    }
+}(window.jQuery);
 
 // jQuery menu (mobile)
 $(document).ready(function () {
@@ -173,18 +244,18 @@ $(document).ready(function () {
 });
 
 // Jquery menu (desktop)
-$(document).ready(function(){
-    $(".menu-container").hover(function(){
+$(document).ready(function () {
+    $(".menu-container").hover(function () {
         $(this).find(".menu").stop(true, true).fadeIn(300);
         $(this).find(".menu-button i").css("transform", "rotate(180deg)");
-    }, function(){
+    }, function () {
         $(this).find(".menu").stop(true, true).fadeOut(300);
         $(this).find(".menu-button i").css("transform", "rotate(0deg)");
     });
 });
 
 // Function to handle screen width changes
-$(document).ready(function() {
+$(document).ready(function () {
     function checkScreenWidth() {
         console.log("CheckScreenWidth");
     }
@@ -228,78 +299,6 @@ $(document).ready(function () {
 
         return `You are using ${browserName} on a ${deviceType} device.`;
     }
-    
+
     $("#browserDetails").text(getBrowserAndDeviceDetails());
 });
-
-/**
- * cookies.js
- * ===================
- * Module to show an alert about the cookies the first time a user visits a website
- */
-!function ($) {
-
-  "use strict"; // jshint ;_;
-
-  var cookieName = 'cookiebanner'
-  var cookieExpiry = 3650 // in days. If 0 session cookie, if -1 show always the modal
-  var timeoutModal = 20000  // timeout until the modal closes. If zero, don't close it
-
-  var getCookie = function() {
-    if (cookieExpiry === -1) {
-      return false
-    }
-
-    var cookies = document.cookie.split('; ')
-    var value = null
-
-    $(cookies).each(function(key, el) {
-      var cookie = el.split('=')
-      if (cookie[0] === cookieName) {
-        value = cookie[1]
-      }
-    })
-    return value
-  }
-
-  var setCookie = function() {
-    var expiryDate
-
-    if (cookieExpiry === -1) {
-      return
-    }
-
-    var cookie = cookieName + '=1'
-
-    if (cookieExpiry > 0) {
-      expiryDate = new Date()
-      expiryDate.setTime(expiryDate.getTime()+(cookieExpiry*24*60*60*1000))
-      cookie += "; expires=" + expiryDate.toGMTString()
-    }
-    document.cookie = cookie
-  }
-
-  $.fn.cookiesmodal = function() {
-    var timeout
-    var modal = this
-
-    if (!getCookie()) {
-      setCookie()
-
-      modal.fadeIn('fast')  
-
-      if (timeoutModal) {
-        timeout = window.setTimeout(function() {
-          modal.fadeOut('fast')
-        }, timeoutModal)
-      }
-
-      modal.find('[data-dismiss="modal"]').click(function(evt) {
-        evt.preventDefault()
-        modal.fadeOut('fast')
-        window.clearTimeout(timeout)
-      })
-    }
-  }
-}(window.jQuery);
-
