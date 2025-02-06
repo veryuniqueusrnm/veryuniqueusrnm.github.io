@@ -368,7 +368,7 @@ i.modrinth {
 i.kofi {
     position: relative;
     display: block;
-    background-image: url(/assets/i/badges/kofi_logo.svg);
+    background-image: url(/assets/i/badges/kofi-logo.svg);
     background-repeat: no-repeat;
     background-size: contain;
     width: 40px;
