@@ -312,7 +312,7 @@ $(document).ready(function() {
 
         let days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
 
-        $("#counter").html(`${days} days`);
+        $("#counter").html(` ${days} days`);
     }
 
     updateCounter();
