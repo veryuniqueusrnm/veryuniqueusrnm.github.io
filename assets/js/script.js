@@ -306,7 +306,7 @@ $(document).ready(function () {
 // Counter for the popup
 $(document).ready(function() {
     function updateCounter() {
-        let startDate = new Date("2020-01-01T00:00:00").getTime(); // Set your past date here
+        let startDate = new Date("2023-10-029T00:00:00").getTime(); // Set your past date here
         let now = new Date().getTime();
         let timeDiff = now - startDate;
 
