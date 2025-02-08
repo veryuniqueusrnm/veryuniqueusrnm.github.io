@@ -311,8 +311,11 @@ $(document).ready(function() {
         let timeDiff = now - startDate;
 
         let days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+        let hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        let minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+        let seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
 
-        $("#counter").html(` ${days} days`);
+        $("#counter").html(` ${days} days ${hours} hours ${minutes} minutes ${seconds} seconds`);
     }
 
     updateCounter();
