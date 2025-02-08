@@ -306,14 +306,9 @@ $(document).ready(function () {
 // Counter for the popup
 $(document).ready(function() {
     function updateCounter() {
-        let targetDate = new Date("2023-10-08T23:59:59");
-        let now = new Date();
-        let timeDiff = targetDate - now;
-
-        if (timeDiff <= 0) {
-            $("#counter").html("Time's up!");
-            return;
-        }
+        let startDate = new Date("2020-01-01T00:00:00").getTime(); // Set your past date here
+        let now = new Date().getTime();
+        let timeDiff = now - startDate;
 
         let days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
         let hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
