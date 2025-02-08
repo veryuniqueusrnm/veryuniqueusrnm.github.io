@@ -302,3 +302,27 @@ $(document).ready(function () {
 
     $("#browserDetails").text(getBrowserAndDeviceDetails());
 });
+
+// Counter for the popup
+$(document).ready(function() {
+    function updateCounter() {
+        let targetDate = new Date("2023-10-08T23:59:59");
+        let now = new Date();
+        let timeDiff = targetDate - now;
+
+        if (timeDiff <= 0) {
+            $("#counter").html("Time's up!");
+            return;
+        }
+
+        let days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+        let hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        let minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+        let seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+
+        $("#counter").html(`${days}d ${hours}h ${minutes}m ${seconds}s`);
+    }
+
+    updateCounter();
+    setInterval(updateCounter, 1000);
+});
