@@ -302,22 +302,3 @@ $(document).ready(function () {
 
     $("#browserDetails").text(getBrowserAndDeviceDetails());
 });
-
-// Counter for the popup
-$(document).ready(function() {
-    function updateCounter() {
-        let startDate = new Date("2023-10-29T00:00:00").getTime();
-        let now = new Date().getTime();
-        let timeDiff = now - startDate;
-
-        let days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
-        let hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        let minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
-        let seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
-
-        $("#counter").html(` ${days} days ${hours} hours ${minutes} minutes ${seconds} seconds`);
-    }
-
-    updateCounter();
-    setInterval(updateCounter, 1000);
-});
