@@ -63,13 +63,15 @@ $(document).ready(async function () {
 
     const auth0Client = await createAuth0Client({
         domain: 'dev-z438nuxdqetp1wld.eu.auth0.com',
-        client_id: 'hmazRwxDb4pAbdbjgQAwu8xwcTufV6Ev'
+        client_id: 'hmazRwxDb4pAbdbjgQAwu8xwcTufV6Ev',
+        cacheLocation: 'localstorage', // Ensures session persistence
+        useRefreshTokens: true // Enables refresh tokens for better session handling
     });
 
     // Handle Auth0 redirect callback
     if (window.location.search.includes('code=') && window.location.search.includes('state=')) {
         await auth0Client.handleRedirectCallback();
-        window.history.replaceState({}, document.title, window.location.pathname);  // Clean up URL after callback
+        window.history.replaceState({}, document.title, window.location.pathname);
     }
 
     accountButton.on('click', function () {
@@ -82,14 +84,60 @@ $(document).ready(async function () {
         });
     }
 
-    const isAuthenticated = await auth0Client.isAuthenticated();
+    try {
+        // Attempt silent authentication
+        const token = await auth0Client.getTokenSilently();
+        if (token) {
+            await handleAuthenticatedUser();
+            return;
+        }
+    } catch (error) {
+        console.warn("Silent authentication failed:", error);
+    }
 
-    if (!isAuthenticated) {
+    // If silent authentication fails, show login prompt
+    showLoginPrompt();
+
+    async function handleAuthenticatedUser() {
+        const user = await auth0Client.getUser();
+
+        const currentDate = new Date().toLocaleDateString();
+        document.cookie = `lastSignIn=${currentDate}; path=/; max-age=${60 * 60 * 24 * 365}`;
+
+        const cookies = document.cookie.split('; ');
+        let lastSignInDate = "No previous sign-in date found.";
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].split('=');
+            if (cookie[0] === 'lastSignIn') {
+                lastSignInDate = cookie[1];
+                break;
+            }
+        }
+
+        loginPopup.html(`
+            <span class="close-btn"><i class="fa-solid fa-x"></i></span>
+            <p style="margin-top: 0px !important;">Welcome, ${user.name}</p>
+            <img src="${user.picture}" alt="Profile Picture" class="profile-img" draggable="false"/>
+            <div class="userDetails">
+                <p>Email: <span class="email-blurred">${user.email}</span></p>
+                <p>Last sign in: ${lastSignInDate}</p>
+            </div>
+            <button class="auth0-logout-btn">Sign out</button>
+        `);
+        addCloseButtonListener();
+
+        $('.auth0-logout-btn').on('click', function () {
+            auth0Client.logout({
+                returnTo: window.location.origin
+            });
+        });
+    }
+
+    function showLoginPrompt() {
         loginPopup.html(`
             <span class="close-btn"><i class="fa-solid fa-x"></i></span>
             <p style="margin-top: 0px !important;">Sign in</p>
-            <p style="color: #721c24;">This feature is currently disabled!</p>
-            <!--button class="auth0-login-btn" id="google-login">Sign in with Google*</button-->
+            <button class="auth0-login-btn" id="google-login">Sign in with Google*</button>
             <p class="footnote" style="color: #000;">Good to know! By signing in you don't get any extra features. These are coming later this year.</p>
             <a style="color: #000; text-decoration: none; font-size: 50%;" href="https://www.okta.com/privacy-policy/" target="_blank">Click here to learn more about how Auth0 manages your data. <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
             <p class="footnote" style="color: #000;">*You'll be redirected to Google's sign-in page, where you can securely enter your credentials. But if you signed in before you'll be redirected to Google then back automatically.</p>
@@ -102,56 +150,9 @@ $(document).ready(async function () {
                 connection: 'google-oauth2'
             });
         });
-    } else {
-        const user = await auth0Client.getUser();
-
-        const currentDate = new Date().toLocaleDateString();
-
-        let authMethod = "Unknown";
-        let displayName = user.name;
-
-        if (user.identities && user.identities.length > 0) {
-            authMethod = user.identities[0].provider;
-
-            if (authMethod === 'google-oauth2') {
-                displayName = user.name;
-            }
-        }
-
-        // Set the current date in a cookie (Last sign-in date)
-        document.cookie = `lastSignIn=${currentDate}; path=/; max-age=${60 * 60 * 24 * 365}`; // Expires in 1 year
-
-        // Get the Last sign-in date from the cookie
-        const cookies = document.cookie.split('; ');
-        let lastSignInDate = "No previous sign-in date found.";
-
-        for (let i = 0; i < cookies.length; i++) {
-            const cookie = cookies[i].split('=');
-            if (cookie[0] === 'lastSignIn') {
-                lastSignInDate = cookie[1];
-                break;
-            }
-        }
-
-        loginPopup.html(`
-            <span class="close-btn"><i class="fa-solid fa-x"></i></span>
-            <p style="margin-top: 0px !important;">Welcome, ${displayName}</p>
-            <img src="${user.picture}" alt="Profile Picture" class="profile-img" draggable="false"/>
-            <div class="userDetails">
-            <p>Email: <span class="email-blurred">${user.email}</span></p>
-            <p>Last sign in: ${lastSignInDate}</p>
-            </div>
-            <button class="auth0-logout-btn">Sign out</button>
-        `);
-        addCloseButtonListener();
-
-        $('.auth0-logout-btn').on('click', function () {
-            auth0Client.logout({
-                returnTo: window.location.origin
-            });
-        });
     }
 });
+
 
 /**
  * cookies.js
