@@ -14,9 +14,9 @@ $(document).ready(function () {
 //Jquery Include HTML
 $(document).ready(function () {
     function includeHTML() {
-        $('[include]').each(function () {
+        $('[include-html]').each(function () {
             var $this = $(this);
-            var file = $this.attr('include');
+            var file = $this.attr('include-html');
             if (file) {
                 $.ajax({
                     url: file,
@@ -30,7 +30,7 @@ $(document).ready(function () {
                         $this.html('<div class="fallback">Content could not be loaded, using fallback. Please check the console for more information.</div>');
                     },
                     complete: function () {
-                        $this.removeAttr('include');
+                        $this.removeAttr('include-html');
                         includeHTML();
                     }
                 });
