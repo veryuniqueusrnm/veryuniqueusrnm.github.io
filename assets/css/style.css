@@ -113,7 +113,8 @@ div.container header .hamburger.active .bar:nth-child(3) {
 div.container .dropdown {
     display: none;
     position: absolute;
-    top: 72px;
+    /*top: 72px;*/
+    top: 172px;
     width: 100%;
     background: #FFF;
     z-index: 696970;
