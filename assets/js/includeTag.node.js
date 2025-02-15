@@ -1,4 +1,4 @@
-var includeTag = require('./includeTag');
+var includeTag = require('/assets/js/includeTag');
 
 module.exports = function (cwd, contents) {
     var getFileContent = function (filePath) {
