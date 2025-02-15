@@ -414,6 +414,13 @@ div.game-library {
     z-index: 1;
 }
 
+div.game-library img.avatar {
+    position: relative;
+    display: inline-block;
+    width: 200px;
+    height: 400px;
+}
+
 /* /game-library styles */
 
 /* pc specifications styles */
