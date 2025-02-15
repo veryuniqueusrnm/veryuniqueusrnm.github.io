@@ -246,7 +246,7 @@ $(document).ready(function () {
         const commitMessage = latestCommit.commit.message;
 
         $("#commit-info").html(
-            `Latest commit: <strong>${commitId}</strong> | ${commitDate} - ${commitMessage}`
+            `Latest commit: ${commitId} <br/>Commit date: ${commitDate} <br/>Commit message: ${commitMessage}`
         );
     }).fail(function () {
         console.error("Failed to fetch commit data.");
