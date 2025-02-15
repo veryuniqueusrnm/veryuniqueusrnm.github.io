@@ -101,6 +101,10 @@
         width: 80%;
         margin: auto;
       }
+
+      footer p.copyright {
+        font-size: 100%;
+    }
 }
 
 @media only screen and (min-width: 905px) {
