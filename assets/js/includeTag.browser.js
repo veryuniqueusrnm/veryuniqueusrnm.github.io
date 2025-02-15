@@ -1,4 +1,4 @@
-var _includeTag = require('/assets/js/includeTag');
+import _includeTag from '/assets/js/includeTag.js';
 
 window.includeTag = {
     init: function () {
