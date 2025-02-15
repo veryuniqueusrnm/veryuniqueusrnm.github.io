@@ -417,8 +417,9 @@ div.game-library {
 div.game-library img.avatar {
     position: relative;
     display: inline-block;
-    width: 200px;
-    height: 400px;
+    width: 174px;
+    height: 350px;
+    border: 1px solid #FFF;
 }
 
 /* /game-library styles */
