@@ -154,77 +154,6 @@ $(document).ready(async function () {
 });
 
 
-/**
- * cookies.js
- * ===================
- * Module to show an alert about the cookies the first time a user visits a website
- */
-!function ($) {
-
-    "use strict"; // jshint ;_;
-
-    var cookieName = 'cookiebanner'
-    var cookieExpiry = 3650 // in days. If 0 session cookie, if -1 show always the modal
-    var timeoutModal = 20000  // timeout until the modal closes. If zero, don't close it
-
-    var getCookie = function () {
-        if (cookieExpiry === -1) {
-            return false
-        }
-
-        var cookies = document.cookie.split('; ')
-        var value = null
-
-        $(cookies).each(function (key, el) {
-            var cookie = el.split('=')
-            if (cookie[0] === cookieName) {
-                value = cookie[1]
-            }
-        })
-        return value
-    }
-
-    var setCookie = function () {
-        var expiryDate
-
-        if (cookieExpiry === -1) {
-            return
-        }
-
-        var cookie = cookieName + '=1'
-
-        if (cookieExpiry > 0) {
-            expiryDate = new Date()
-            expiryDate.setTime(expiryDate.getTime() + (cookieExpiry * 24 * 60 * 60 * 1000))
-            cookie += "; expires=" + expiryDate.toGMTString()
-        }
-        document.cookie = cookie
-    }
-
-    $.fn.cookiesmodal = function () {
-        var timeout
-        var modal = this
-
-        if (!getCookie()) {
-            setCookie()
-
-            modal.fadeIn('fast')
-
-            if (timeoutModal) {
-                timeout = window.setTimeout(function () {
-                    modal.fadeOut('fast')
-                }, timeoutModal)
-            }
-
-            modal.find('[data-dismiss="modal"]').click(function (evt) {
-                evt.preventDefault()
-                modal.fadeOut('fast')
-                window.clearTimeout(timeout)
-            })
-        }
-    }
-}(window.jQuery);
-
 // jQuery menu (mobile)
 $(document).ready(function () {
     $('.hamburger').click(function () {
@@ -302,4 +231,26 @@ $(document).ready(function () {
     }
 
     $("#browserDetails").text(getBrowserAndDeviceDetails());
+});
+
+// Get commit info
+$(document).ready(function () {
+    const username = "veryuniqueusrnm";
+    const repo = "veryuniqueusrnm.github.io";
+    const apiUrl = `https://api.github.com/repos/${username}/${repo}/commits`;
+
+    $.getJSON(apiUrl, function (data) {
+        if (!data || data.length === 0) return;
+
+        const latestCommit = data[0];
+        const commitId = latestCommit.sha.substring(0, 7);
+        const commitDate = new Date(latestCommit.commit.author.date).toLocaleDateString();
+        const commitMessage = latestCommit.commit.message;
+
+        $("#commit-info").html(
+            `Latest commit: <strong>${commitId}</strong> | ${commitDate} - ${commitMessage}`
+        );
+    }).fail(function () {
+        console.error("Failed to fetch commit data.");
+    });
 });
