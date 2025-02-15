@@ -47,3 +47,8 @@ function applyVariables(str, attributes) {
 }
 
 module.exports = includeTag;
+
+export function includeTag() {
+    console.log("includeTag function loaded");
+}
+
