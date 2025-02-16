@@ -500,7 +500,7 @@ footer a.link {
 
 /* /footer styles */
 
-/* Discord User Card by Sybrax */
+/* Discord User Card by Sybrax https://github.com/Sybrax/Discord-User-Card */
 .card {
     background: #292b2f;
     width: 345px;
@@ -682,7 +682,7 @@ footer a.link {
     cursor: pointer;
 }
 
-/* /Discord User Card by Sybrax */
+/* /Discord User Card by Sybrax https://github.com/Sybrax/Discord-User-Card */
 
 /* login popup */
 .overlay {
@@ -700,7 +700,7 @@ footer a.link {
 
 .login-popup {
     margin-top: 200px !important;
-    background: #fff;
+    background: #FFF;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
