@@ -493,6 +493,10 @@ footer p.footnote {
     max-width: 100%;
 }
 
+footer a.link {
+    color: #000;
+}
+
 /* /footer styles */
 
 /* Discord User Card by Sybrax */
