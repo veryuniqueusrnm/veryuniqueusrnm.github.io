@@ -138,6 +138,9 @@ $(document).ready(async function () {
         addCloseButtonListener();
 
         $('.auth0-logout-btn').on('click', function () {
+            // Destroy the 'lastSignIn' cookie when signing out
+            document.cookie = 'lastSignIn=; path=/; max-age=0';
+
             auth0Client.logout({
                 returnTo: window.location.origin
             });
