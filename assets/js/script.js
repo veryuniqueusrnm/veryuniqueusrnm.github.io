@@ -100,7 +100,15 @@ $(document).ready(async function () {
 
     async function handleAuthenticatedUser() {
         const user = await auth0Client.getUser();
-        let username = user.nickname || user.name || 'User';
+        let username;
+
+        if (user.sub.includes('github')) {
+            username = user.nickname || user.name || 'GitHub User';
+        } else if (user.sub.includes('google')) {
+            username = user.name || 'Google User';
+        } else {
+            username = user.name || user.nickname || 'User';
+        }
 
         const cookies = document.cookie.split('; ');
         let lastSignInDate = null;
