@@ -692,7 +692,6 @@ footer a.link {
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.7);
-    /* Darker background */
     display: none;
     justify-content: center;
     align-items: center;
@@ -702,10 +701,8 @@ footer a.link {
 .login-popup {
     margin-top: 200px !important;
     background: #fff;
-    /* White background */
     padding: 20px;
-    border-radius: 5px;
-    /* Rounded corners */
+    border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     width: 50%;
     margin: auto;
