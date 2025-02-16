@@ -246,9 +246,10 @@ $(document).ready(function () {
         const commitId = latestCommit.sha.substring(0, 7);
         const commitDate = new Date(latestCommit.commit.author.date).toLocaleDateString();
         const commitMessage = latestCommit.commit.message;
+        const commitUrl = latestCommit.html_url;
 
         $("#commit-info").html(
-            `Latest commit: <strong>${commitId}</strong> | ${commitDate} - ${commitMessage}. | Brought to you by Github.`
+            `Latest commit: <strong><a href="${commitUrl}" target="_blank">${commitId}</a></strong> | ${commitDate} - ${commitMessage}. | Brought to you by GitHub.`
         );
     }).fail(function () {
         console.error("Failed to fetch commit data.");
