@@ -72,13 +72,10 @@
         margin: auto;
     }
 
-    div.container div.hero div.buttons {
-        display: none;
-    }
-
     div.container div.hero div.description a {
         display: block;
         text-align: center;
+        padding-top: 5px;
     }
 
     div.container div.about img.youhuu {
