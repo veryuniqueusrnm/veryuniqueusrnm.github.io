@@ -100,16 +100,7 @@ $(document).ready(async function () {
 
     async function handleAuthenticatedUser() {
         const user = await auth0Client.getUser();
-
-        if (user.sub.startsWith('github|')) {
-            const response = await fetch('https://api.github.com/user', {
-                headers: {
-                    Authorization: `Bearer ${await auth0Client.getTokenSilently()}`
-                }
-            });
-            const githubUser = await response.json();
-            user.name = githubUser.login; // Set GitHub username instead of email
-        }
+        let username = user.nickname || user.name || 'User';
 
         const cookies = document.cookie.split('; ');
         let lastSignInDate = null;
@@ -129,13 +120,13 @@ $(document).ready(async function () {
 
         loginPopup.html(`
             <span class="close-btn"><i class="fa-solid fa-x"></i></span>
-            <p style="margin-top: 0px !important;">Welcome, ${user.name}</p>
+            <p style="margin-top: 0px !important;">Welcome, ${username}</p>
             <img src="${user.picture}" alt="Profile Picture" class="profile-img" draggable="false"/>
             <div class="userDetails">
-                <p>Last sign in: ${lastSignInDate}</p>
+                <p>Signed in here since: ${lastSignInDate}</p>
             </div>
-            <a style="color: #000; text-decoration: none; font-size: 60%;" href="https://www.okta.com/privacy-policy/" target="_blank">Click here to learn more about how Auth0 manages your data. <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
             <button class="auth0-logout-btn">Sign out</button>
+            <a style="color: #000; text-decoration: none; font-size: 60%;" href="https://www.okta.com/privacy-policy/" target="_blank">Click here to learn more about how Auth0 manages your data. <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
         `);
         addCloseButtonListener();
 
@@ -152,7 +143,7 @@ $(document).ready(async function () {
             <p style="margin-top: 0px !important;">Sign in</p>
             <button class="auth0-login-btn" id="google-login">Sign in with Google*</button>
             <button class="auth0-login-btn" id="github-login">Sign in with GitHub*</button>
-            <p class="footnote" style="color: #000;">*You'll be redirected to the respective provider's sign-in page, where you can securely enter your credentials. If you've signed in before, you'll be redirected automatically.</p>
+            <p class="footnote" style="color: #000;">*You'll be redirected to the provider's sign-in page, where you can securely enter your credentials. If you've signed in before, you'll be redirected automatically.</p>
             <a style="color: #000; text-decoration: none; font-size: 60%;" href="https://www.okta.com/privacy-policy/" target="_blank">Click here to learn more about how Auth0 manages your data. <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
         `);
         addCloseButtonListener();
