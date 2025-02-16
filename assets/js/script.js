@@ -134,7 +134,6 @@ $(document).ready(async function () {
                 <p>Signed in here since: ${lastSignInDate}</p>
             </div>
             <button class="auth0-logout-btn">Sign out</button>
-            <a style="color: #000; text-decoration: none; font-size: 60%;" href="https://www.okta.com/privacy-policy/" target="_blank">Click here to learn more about how Auth0 manages your data. <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
         `);
         addCloseButtonListener();
 
