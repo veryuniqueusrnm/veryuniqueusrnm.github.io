@@ -54,7 +54,6 @@ $('<style>').prop('type', 'text/css').html(`
     }
 `).appendTo('head');
 
-// Auth0 stuff
 $(document).ready(async function () {
     const accountButton = $('.nav-btn.account');
     const overlay = $('.overlay');
@@ -64,8 +63,8 @@ $(document).ready(async function () {
     const auth0Client = await createAuth0Client({
         domain: 'dev-z438nuxdqetp1wld.eu.auth0.com',
         client_id: 'hmazRwxDb4pAbdbjgQAwu8xwcTufV6Ev',
-        cacheLocation: 'localstorage', // Ensures session persistence
-        useRefreshTokens: true // Enables refresh tokens for better session handling
+        cacheLocation: 'localstorage',
+        useRefreshTokens: true
     });
 
     // Handle Auth0 redirect callback
@@ -101,17 +100,20 @@ $(document).ready(async function () {
     async function handleAuthenticatedUser() {
         const user = await auth0Client.getUser();
 
-        const currentDate = new Date().toLocaleDateString();
-        document.cookie = `lastSignIn=${currentDate}; path=/; max-age=${60 * 60 * 24 * 365}`;
-
         const cookies = document.cookie.split('; ');
-        let lastSignInDate = "No previous sign-in date found.";
+        let lastSignInDate = null;
         for (let i = 0; i < cookies.length; i++) {
             const cookie = cookies[i].split('=');
             if (cookie[0] === 'lastSignIn') {
                 lastSignInDate = cookie[1];
                 break;
             }
+        }
+
+        // If no previous sign-in date is found, set the current date as the first sign-in date
+        if (!lastSignInDate) {
+            lastSignInDate = new Date().toLocaleDateString();
+            document.cookie = `lastSignIn=${lastSignInDate}; path=/; max-age=${60 * 60 * 24 * 365}`;
         }
 
         loginPopup.html(`
@@ -140,7 +142,7 @@ $(document).ready(async function () {
             <button class="auth0-login-btn" id="google-login">Sign in with Google*</button>
             <p class="footnote" style="color: #000;">*You'll be redirected to Google's sign-in page, where you can securely enter your credentials. But if you signed in before you'll be redirected to Google then back automatically.</p>
             <a style="color: #000; text-decoration: none; font-size: 60%;" href="https://www.okta.com/privacy-policy/" target="_blank">Click here to learn more about how Auth0 manages your data. <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-            `);
+        `);
         addCloseButtonListener();
 
         $('#google-login').on('click', async function () {
