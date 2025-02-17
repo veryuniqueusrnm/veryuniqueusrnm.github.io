@@ -171,6 +171,20 @@ $(document).ready(async function () {
                 connection: 'github'
             });
         });
+        
+        $('#google-login').on('click', async function () {
+            await auth0Client.loginWithRedirect({
+                redirect_uri: window.location.origin,
+                connection: 'google-oauth2'
+            });
+        });
+
+        $('#facebook-login').on('click', async function () {
+            await auth0Client.loginWithRedirect({
+                redirect_uri: window.location.origin,
+                connection: 'facebook'
+            });
+        });
     }
 });
 
