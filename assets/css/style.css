@@ -738,22 +738,28 @@ span.close-btn div.bar:nth-child(2) {
     font-size: 16px;
 }
 
+#facebook-login {
+    background-color: #1877F2;
+    color: #FFF;
+    border-radius: 5px;
+}
+
 #google-login {
     background-color: #4285F4;
-    color: white;
+    color: FFF;
     border-radius: 5px;
 }
 
 #github-login {
     background-color: #333;
-    color: white;
+    color: FFF;
     border-radius: 5px;
 }
 
 .auth0-logout-btn {
     padding: 10px 20px;
     background-color: #FF5733;
-    color: white;
+    color: FFF;
     border: none;
     cursor: pointer;
     border-radius: 5px;
