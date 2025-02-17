@@ -151,6 +151,7 @@ $(document).ready(async function () {
         loginPopup.html(`
             <span class="close-btn"><i class="fa-solid fa-x"></i></span>
             <p style="margin-top: 0px !important;">Sign in</p>
+            <button class="facebook-login-btn" id="facebook-login">Sign in with Facebook*</button>
             <button class="auth0-login-btn" id="google-login">Sign in with Google*</button>
             <button class="auth0-login-btn" id="github-login">Sign in with GitHub*</button>
             <p class="footnote" style="color: #000;">*You'll be redirected to the provider's sign-in page, where you can securely enter your credentials. If you've signed in before, you'll be redirected automatically.</p>
