@@ -740,9 +740,13 @@ span.close-btn div.bar:nth-child(2) {
 
 #facebook-login {
     padding: 10px 20px;
+    margin: 10px;
     background-color: #1877F2;
     color: #FFF;
     border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
 }
 
 #google-login {
@@ -781,8 +785,4 @@ span.close-btn div.bar:nth-child(2) {
     transition: filter 1s ease;
 }
 
-.userDetails:hover .email-blurred:hover {
-    filter: blur(0px);
-    transition: filter 1s ease;
-}
 /* /login popup */
