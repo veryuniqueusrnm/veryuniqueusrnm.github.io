@@ -48,7 +48,7 @@
             $(function () {
   var includes = $('[data-include]')
   $.each(includes, function () {
-    var file = 'views/' + $(this).data('include') + '.html'
+    var file = 'incl/' + $(this).data('include') + '.html'
     $(this).load(file)
   })
 })
@@ -65,7 +65,7 @@
                     Please enable JavaScript to use this site.
                 </div>
             </noscript>
-            <header data-include="/incl/header">
+            <header data-include="header">
             </header>
             <div class="dropdown" id="dropdown" style="display: none;">
             </div>
