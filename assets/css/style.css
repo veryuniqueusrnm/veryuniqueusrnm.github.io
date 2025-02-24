@@ -786,9 +786,3 @@ span.close-btn div.bar:nth-child(2) {
 }
 
 /* /login popup */
-
-div.bubble {
-    background-color: #FFF;
-    border-radius: 10px;
-    color: #000;
-}

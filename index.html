@@ -44,15 +44,6 @@
         <script>
             anchors.add();
         </script>
-        <script> 
-            $(function () {
-  var includes = $('[data-include]')
-  $.each(includes, function () {
-    var file = 'incl/' + $(this).data('include') + '.html'
-    $(this).load(file)
-  })
-})
-            </script> 
     </head>
     <body>
         <!-- Outdated browser notice (IE 11 and older) -->
@@ -65,9 +56,80 @@
                     Please enable JavaScript to use this site.
                 </div>
             </noscript>
-            <header data-include="header">
+            <header>
+                <div class="smallmenu">
+                    <a href="/" title="Home" class="logo">Home</a>
+                    <nav class="links">
+                        <a href="#about-me" class="nav-btn">About</a>
+                        <div class="menu-container">
+                            <a href="#" class="menu-button">Good-to-know <i class="fas fa-chevron-down"></i></a>
+                            <div class="menu">
+                                <a href="#copyright"><i class="fa-solid fa-copyright"></i> Copyright</a>
+                            </div>
+                        </div>
+                        <div class="menu-container">
+                            <a href="#" class="menu-button">Page archive <i class="fas fa-chevron-down"></i></a>
+                            <div class="menu">
+                                <a href="https://web.archive.org/web/20240118072422/https://szeccsa.repl.co/" target="_blank"><i class="fa-solid fa-arrow-rotate-right"></i> 18th January 2024</a>
+                                <a href="https://web.archive.org/web/20231003140834/https://szeccsa.repl.co/" target="_blank"><i class="fa-solid fa-arrow-rotate-right"></i> 3rd October 2023</a>
+                                <a href="https://web.archive.org/web/20230911140217/https://szeccsa.repl.co/" target="_blank"><i class="fa-solid fa-arrow-rotate-right"></i> 11th September 2023</a>
+                                <a href="https://web.archive.org/web/20230819180556/https://szeccsa.repl.co/" target="_blank"><i class="fa-solid fa-arrow-rotate-right"></i> 19th August 2023</a>
+                                <a href="https://web.archive.org/web/20230803151002/https://szeccsa.repl.co/" target="_blank"><i class="fa-solid fa-arrow-rotate-right"></i> 3rd August 2023</a>
+                                <a href="https://web.archive.org/web/20230724151106/http://szeccsa.repl.co/" target="_blank"><i class="fa-solid fa-arrow-rotate-right"></i> 24th July 2023</a>
+                                <a href="https://web.archive.org/web/20230629105703/https://szeccsa.repl.co/" target="_blank"><i class="fa-solid fa-arrow-rotate-right"></i> 29th June 2023</a>
+                            </div>
+                        </div>
+                        <a href="#pc-specs" class="nav-btn">PC Specs</a>
+                        <div class="menu-container">
+                            <a href="#" class="menu-button">Projects <i class="fas fa-chevron-down"></i></a>
+                            <div class="menu" style="left: -110px;">
+                                <a href="https://modrinth.com/resourcepack/equipment-hider" target="_blank"><i class="fa-solid fa-layer-group"></i> Equipment Hider</a>
+                                <a href="https://modrinth.com/resourcepack/classic-damage-sounds" target="_blank"><i class="fa-solid fa-layer-group"></i> Classic Damage Sounds</a>
+                                <a href="https://github.com/veryuniqueusrnm/embed-blocker" target="_blank"><i class="fa-solid fa-code"></i> Embed Blocker</a>
+                                <a href="https://github.com/veryuniqueusrnm/jquery-include-html" target="_blank"><i class="fa-solid fa-code"></i> Jquery Include HTML (Deprecated)</a>
+                            </div>
+                        </div>
+                        <div class="nav-btn account"><i class="fa-solid fa-user"></i></div>
+                        <div class="hamburger">
+                            <span class="bar"></span>
+                            <span class="bar"></span>
+                            <span class="bar"></span>
+                        </div>
+                    </nav>
+                </div>
             </header>
-            <div class="dropdown" id="dropdown" style="display: none;">
+            <div class="dropdown" style="display: none;">
+                <nav class="dropdown-menu">
+                    <a href="#about-me" class="nav-btn">About</a>
+                    <div class="menu-container-mobile">
+                        <a href="#" class="menu-button-mobile">Good-to-know <i class="fas fa-chevron-down"></i></a>
+                        <div class="submenu">
+                            <a href="#copyright"><i class="fa-solid fa-copyright"></i> Copyright</a>
+                        </div>
+                    </div>
+                    <div class="menu-container-mobile">
+                        <a href="#" class="menu-button-mobile">Page archive <i class="fas fa-chevron-down"></i></a>
+                        <div class="submenu">
+                            <a href="https://web.archive.org/web/20240118072422/https://szeccsa.repl.co/" target="_blank"><i class="fa-solid fa-arrow-rotate-right"></i> 18th January 2024</a>
+                            <a href="https://web.archive.org/web/20231003140834/https://szeccsa.repl.co/" target="_blank"><i class="fa-solid fa-arrow-rotate-right"></i> 3rd October 2023</a>
+                            <a href="https://web.archive.org/web/20230911140217/https://szeccsa.repl.co/" target="_blank"><i class="fa-solid fa-arrow-rotate-right"></i> 11th September 2023</a>
+                            <a href="https://web.archive.org/web/20230819180556/https://szeccsa.repl.co/" target="_blank"><i class="fa-solid fa-arrow-rotate-right"></i> 19th August 2023</a>
+                            <a href="https://web.archive.org/web/20230803151002/https://szeccsa.repl.co/" target="_blank"><i class="fa-solid fa-arrow-rotate-right"></i> 3rd August 2023</a>
+                            <a href="https://web.archive.org/web/20230724151106/http://szeccsa.repl.co/" target="_blank"><i class="fa-solid fa-arrow-rotate-right"></i> 24th July 2023</a>
+                            <a href="https://web.archive.org/web/20230629105703/https://szeccsa.repl.co/" target="_blank"><i class="fa-solid fa-arrow-rotate-right"></i> 29th June 2023</a>
+                        </div>
+                    </div>
+                    <a href="#pc-specs" class="nav-btn">PC Specs</a>
+                    <div class="menu-container-mobile">
+                        <a href="#" class="menu-button-mobile">Projects <i class="fas fa-chevron-down"></i></a>
+                        <div class="submenu">
+                                <a href="https://modrinth.com/resourcepack/equipment-hider" target="_blank"><i class="fa-solid fa-layer-group"></i> Equipment Hider</a>
+                            <a href="https://modrinth.com/resourcepack/classic-damage-sounds" target="_blank"><i class="fa-solid fa-layer-group"></i> Classic Damage Sounds</a>
+                            <a href="https://github.com/veryuniqueusrnm/embed-blocker" target="_blank"><i class="fa-solid fa-code"></i> Embed Blocker</a>
+                            <a href="https://github.com/veryuniqueusrnm/jquery-include-html" target="_blank"><i class="fa-solid fa-code"></i> Jquery Include HTML (Deprecated)</a>
+                        </div>
+                    </div>
+                </nav>
             </div>
             <div class="hero">
                 <div class="description">
@@ -78,7 +140,7 @@
                         <a href="https://modrinth.com/user/VeryUniqueUsrnm" target="_blank">Looking for Minecraft resources? <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                         <a href="https://github.com/veryuniqueusrnm?tab=repositories" target="_blank">Looking for my other projects? <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                     </div>
-                    <p class="footnote">Youhuu the racka sheep is the property of World Athletics. No personnel has approved to use it.<br/>I'm not trying to advertise, gain any income or to get famous with it! I just like its design so much...</p>
+                    <!--p class="footnote">Youhuu the racka sheep is the property of World Athletics. No personnel has approved to use it.<br/>I'm not trying to advertise, gain any income or to get famous with it! I just like its design so much...</p-->
                 </div>
             </div>
             <div class="about">
@@ -175,8 +237,8 @@
                               <p>Master of typos</br>
                                 18 // 101% straight // Have a gf</br>
                                 181 centimeters tall but 55 kilos💀</br>
-                                English is not my first language so please be patient</br>
-                                I hate furries, I’m not like y’all</p>
+                                English is not my first language so please be patient
+                              </p>
                             </div>
                             <div class="basic-infos">
                               <div class="category-title">Member Since</div>
@@ -196,7 +258,7 @@
                     </div>
                     <br/>
                     <p>Fucking Elon Musk fucked up something with the fucking Twitter timeline and sends fucking error 429 for the fifth fucking day.</p>
-                    <!--a class="twitter-timeline" href="https://twitter.com/rackajuhu?ref_src=twsrc%5Etfw">Tweets by rackajuhu</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script-->
+                    <a class="twitter-timeline" href="https://twitter.com/rackajuhu?ref_src=twsrc%5Etfw">Tweets by rackajuhu</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                     <br/>
                     <div class="calendar">
                         Loading the data just for you.
@@ -208,7 +270,7 @@
                     </script>
                 </div>
             </div>
-            <footer id="footer"></footer>
+            <footer include-html="/incl/footer.html"></footer>
         </div>
         <div class="overlay">
             <div class="login-popup">
