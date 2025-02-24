@@ -11,35 +11,6 @@ $(document).ready(function () {
     }
 });
 
-//Jquery Include HTML
-$(function(){
-    function loadContent(selector, url) {
-        $(selector).load(url, function(response, status) {
-            if (status === "error") {
-                $(selector).html(`<div class='fallback'>Content could not be loaded from ${url}, using fallback. Please check the console for more information.</div>`);
-            }
-        });
-    }
-
-    $('<style>').prop('type', 'text/css').html(`
-        .fallback {
-            padding: 20px;
-            background-color: #f8d7da;
-            color: #721c24;
-            border: 1px solid #f5c6cb;
-            border-radius: 5px;
-            text-align: center;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            margin: 10px 0;
-        }
-    `).appendTo('head');
-
-    loadContent("#header", "/incl/header.html");  
-    loadContent("#dropdown", "/incl/mobiledropdown.html");  
-    loadContent("#includedContent2", "c.html");
-});
-
-
 // Auth0 stuff
 $(document).ready(async function () {
     const accountButton = $('.nav-btn.account');

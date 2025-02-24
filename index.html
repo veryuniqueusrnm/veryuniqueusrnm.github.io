@@ -46,7 +46,9 @@
         </script>
         <script> 
             $(function(){
-              $("#header").load("/incl/header.html"); 
+              $("#header").load("/incl/header.html");
+              $("#footer").load("/incl/footer.html");
+              $("#dropdown").load("/incl/mobiledropdown.html");
             });
             </script> 
     </head>
@@ -204,7 +206,7 @@
                     </script>
                 </div>
             </div>
-            <footer include-html="/incl/footer.html"></footer>
+            <footer id="footer"></footer>
         </div>
         <div class="overlay">
             <div class="login-popup">
