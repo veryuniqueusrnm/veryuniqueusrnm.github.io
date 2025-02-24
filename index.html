@@ -45,11 +45,13 @@
             anchors.add();
         </script>
         <script> 
-            $(function(){
-              $("#header").load("/incl/header.html");
-              $("#footer").load("/incl/footer.html");
-              $("#dropdown").load("/incl/mobiledropdown.html");
-            });
+            $(function () {
+  var includes = $('[data-include]')
+  $.each(includes, function () {
+    var file = 'views/' + $(this).data('include') + '.html'
+    $(this).load(file)
+  })
+})
             </script> 
     </head>
     <body>
@@ -63,7 +65,7 @@
                     Please enable JavaScript to use this site.
                 </div>
             </noscript>
-            <header id="header">
+            <header data-include="/incl/header.html">
             </header>
             <div class="dropdown" id="dropdown" style="display: none;">
             </div>
