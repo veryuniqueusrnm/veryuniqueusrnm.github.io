@@ -280,7 +280,6 @@ $(document).ready(function () {
         const latestCommit = data[0];
         const commitId = latestCommit.sha.substring(0, 7);
         const commitDate = new Date(latestCommit.commit.author.date).toLocaleDateString();
-        const commitMessage = latestCommit.commit.message;
         const commitUrl = latestCommit.html_url;
 
         $("#commit-info").html(
