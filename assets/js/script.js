@@ -35,7 +35,7 @@ $(function(){
     `).appendTo('head');
 
     loadContent("#header", "/incl/header.html");  
-    loadContent("#includedContent1", "b.html");  
+    loadContent("#dropdown", "/incl/mobiledropdown.html");  
     loadContent("#includedContent2", "c.html");
 });
 
