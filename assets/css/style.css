@@ -1,0 +1,432 @@
+html,
+body {
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: #000;
+}
+
+input,
+textarea,
+select {
+    position: relative;
+    border-radius: 4px;
+    background: #303030;
+    border: 1px solid #606060;
+    padding: 4px;
+    font: 12px system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: #909090;
+    width: 430px;
+    overflow: auto;
+}
+
+input:focus,
+textarea:focus {
+    background: #606060;
+    border: 1px solid #606060;
+    color: #FFFFFF;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a {
+    text-decoration: none;
+}
+
+a {
+    color: #FFD800;
+    outline: none;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+div.container {
+    display: block;
+    margin: 0px auto 0px auto;
+    width: 1000px;
+    height: 1000px;
+}
+
+header {
+    width: 100%;
+    height: 100px;
+}
+
+header div.menu {
+    display: block;
+    width: 100%;
+    height: 100px;
+}
+
+header div.menu a.logo {
+    display: flex;
+    position: relative;
+    align-items: center;
+    background-image: url(/assets/i/Youhuu/Wave.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 100px;
+    height: 100px;
+    color: #FFF;
+    font-size: 30px;
+}
+
+header div.menu a.logo span {
+    display: flex;
+    padding-left: 100px;
+    padding-top: 15px;
+}
+
+header div.menu select.langSelector {
+    position: relative;
+    display: block;
+    float: right;
+    background-color: #303030;
+    border: none;
+    padding: 9px;
+    border-radius: 5px;
+    width: auto;
+    margin-top: -65px;
+    color: #FFF;
+    cursor: pointer;
+    margin-right: 100px;
+}
+
+header div.menu button.login {
+    position: relative;
+    display: block;
+    float: right;
+    background-color: #303030;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    width: 70px;
+    margin-top: -65px;
+    color: #FFF;
+    cursor: pointer;
+}
+
+div.content {
+    height: 1000px;
+    width: 100%;
+    display: block;
+    overflow: auto;
+    background-color: #303030;
+    border-radius: 5px;
+}
+
+div.box {
+    position: relative;
+    background: #000000;
+    font: 12px system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: #999999;
+    width: 280px;
+    overflow: auto;
+    float: right;
+    padding: 8px 7px 8px 7px;
+    margin: 10px;
+    display: block;
+    line-height: 17px;
+    border-radius: 5px;
+    box-shadow: 5px 5px 3px 2px #262626;
+}
+
+
+div.box_title {
+    position: relative;
+    font: 14px system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: #FFFFFF;
+    font-weight: bold;
+    overflow: auto;
+    background: #606060;
+    padding: 5px 7px 4px 7px;
+    margin: 0px 0px 6px 0px;
+    vertical-align: middle;
+    display: block;
+    border-radius: 5px 5px 0px 0px;
+}
+
+div.box p {
+    padding: 0px 10px 0px 10px;
+    text-align: justify;
+}
+
+div.mainPromoRotator {
+    position: relative;
+    float: left;
+    width: 640px;
+}
+
+div.mainPromoRotator ul {
+    margin: 0;
+    padding: 0;
+}
+
+div.mainPromoRotator ul li {
+    display: block;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+div.mainPromoRotator div.promos {
+    display: block;
+    width: 640px;
+    height: 340px;
+    overflow: hidden;
+}
+
+div.mainPromoRotator div.promos ul {
+    width: 640px;
+    height: 340px;
+}
+
+div.mainPromoRotator div.promos ul li {
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: block;
+    width: 640px;
+    height: 340px;
+}
+
+div.mainPromoRotator div.promos ul li a.lnkMore,
+div.mainPromoRotator div.promos ul li a.lnkMore span {
+    display: block;
+    width: 640px;
+    height: 286px;
+}
+
+div.mainPromoRotator div.promos ul li a.lnkMore {
+    position: absolute;
+    left: 0;
+    top: 10px;
+    z-index: 1;
+}
+
+div.mainPromoRotator div.promos ul li a.lnkMore span {
+    visibility: hidden !important;
+}
+
+div.mainPromoRotator div.promos ul li img.promoImage {
+    display: block;
+    width: 640px;
+    height: 340px;
+}
+
+div.mainPromoRotator div.menuItemsContainer {
+    position: absolute;
+    top: 286px;
+    z-index: 5000;
+    width: 640px;
+    height: 44px;
+}
+
+div.mainPromoRotator div.menuItemsContainer div.jcarousel-container {
+    overflow: hidden;
+}
+
+div.mainPromoRotator div.menuItemsContainer div.jcarousel-prev {
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 39px;
+    height: 44px;
+    background-position: 0 -44px;
+}
+
+div.mainPromoRotator.menuitems-scrollable div.menuItemsContainer div.jcarousel-prev {
+    background-position: 0 0;
+    cursor: pointer;
+}
+
+div.mainPromoRotator div.menuItemsContainer div.jcarousel-next {
+    position: absolute;
+    left: 681px;
+    top: 0;
+    width: 39px;
+    height: 44px;
+    background-position: -39px -44px;
+}
+
+div.mainPromoRotator.menuitems-scrollable div.menuItemsContainer div.jcarousel-next {
+    background-position: -39px 0;
+    cursor: pointer;
+}
+
+div.mainPromoRotator div.menuItemsContainer div.jcarousel-clip {
+    position: absolute;
+    left: 39px;
+    width: 642px;
+    height: 54px;
+    overflow: hidden;
+}
+
+div.mainPromoRotator ul.menuItems {
+    margin: 0;
+    height: 44px;
+}
+
+div.mainPromoRotator ul.jcarousel-list {
+    margin-top: 10px;
+}
+
+div.mainPromoRotator ul.menuItems li {
+    display: block;
+    float: left;
+    padding: 0 13px;
+    height: 34px;
+    overflow: hidden;
+}
+
+div.mainPromoRotator ul.menuItems li.active a {
+    color: #FFD800;
+}
+
+div.mainPromoRotator ul.menuItems li a {
+    font-size: 14px;
+    font-family: telenor, arial, sans-serif;
+    line-height: 34px;
+    color: #fff;
+    display: block;
+    width: auto;
+    height: 34px;
+    overflow: hidden;
+}
+
+div.mainPromoRotator ul.menuItems li a:hover {
+    text-decoration: none;
+}
+
+div.mainPromoRotator ul.menuItems li,
+div.mainPromoRotator ul.menuItems li.active {
+    background: none !important;
+}
+
+div.mainPromoRotator span.maskTop,
+div.mainPromoRotator span.maskBottom {
+    display: none !important;
+}
+
+div.mainPromoRotator div.menuItemsContainer div.jcarousel-prev {
+    background-position: 0 9px !important;
+}
+
+div.mainPromoRotator div.menuItemsContainer div.jcarousel-next {
+    background-position: -20px 9px !important;
+    left: 620px;
+}
+
+div.mainPromoRotator div.menuItemsContainer div.jcarousel-prev,
+div.mainPromoRotator div.menuItemsContainer div.jcarousel-next {
+    cursor: pointer;
+    top: 0 !important;
+    height: 34px !important;
+    width: 20px;
+    cursor: pointer;
+    background-image: url(/assets/i/sprite_promo-carousel-pager.png) !important;
+    background-repeat: no-repeat;
+    background-color: rgba(0, 0, 0, .3);
+}
+
+div.mainPromoRotator div.menuItemsContainer div.jcarousel-clip {
+    position: relative;
+    width: 600px;
+    left: 20px;
+    background: rgba(0, 0, 0, .3);
+    height: 34px;
+}
+
+div.mainPromoRotator div.menuItemsContainer {
+    top: 306px;
+    height: 34px;
+}
+
+div.mainPromoRotator ul.menuItems li {
+    margin: 0;
+}
+
+div.mainPromoRotator .image {
+    position: absolute;
+    top: 15px;
+    left: -180px;
+}
+
+div.mainPromoRotator .description {
+    position: absolute;
+    top: 33px;
+    left: 219px;
+}
+
+div.mainPromoRotator .description h3.title {
+    font-weight: bold;
+    font-size: 31px;
+}
+
+div.mainPromoRotator .description h3.subtitle {
+    font-size: 20px;
+}
+
+div.mainPromoRotator .description h3.footnote {
+    font-size: 10px;
+    max-width: 290px;
+}
+
+div.content>div.side {}
+
+footer {
+    margin: 0px auto 0px auto;
+    padding-top: 15px;
+    width: 1000px;
+    height: 90px;
+    background-color: #000000;
+    text-align: center;
+    font: 10px Trebuchet, Helvetica, sans-serif;
+    color: #606060;
+    line-height: 20px !important;
+}
+
+footer a {
+    color: #FFD800 !important;
+    text-decoration: none;
+    margin: 15px;
+}
+
+footer a:hover {
+    color: #FFD800 !important;
+    text-decoration: underline;
+}
+
+footer a, p#commit-info {
+    display: inline;
+}
+
+.warning {
+    text-align: center;
+    padding: 6px;
+}
+
+.warning-red {
+    background-color: #fdd;
+}
+
+.warning-yellow {
+    background-color: #ffd;
+    color: #a80;
+    font-weight: bold;
+}
+
+.warning-green{
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
