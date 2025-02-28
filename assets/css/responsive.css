@@ -1,0 +1,77 @@
+@media (max-width: 1020px) {
+    div.container {
+        width: 100%;
+    }
+    
+    div.content {
+        border-radius: 0px;
+        width: 100%;
+    }
+
+    div.content div.side {
+        float: left;
+        width: 100%;
+    }
+
+    div.content div.side div.box {
+        float: left;
+        clear:both;
+        width: 90% !important;
+    }
+
+    div.content div.box {
+        float: left;
+        clear:both;
+        width: 90% !important;
+    }
+
+    div.mainPromoRotator, div.mainPromoRotator div.promos, div.mainPromoRotator div.promos ul, div.mainPromoRotator div.promos ul li a.lnkMore, div.mainPromoRotator div.promos ul li a.lnkMore span, div.mainPromoRotator div.promos ul li, div.mainPromoRotator div.menuItemsContainer, div.mainPromoRotator div.menuItemsContainer ul {
+        width: 100% !important;
+    }
+
+    div.mainPromoRotator div.menuItemsContainer div.jcarousel-clip {
+        width: 95%;
+    }
+
+    footer {
+        width: 100%;
+    }
+
+    header div.menu {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    div.mainPromoRotator .description h3.title {
+        position: relative;
+        font-size: 16px;
+        right: 25px !important;
+    }
+
+    div.mainPromoRotator .description h3.subtitle {
+        position: relative;
+        font-size: 12px;
+        right: 25px !important;
+    }
+
+    div.mainPromoRotator .description h3.footnote {
+        position: relative;
+        font-size: 8px;
+        right: 25px !important;
+    }
+
+    div.mainPromoRotator div.menuItemsContainer div.jcarousel-next {
+        left: 94.2%;
+        background-color:transparent;
+    }
+
+    div.mainPromoRotator ul.menuItems li {
+        padding: 0 5px;
+    }
+
+    div.mainPromoRotator div.menuItemsContainer ul li {
+        width: 32%;
+    }
+
+}
