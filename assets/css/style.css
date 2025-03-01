@@ -6,6 +6,11 @@ body {
     background-color: #000;
 }
 
+::selection {
+    color: unset;
+    background: none;
+}
+
 input,
 textarea,
 select {
