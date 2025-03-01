@@ -422,3 +422,8 @@ p#browserUpdateNotice {
 p#browserDetails {
     display: none;
 }
+
+div.box h1, h2, h3, p, img, sup {
+    padding: 0px 10px 0px 10px;
+    text-align: justify;
+}
