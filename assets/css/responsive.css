@@ -94,4 +94,7 @@
         height: 420px;
     }
 
+    div.mainPromoRotator .image.floatfix {
+        top: -20px;
+    }
 }
