@@ -70,7 +70,7 @@ header div.menu a.logo {
     display: flex;
     position: relative;
     align-items: center;
-    background-image: url(/assets/i/Youhuu_headerLogo_mc.png);
+    background-image: url(/assets/i/Youhuu_headerLogo_mc_noshadows.png);
     background-repeat: no-repeat;
     background-size: contain;
     width: 100px;
