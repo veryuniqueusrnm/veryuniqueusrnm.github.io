@@ -95,6 +95,7 @@
     }
 
     img.floatfix {
+        position: relative;
         top: -20px;
     }
 }
