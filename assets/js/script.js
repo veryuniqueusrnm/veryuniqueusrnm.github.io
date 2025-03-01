@@ -27,7 +27,7 @@ $(document).ready(function () {
         const commitUrl = latestCommit.html_url;
 
         $("#commit-info").html(
-            `Latest commit: <strong><a class="link" href="${commitUrl}" target="_blank">${commitId}</a></strong> | ${commitDate}`
+            `Latest commit: <strong><a class="link" href="${commitUrl}" target="_blank">${commitId}</a></strong> // ${commitDate}`
         );
     }).fail(function () {
         console.error("Failed to fetch commit data.");
