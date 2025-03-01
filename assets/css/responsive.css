@@ -27,7 +27,6 @@
 
     div.mainPromoRotator, div.mainPromoRotator div.promos, div.mainPromoRotator div.promos ul, div.mainPromoRotator div.promos ul li a.lnkMore, div.mainPromoRotator div.promos ul li a.lnkMore span, div.mainPromoRotator div.promos ul li {
         width: 100% !important;
-        height: 390px;
     }
 
     footer {
