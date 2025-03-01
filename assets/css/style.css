@@ -414,3 +414,11 @@ td, th {
     background-color: #d4edda;
     border-color: #c3e6cb;
 }
+
+p#browserUpdateNotice {
+    display: none;
+}
+
+p#browserDetails {
+    display: none;
+}
