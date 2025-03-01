@@ -11,6 +11,14 @@ $(document).ready(function() {
     }
 });
 
+// Cufon fix
+var Cufon = {
+	// just for if cufon called somewhere, dont trow exception
+	replace : function(){
+		console.log('cufon called!');
+	}
+};
+
 // Get commit info
 $(document).ready(function () {
     const username = "veryuniqueusrnm";
@@ -34,7 +42,7 @@ $(document).ready(function () {
     });
 });
 
-/* main promo rotator */
+/* MainPromoRotator (2011) */
 (function($){
 
 	$.fn.mainPromoRotator = function(options){
