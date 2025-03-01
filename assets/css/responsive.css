@@ -72,6 +72,7 @@
 
     div.mainPromoRotator div.promos, div.mainPromoRotator div.promos ul, div.mainPromoRotator div.promos ul li {
         height: 390px;
+        background-color: #000 !important;
     }
 
     div.mainPromoRotator .description {
