@@ -94,7 +94,7 @@
         height: 420px;
     }
 
-    div.mainPromoRotator .image.floatfix {
+    div.mainPromoRotator div.description .image.floatfix {
         top: -20px;
     }
 }
