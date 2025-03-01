@@ -27,6 +27,7 @@
 
     div.mainPromoRotator, div.mainPromoRotator div.promos, div.mainPromoRotator div.promos ul, div.mainPromoRotator div.promos ul li a.lnkMore, div.mainPromoRotator div.promos ul li a.lnkMore span, div.mainPromoRotator div.promos ul li {
         width: 100% !important;
+        height: 390px;
     }
 
     footer {
@@ -41,20 +42,24 @@
 
     div.mainPromoRotator .description h3.title {
         position: relative;
-        font-size: 16px;
-        right: 25px !important;
+        font-size: 100%;
+        margin: auto;
+        width: 50%;
+        margin-top: 30px;
     }
 
     div.mainPromoRotator .description h3.subtitle {
         position: relative;
-        font-size: 12px;
-        right: 25px !important;
+        font-size: 100%;
+        margin: auto;
+        width: 50%;
     }
 
     div.mainPromoRotator .description h3.footnote {
         position: relative;
-        font-size: 8px;
-        right: 25px !important;
+        font-size: 80%;
+        margin: auto;
+        width: 50%;
     }
 
     td, th {
@@ -66,7 +71,27 @@
     }
 
     div.mainPromoRotator div.promos, div.mainPromoRotator div.promos ul, div.mainPromoRotator div.promos ul li {
-        height: 315px;
+        height: 390px;
+    }
+
+    div.mainPromoRotator .description {
+        position: relative;
+        top: 0px;
+        left: 0px;
+        color: #FFF;
+    }
+
+    div.mainPromoRotator .image {
+        position: relative;
+        top: 0px;
+        left: 0px;
+        display: block;
+        margin: auto;
+        width: 70%;
+    }
+
+    div.box.hero {
+        height: 420px;
     }
 
 }

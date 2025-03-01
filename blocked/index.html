@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate">
+        <meta http-equiv="X-Content-Type-Options" content="nosniff">
+        <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains">
+        <title>Access Denied</title>
+        <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="/assets/css/style.css">
+        <link rel="stylesheet" href="/assets/css/responsive.css">
+        <!--[if IE 11]> <link rel="stylesheet" media="screen" type="text/css" href="/assets/css/fallback.css"/  > <![endif]-->
+        <!--[if lte IE 10]> <link rel="stylesheet" media="screen "type="text/css" href="/assets/css/fallback.css"/  > <![endif]-->
+
+        <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+        <script src="https://code.jquery.com/jquery-migrate-3.5.2.js"></script>
+        <script src="/assets/js/thirdparty.js"></script>
+        <script src="/assets/js/script.js"></script>
+        <script>
+            if (window.self !== window.top) {
+                window.location.href = "/blocked";
+            }
+        </script>
+    </head>
+    <body>
+        <!-- Outdated browser notice (IE 11 and older) -->
+        <p id="browserUpdateNotice">Your browser is not supported by this website. Please consider updating to a modern, more secure browser.</p>
+        <p id="browserDetails"></p>
+        <!-- // -->
+        <noscript>
+            <div id="javascript-warning" class="warning warning-yellow">
+                Please enable JavaScript to use this site.
+            </div>
+        </noscript>
+        <div class="container">
+            <script>alert("You access to the website has been blocked.");</script>
+        </div>
+    </body>
+</html>

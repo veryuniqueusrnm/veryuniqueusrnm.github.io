@@ -325,8 +325,8 @@ div.mainPromoRotator ul.menuItems li {
 
 div.mainPromoRotator .image {
     position: absolute;
-    top: 15px;
-    left: -180px;
+    top: 0px;
+    left: -250px;
 }
 
 div.mainPromoRotator .description {
