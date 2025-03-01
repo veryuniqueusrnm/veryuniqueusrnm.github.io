@@ -69,7 +69,7 @@
     }
 
     div.mainPromoRotator div.promos, div.mainPromoRotator div.promos ul, div.mainPromoRotator div.promos ul li {
-        height: 390px;
+        height: 380px;
     }
 
     div.mainPromoRotator .description {
@@ -89,7 +89,7 @@
     }
 
     div.box.hero {
-        height: 420px;
+        height: 430px;
     }
 
     div.mainPromoRotator, div.mainPromoRotator div.promos, div.mainPromoRotator div.promos ul, div.mainPromoRotator div.promos ul li a.lnkMore, div.mainPromoRotator div.promos ul li a.lnkMore span, div.mainPromoRotator div.promos ul li {
