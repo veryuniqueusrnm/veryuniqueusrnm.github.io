@@ -79,6 +79,7 @@
         top: 0px;
         left: 0px;
         color: #FFF;
+        background-color: #000;
     }
 
     div.mainPromoRotator .image {
@@ -94,8 +95,4 @@
         height: 420px;
     }
 
-    img.floatfix {
-        position: relative;
-        top: -20px;
-    }
 }
