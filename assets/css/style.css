@@ -357,8 +357,7 @@ div.content > div.side {
 }
 
 footer {
-    margin: 0px auto 0px auto;
-    padding-top: 15px;
+    margin: 15px;
     width: 1000px;
     height: 90px;
     background-color: #000000;
