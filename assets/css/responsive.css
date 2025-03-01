@@ -25,20 +25,23 @@
         width: 90% !important;
     }
 
-    div.mainPromoRotator, div.mainPromoRotator div.promos, div.mainPromoRotator div.promos ul, div.mainPromoRotator div.promos ul li a.lnkMore, div.mainPromoRotator div.promos ul li a.lnkMore span, div.mainPromoRotator div.promos ul li {
-        width: 100% !important;
+    div.mainPromoRotator div.menuItemsContainer {
+        display: none !important;
     }
 
     footer {
         width: 95%;
     }
+    
+}
 
-    header div.menu {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+@media (max-width: 740px) {
+    div.mainPromoRotator, div.mainPromoRotator div.promos, div.mainPromoRotator div.promos ul, div.mainPromoRotator div.promos ul li, div.mainPromoRotator div.promos ul li a.lnkMore, div.mainPromoRotator div.promos ul li a.lnkMore span {
+        width: 100%;
     }
+}
 
+@media (max-width: 600px) {
     div.mainPromoRotator .description h3.title {
         position: relative;
         font-size: 100%;
@@ -65,13 +68,8 @@
         font-size: 75%;
     }
 
-    div.mainPromoRotator div.menuItemsContainer {
-        display: none !important;
-    }
-
     div.mainPromoRotator div.promos, div.mainPromoRotator div.promos ul, div.mainPromoRotator div.promos ul li {
         height: 390px;
-        background-color: #000 !important;
     }
 
     div.mainPromoRotator .description {
@@ -93,5 +91,10 @@
     div.box.hero {
         height: 420px;
     }
+
+    div.mainPromoRotator, div.mainPromoRotator div.promos, div.mainPromoRotator div.promos ul, div.mainPromoRotator div.promos ul li a.lnkMore, div.mainPromoRotator div.promos ul li a.lnkMore span, div.mainPromoRotator div.promos ul li {
+        width: 100% !important;
+    }
+
 
 }
