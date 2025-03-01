@@ -25,12 +25,8 @@
         width: 90% !important;
     }
 
-    div.mainPromoRotator, div.mainPromoRotator div.promos, div.mainPromoRotator div.promos ul, div.mainPromoRotator div.promos ul li a.lnkMore, div.mainPromoRotator div.promos ul li a.lnkMore span, div.mainPromoRotator div.promos ul li, div.mainPromoRotator div.menuItemsContainer, div.mainPromoRotator div.menuItemsContainer ul {
+    div.mainPromoRotator, div.mainPromoRotator div.promos, div.mainPromoRotator div.promos ul, div.mainPromoRotator div.promos ul li a.lnkMore, div.mainPromoRotator div.promos ul li a.lnkMore span, div.mainPromoRotator div.promos ul li {
         width: 100% !important;
-    }
-
-    div.mainPromoRotator div.menuItemsContainer div.jcarousel-clip {
-        width: 95%;
     }
 
     footer {
@@ -61,21 +57,12 @@
         right: 25px !important;
     }
 
-    div.mainPromoRotator div.menuItemsContainer div.jcarousel-next {
-        left: 94.2%;
-        background-color:transparent;
-    }
-
-    div.mainPromoRotator ul.menuItems li {
-        padding: 0 5px;
-    }
-
-    div.mainPromoRotator div.menuItemsContainer ul li {
-        width: 32%;
-    }
-
     td, th {
         font-size: 75%;
+    }
+
+    div.mainPromoRotator div.menuItemsContainer {
+        display: none !important;
     }
 
 }
