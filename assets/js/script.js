@@ -1,53 +1,53 @@
 // Debugging stuff
-$(document).ready(function() {
-    if (typeof jQuery !== 'undefined') {
-        console.log("jQuery is loaded.");
-        console.log("jQuery version:", jQuery.fn.jquery);
-        if (jQuery.noConflict) {
-            console.log("jQuery is in noConflict mode.");
-        }
-    } else {
-        console.log("jQuery is not loaded.");
-    }
+$(document).ready(function () {
+	if (typeof jQuery !== 'undefined') {
+		console.log("jQuery is loaded.");
+		console.log("jQuery version:", jQuery.fn.jquery);
+		if (jQuery.noConflict) {
+			console.log("jQuery is in noConflict mode.");
+		}
+	} else {
+		console.log("jQuery is not loaded.");
+	}
 });
 
 // Cufon fix
 var Cufon = {
 	// Just for if cufon called somewhere, dont trow exception
-	replace : function(){
+	replace: function () {
 		//console.log('cufon called!');
 	}
 };
 
 // Get commit info
 $(document).ready(function () {
-    const username = "veryuniqueusrnm";
-    const repo = "veryuniqueusrnm.github.io";
-    const apiUrl = `https://api.github.com/repos/${username}/${repo}/commits`;
+	const username = "veryuniqueusrnm";
+	const repo = "veryuniqueusrnm.github.io";
+	const apiUrl = `https://api.github.com/repos/${username}/${repo}/commits`;
 
-    $.getJSON(apiUrl, function (data) {
-        if (!data || data.length === 0) return;
+	$.getJSON(apiUrl, function (data) {
+		if (!data || data.length === 0) return;
 
-        const latestCommit = data[0];
-        const commitId = latestCommit.sha.substring(0, 7);
-        const commitDate = new Date(latestCommit.commit.author.date).toLocaleDateString();
-        const commitMessage = latestCommit.commit.message;
-        const commitUrl = latestCommit.html_url;
+		const latestCommit = data[0];
+		const commitId = latestCommit.sha.substring(0, 7);
+		const commitDate = new Date(latestCommit.commit.author.date).toLocaleDateString();
+		const commitMessage = latestCommit.commit.message;
+		const commitUrl = latestCommit.html_url;
 
-        $("#commit-info").html(
-            `Latest commit: <strong><a class="link" href="${commitUrl}" target="_blank">${commitId}</a></strong> // ${commitDate}`
-        );
-    }).fail(function () {
-        console.error("Failed to fetch commit data.");
-    });
+		$("#commit-info").html(
+			`Latest commit: <strong><a class="link" href="${commitUrl}" target="_blank">${commitId}</a></strong> // ${commitDate}`
+		);
+	}).fail(function () {
+		console.error("Failed to fetch commit data.");
+	});
 });
 
 /* MainPromoRotator (2011) */
-(function($){
+(function ($) {
 
-	$.fn.mainPromoRotator = function(options){
+	$.fn.mainPromoRotator = function (options) {
 
-		return this.each(function(index, element){
+		return this.each(function (index, element) {
 			var currentPromoIndex = 0;
 			var prevPromoIndex = 0;
 			var animated = false;
@@ -57,21 +57,21 @@ $(document).ready(function () {
 			var timer;
 			var numLoadedImages = 0;
 
-			var onMenuItemClick = function(event){
+			var onMenuItemClick = function (event) {
 				changePromo($(this).parent().index());
 
 				event.stopPropagation();
 				event.preventDefault();
 			};
 
-			var getDelayValue = function($promo){
+			var getDelayValue = function ($promo) {
 				return Number($promo.attr('data-delay')) == 0 ? 5000 : Number($promo.attr('data-delay')) * 1000;
 			};
 
-			var changePromo = function(promoIndex){
+			var changePromo = function (promoIndex) {
 				var $currentPromo, $prevPromo, delay;
 
-				if(currentPromoIndex == promoIndex){
+				if (currentPromoIndex == promoIndex) {
 					return;
 				}
 
@@ -80,25 +80,25 @@ $(document).ready(function () {
 				$currentPromo = $element.find('div.promos ul li').eq(promoIndex);
 				$element.removeClass('dark-theme light-theme').addClass($currentPromo.attr('class'));
 
-				$promos.each(function(i, promo){
+				$promos.each(function (i, promo) {
 					var $this = $(this);
 					$this.stop();
 
-					if(i == prevPromoIndex){
+					if (i == prevPromoIndex) {
 						$this.css('z-index', numPromos + 1);
-					}else if(i == currentPromoIndex){
+					} else if (i == currentPromoIndex) {
 						$this.css({
-							'z-index' : numPromos + 2,
-							'opacity' : 0
+							'z-index': numPromos + 2,
+							'opacity': 0
 						});
-					}else{
+					} else {
 						$this.css('z-index', i);
 					}
 				});
 
 				$currentPromo.animate({
-					'opacity' : 1
-				}, 700, function(){
+					'opacity': 1
+				}, 700, function () {
 					animated = false;
 				});
 
@@ -110,18 +110,18 @@ $(document).ready(function () {
 				nextItemTiming(getDelayValue($currentPromo));
 			};
 
-			var nextItemTiming = function(delay){
+			var nextItemTiming = function (delay) {
 				clearTimeout(timer);
-				timer = setTimeout(function(){
-					if(currentPromoIndex < numPromos - 1){
+				timer = setTimeout(function () {
+					if (currentPromoIndex < numPromos - 1) {
 						changePromo(currentPromoIndex + 1);
-					}else{
+					} else {
 						changePromo(0);
 					}
 				}, delay);
 			};
 
-			var setMenuItemsScrollable = function(){
+			var setMenuItemsScrollable = function () {
 				var menuitemsListW = 0;
 				var scrollable;
 
@@ -132,15 +132,15 @@ $(document).ready(function () {
 					easing: 'easeOutExpo'
 				});
 
-				$element.find('ul.menuItems li').each(function(){
+				$element.find('ul.menuItems li').each(function () {
 					menuitemsListW += $(this).outerWidth();
 				});
 
 				scrollable = menuitemsListW > $element.find('.jcarousel-clip').width();
 
-				if(scrollable){
+				if (scrollable) {
 					$element.addClass('menuitems-scrollable');
-				}else{
+				} else {
 					$element.find('ul.menuItems')
 						.width($element.find('.jcarousel-clip').width() + 700)
 						.append(
@@ -164,72 +164,72 @@ $(document).ready(function () {
 
 // Script to display device details
 $(document).ready(function () {
-    function getBrowserAndDeviceDetails() {
-        var userAgent = navigator.userAgent;
-        var browserName, deviceType;
+	function getBrowserAndDeviceDetails() {
+		var userAgent = navigator.userAgent;
+		var browserName, deviceType;
 
-        // Detect browser
-        if (userAgent.indexOf("Firefox") > -1) {
-            browserName = "Mozilla Firefox";
-        } else if (userAgent.indexOf("SamsungBrowser") > -1) {
-            browserName = "Samsung Internet";
-        } else if (userAgent.indexOf("Opera") > -1 || userAgent.indexOf("OPR") > -1) {
-            browserName = "Opera";
-        } else if (userAgent.indexOf("Trident") > -1) {
-            browserName = "Microsoft Internet Explorer";
-        } else if (userAgent.indexOf("Edge") > -1) {
-            browserName = "Microsoft Edge";
-        } else if (userAgent.indexOf("Chrome") > -1) {
-            browserName = "Google Chrome";
-        } else if (userAgent.indexOf("Safari") > -1) {
-            browserName = "Apple Safari";
-        } else {
-            browserName = "Unknown Browser";
-        }
+		// Detect browser
+		if (userAgent.indexOf("Firefox") > -1) {
+			browserName = "Mozilla Firefox";
+		} else if (userAgent.indexOf("SamsungBrowser") > -1) {
+			browserName = "Samsung Internet";
+		} else if (userAgent.indexOf("Opera") > -1 || userAgent.indexOf("OPR") > -1) {
+			browserName = "Opera";
+		} else if (userAgent.indexOf("Trident") > -1) {
+			browserName = "Microsoft Internet Explorer";
+		} else if (userAgent.indexOf("Edge") > -1) {
+			browserName = "Microsoft Edge";
+		} else if (userAgent.indexOf("Chrome") > -1) {
+			browserName = "Google Chrome";
+		} else if (userAgent.indexOf("Safari") > -1) {
+			browserName = "Apple Safari";
+		} else {
+			browserName = "Unknown Browser";
+		}
 
-        // Detect device
-        if (/Mobi|Android/i.test(userAgent)) {
-            deviceType = "Mobile";
-        } else if (/Tablet|iPad/i.test(userAgent)) {
-            deviceType = "Tablet";
-        } else {
-            deviceType = "Desktop";
-        }
+		// Detect device
+		if (/Mobi|Android/i.test(userAgent)) {
+			deviceType = "Mobile";
+		} else if (/Tablet|iPad/i.test(userAgent)) {
+			deviceType = "Tablet";
+		} else {
+			deviceType = "Desktop";
+		}
 
-        return `You are using ${browserName} on a ${deviceType} device.`;
-    }
-    
-    $("#browserDetails").text(getBrowserAndDeviceDetails());
+		return `You are using ${browserName} on a ${deviceType} device.`;
+	}
+
+	$("#browserDetails").text(getBrowserAndDeviceDetails());
 });
 
 //Jquery Include HTML
 $(document).ready(function () {
-    function includeHTML() {
-        $('[include-html]').each(function () {
-            var $this = $(this);
-            var file = $this.attr('include-html');
-            if (file) {
-                $.ajax({
-                    url: file,
-                    method: 'GET',
-                    success: function (data) {
-                        $this.html(data);
-                        console.log('Successfully included:', file);
-                    },
-                    error: function () {
-                        console.error('Failed to include:', file);
-                        $this.html('<div class="fallback">Content could not be loaded, using fallback. Please try again later.</div>');
-                    },
-                    complete: function () {
-                        $this.removeAttr('include-html');
-                        includeHTML();
-                    }
-                });
-            }
-        });
-    }
+	function includeHTML() {
+		$('[include-html]').each(function () {
+			var $this = $(this);
+			var file = $this.attr('include-html');
+			if (file) {
+				$.ajax({
+					url: file,
+					method: 'GET',
+					success: function (data) {
+						$this.html(data);
+						console.log('Successfully included:', file);
+					},
+					error: function () {
+						console.error('Failed to include:', file);
+						$this.html('<div class="fallback">Content could not be loaded, using fallback. Please try again later.</div>');
+					},
+					complete: function () {
+						$this.removeAttr('include-html');
+						includeHTML();
+					}
+				});
+			}
+		});
+	}
 
-    includeHTML();
+	includeHTML();
 });
 
 $('<style>').prop('type', 'text/css').html(`
@@ -244,3 +244,32 @@ $('<style>').prop('type', 'text/css').html(`
         margin: 10px 0;
     }
 `).appendTo('head');
+
+// HTML vanilla JS countdown (W3Schools)
+var countDownDate = new Date("Jan 5, 2030 15:37:25").getTime();
+
+// Update the count down every 1 second
+var x = setInterval(function () {
+
+	// Get today's date and time
+	var now = new Date().getTime();
+
+	// Find the distance between now and the count down date
+	var distance = countDownDate - now;
+
+	// Time calculations for days, hours, minutes and seconds
+	var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+	var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+	var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+	var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+	// Display the result in the element with id="demo"
+	document.getElementById("counter").innerHTML = days + "d " + hours + "h "
+		+ minutes + "m " + seconds + "s ";
+
+	// If the count down is finished, write some text
+	if (distance < 0) {
+		clearInterval(x);
+		document.getElementById("counter").innerHTML = "EXPIRED";
+	}
+}, 1000);
