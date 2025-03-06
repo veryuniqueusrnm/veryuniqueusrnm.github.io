@@ -13,9 +13,9 @@ $(document).ready(function() {
 
 // Cufon fix
 var Cufon = {
-	// just for if cufon called somewhere, dont trow exception
+	// Just for if cufon called somewhere, dont trow exception
 	replace : function(){
-		console.log('cufon called!');
+		//console.log('cufon called!');
 	}
 };
 
