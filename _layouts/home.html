@@ -10,10 +10,10 @@ layout: base
   {{ content }}
 
   <div class="promo">
-    
+    <h2>Latest Posts</h2>
+    <p>Read the latest from the blog.</p>
+    <a href="{{ '/blog' | relative_url }}" class="button">View Blog</a>
   </div>
-
-  <hr style="border-bottom: 1px solid var(--minima-border-color-01); width: 100%;">
 
   {% if site.paginate %}
     {% assign posts = paginator.posts %}
