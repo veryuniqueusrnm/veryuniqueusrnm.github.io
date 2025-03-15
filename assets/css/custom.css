@@ -1,48 +1,3 @@
-/* mainpromo */
-div.mainPromoRotator {position: relative; width: 100%; }
-div.mainPromoRotator ul {margin: 0; }
-div.mainPromoRotator ul li {display: block; margin: 0; padding: 0; list-style-type: none; }
-div.mainPromoRotator div.promos {display: block; width: 100%; height: 340px; overflow: hidden; }
-div.mainPromoRotator div.promos ul {width: 100%; height: 340px; }
-div.mainPromoRotator div.promos ul li {position: absolute; left: 0; top: 0; display: block; width: 100%; height: 340px; }
-
-div.mainPromoRotator div.promos ul li a.lnkMore,
-div.mainPromoRotator div.promos ul li a.lnkMore span {display: block; width: 100%; height: 286px; }
-div.mainPromoRotator div.promos ul li a.lnkMore {position: absolute; left: 0; top: 10px; z-index: 1; background: transparent url(/i/none.gif) repeat 0 0; }
-div.mainPromoRotator div.promos ul li a.lnkMore span {visibility: hidden !important; }
-div.mainPromoRotator div.promos ul li img.promoImage {display: block; width: 100%; height: 340px;}
-div.mainPromoRotator div.menuItemsContainer {position: absolute; top: 306px; z-index: 5000; width: 100%; height: 34px; }
-div.mainPromoRotator div.menuItemsContainer div.jcarousel-container {overflow: hidden; }
-div.mainPromoRotator div.menuItemsContainer div.jcarousel-prev,
-div.mainPromoRotator div.menuItemsContainer div.jcarousel-next {background-image: url(/i/sprite_mainpromorotator-pager.png); background-repeat: no-repeat; }
-div.mainPromoRotator div.menuItemsContainer div.jcarousel-prev {position: absolute; left: 0; top: 10px; width: 39px; height: 34px; background-position: 0 -44px; }
-div.mainPromoRotator.menuitems-scrollable div.menuItemsContainer div.jcarousel-prev {background-position: 0 0; cursor: pointer; background: rgba(0, 0, 0, 0.5);}
-div.mainPromoRotator div.menuItemsContainer div.jcarousel-next {position: absolute; left: 681px; top: 0; width: 39px; height: 34px; background-position: -39px -44px; background: rgba(0, 0, 0, 0.5);}
-div.mainPromoRotator.menuitems-scrollable div.menuItemsContainer div.jcarousel-next {background-position: -39px 0; cursor: pointer; background: rgba(0, 0, 0, 0.5);}
-div.mainPromoRotator div.menuItemsContainer div.jcarousel-clip {position: absolute; left: 39px; width: 642px; height: 54px; overflow: hidden; }
-div.mainPromoRotator ul.menuItems {margin: 0; height: 34px; background: rgba(0, 0, 0, 0.5);}
-div.mainPromoRotator ul.jcarousel-list {margin-top: 10px; }
-div.mainPromoRotator ul.menuItems li {display: block; float: left; padding: 0 13px; height: 34px; overflow: hidden; }
-div.mainPromoRotator ul.menuItems li.active a {color: #00ace7; }
-div.mainPromoRotator ul.menuItems li a {font-size: 14px; font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; line-height: 34px; color: #fff; display: block; width: auto; height: 34px; overflow: hidden; }
-div.mainPromoRotator ul.menuItems li a:hover {text-decoration: none; }
-
-div.mainPromoRotator.light-theme div.menuItemsContainer div.jcarousel-prev,
-div.mainPromoRotator.light-theme div.menuItemsContainer div.jcarousel-next {background-image: url(/i/sprite_mainpromorotator-pager-light.png); background-repeat: no-repeat; }
-
-div.mainPromoRotator .device-image {position: absolute; top: 33px;left: 63px; }
-div.mainPromoRotator .description {position: absolute; top: 33px;left: 219px; }
-div.mainPromoRotator .description h3.title {color: #fee703;font-weight: bold;font-size: 31px;}
-div.mainPromoRotator .description h3.subtitle {color: #009ee0;font-size: 20px;margin:8px 20px 0px 20px}
-div.mainPromoRotator .description h3.product {color: #009ee0;font-size: 20px;margin:14px 20px 0px 20px;font-size: 31px;}
-div.mainPromoRotator .description h3 a.manufacturer {color: #009ee0;font-weight: bold;}
-div.mainPromoRotator .description h3 a.model {color: #009ee0;}
-div.mainPromoRotator .description p.price {line-height: 30px;}
-div.mainPromoRotator .description p.price > span {color: #fee703;font-size: 40px;}
-div.mainPromoRotator .description p.properties {font-size:12px;color:#fff;margin: 7px 20px 0px 20px;}
-
-/* /mainpromo */
-
 .warning {
     text-align: center;
     padding: 6px;
@@ -56,4 +11,10 @@ div.mainPromoRotator .description p.properties {font-size:12px;color:#fff;margin
     background-color: #ffd;
     color: #a80;
     font-weight: bold;
+}
+
+div.promo {
+    position: relative;
+    width: 100%;
+    height: 45%;
 }
