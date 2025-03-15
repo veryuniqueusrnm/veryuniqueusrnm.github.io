@@ -3,15 +3,32 @@
 
   <div class="wrapper">
 
-    <p>
-      The contents of this website, unless otherwise indicated, are licensed under a <a rel="license"
-        href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike
-        4.0 International License</a>.
-    </p>
+    <h2 class="footer-heading">{{ site.title | escape }}</h2>
 
-    <p style="font-size: 10px;">
-      VeryUniqueUsrnm &copy; 2025 // Youhuu the racka sheep is the property of World Athletics.
-    </p>
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">
+            {%- if site.author -%}
+              {{ site.author | escape }}
+            {%- else -%}
+              {{ site.title | escape }}
+            {%- endif -%}
+            </li>
+            {%- if site.email -%}
+            <li><a class="u-email" href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+            {%- endif -%}
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        {%- include social.html -%}
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>{{- site.description | escape -}}</p>
+      </div>
+    </div>
 
   </div>
 
