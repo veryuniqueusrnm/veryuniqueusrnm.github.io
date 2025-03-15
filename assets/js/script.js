@@ -1,3 +1,10 @@
+var Cufon = {
+	// just for if cufon called somewhere, dont trow exception
+	replace : function(){
+		//console.log('cufon called!');
+	}
+};
+
 /* main promo rotator */
 (function($){
 
