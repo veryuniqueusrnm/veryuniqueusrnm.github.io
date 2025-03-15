@@ -20,7 +20,7 @@ div.mainPromoRotator.menuitems-scrollable div.menuItemsContainer div.jcarousel-p
 div.mainPromoRotator div.menuItemsContainer div.jcarousel-next {position: absolute; left: 681px; top: 0; width: 39px; height: 44px; background-position: -39px -44px; }
 div.mainPromoRotator.menuitems-scrollable div.menuItemsContainer div.jcarousel-next {background-position: -39px 0; cursor: pointer; }
 div.mainPromoRotator div.menuItemsContainer div.jcarousel-clip {position: absolute; left: 39px; width: 642px; height: 54px; overflow: hidden; }
-div.mainPromoRotator ul.menuItems {margin: 0; height: 44px; }
+div.mainPromoRotator ul.menuItems {margin: 0; height: 44px; background: rgba(0, 0, 0, 0.5); box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);}
 div.mainPromoRotator ul.jcarousel-list {margin-top: 10px; }
 div.mainPromoRotator ul.menuItems li {display: block; float: left; margin-top: 10px; padding: 0 13px; height: 34px; overflow: hidden; }
 div.mainPromoRotator ul.menuItems li.active a {color: #00ace7; }
