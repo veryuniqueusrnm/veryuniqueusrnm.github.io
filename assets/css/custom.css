@@ -1,17 +1,17 @@
 /* mainpromo */
-div.mainPromoRotator {position: relative; float: left; margin-right: 20px; width: 720px; }
+div.mainPromoRotator {position: relative; float: left; margin-right: 20px; width: 100%; }
 div.mainPromoRotator ul {margin: 0; }
 div.mainPromoRotator ul li {display: block; margin: 0; padding: 0; list-style-type: none; }
-div.mainPromoRotator div.promos {display: block; width: 720px; height: 340px; overflow: hidden; }
-div.mainPromoRotator div.promos ul {width: 720px; height: 340px; }
-div.mainPromoRotator div.promos ul li {position: absolute; left: 0; top: 0; display: block; width: 720px; height: 340px; }
+div.mainPromoRotator div.promos {display: block; width: 100%; height: 340px; overflow: hidden; }
+div.mainPromoRotator div.promos ul {width: 100%; height: 340px; }
+div.mainPromoRotator div.promos ul li {position: absolute; left: 0; top: 0; display: block; width: 100%; height: 340px; }
 
 div.mainPromoRotator div.promos ul li a.lnkMore,
-div.mainPromoRotator div.promos ul li a.lnkMore span {display: block; width: 720px; height: 286px; }
+div.mainPromoRotator div.promos ul li a.lnkMore span {display: block; width: 100%; height: 286px; }
 div.mainPromoRotator div.promos ul li a.lnkMore {position: absolute; left: 0; top: 10px; z-index: 1; background: transparent url(/i/none.gif) repeat 0 0; }
 div.mainPromoRotator div.promos ul li a.lnkMore span {visibility: hidden !important; }
-div.mainPromoRotator div.promos ul li img.promoImage {display: block; width: 720px; height: 340px;}
-div.mainPromoRotator div.menuItemsContainer {position: absolute; top: 286px; z-index: 5000; width: 720px; height: 44px; }
+div.mainPromoRotator div.promos ul li img.promoImage {display: block; width: 100%; height: 340px;}
+div.mainPromoRotator div.menuItemsContainer {position: absolute; top: 286px; z-index: 5000; width: 100%; height: 44px; }
 div.mainPromoRotator div.menuItemsContainer div.jcarousel-container {overflow: hidden; }
 div.mainPromoRotator div.menuItemsContainer div.jcarousel-prev,
 div.mainPromoRotator div.menuItemsContainer div.jcarousel-next {background-image: url(/i/sprite_mainpromorotator-pager.png); background-repeat: no-repeat; }
@@ -35,7 +35,6 @@ div.mainPromoRotator.light-theme ul.menuItems li {background: transparent url(/i
 div.mainPromoRotator.dark-theme ul.menuItems li.active {background: transparent url(/i/bg_mainpromo-menuitems.png) no-repeat center 0; }
 div.mainPromoRotator.light-theme ul.menuItems li.active {background: transparent url(/i/bg_mainpromo-menuitems-light.png) no-repeat center 0; }
 
-div.mainPromoRotator {background: transparent url(/i/bg/basket_front_promo_bg.jpg) no-repeat center 0; }
 div.mainPromoRotator .device-image {position: absolute; top: 33px;left: 63px; }
 div.mainPromoRotator .description {position: absolute; top: 33px;left: 219px; }
 div.mainPromoRotator .description h3.title {color: #fee703;font-weight: bold;font-size: 31px;}
