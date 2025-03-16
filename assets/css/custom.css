@@ -26,3 +26,11 @@ div.promo {
     width: 100%;
     height: 350px;
 }
+
+.site-header-logo {
+	font-weight: bold;
+}
+
+.site-header-logo img {
+	margin: 12px 6px;
+}
