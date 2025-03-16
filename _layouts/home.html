@@ -17,12 +17,30 @@ layout: base
     <a href="https://modrinth.com/user/VeryUniqueUsrnm" class="button" target="_blank">Modrinth</a>
   </div>
 
-  <hr/>
+  <hr>
    <section>
    <h3>Archived Stuff</h3>
    <ul>
       <li><a href="#" target="_blank">Example button</a> - Description</li>
    </ul>
+   </section>
+
+   <hr>
+   <section>
+      <h3>Latest Blog Posts</h3>
+      <div class="row-2">
+         {% for post in site.posts limit: 2 %}
+         <article class="column">
+            <a href="{{ post.url }}">
+               <h4>{{ post.title }}</h4>
+            </a>
+            <section>
+               <p>{{ post.content | strip_html | truncate: 310 }}</p>
+            </section>
+            <a class="button secondary" href="{{ post.url }}">Continue reading</a>
+         </article>
+         {% endfor %}
+      </div>
    </section>
 
 </div>
