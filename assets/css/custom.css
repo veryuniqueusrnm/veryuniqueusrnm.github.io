@@ -38,3 +38,10 @@ div.promo a {
 .site-header-logo {
 	font-weight: bold;
 }
+
+hr {
+    margin: 24px 0;
+    border: none;
+    height: 1px;
+    background-color: #c4c9cf;
+}
