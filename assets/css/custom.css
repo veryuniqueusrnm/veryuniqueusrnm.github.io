@@ -1,6 +1,9 @@
 .warning {
+    position: relative;
     text-align: center;
     padding:6px;
+    top: 62px;
+    z-index: 69696969;
 }
 
 .warning-red {
