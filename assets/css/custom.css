@@ -27,6 +27,10 @@ div.promo {
     height: 350px;
 }
 
+div.promo h2 {
+    font-size: 200%;
+}
+
 .site-header-logo {
 	font-weight: bold;
 }
