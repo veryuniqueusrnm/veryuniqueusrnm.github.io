@@ -5,7 +5,7 @@
     {%- assign page_paths = site.minima.nav_pages | default: default_paths -%}
     {%- assign page_titles = site.pages | map: 'title' | compact %}
     <div class="site-header-logo">
-      <a class="site-title" rel="author" href="/"><img src="/assets/logo.png" style="image-rendering: pixelated;" width="56" height="56" alt="charset"> VeryUniqueUsrnm</a>
+      <a class="site-title" rel="author" href="/"><img src="/assets/logo.png" draggable="false" width="56" height="56" alt="charset"> VeryUniqueUsrnm</a>
     </div>
 
     {%- unless page_titles == empty %}
