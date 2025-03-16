@@ -1,0 +1,25 @@
+.warning {
+    text-align: center;
+    padding:6px;
+}
+
+.warning-red {
+    background-color:#fdd;
+}
+
+.warning-yellow {
+    background-color:#ffd;
+    color:#a80;
+    font-weight:bold;
+}
+
+.warning-green {
+    background-color:#dfd;
+    color:#080;
+    font-weight:bold;
+}
+
+div.promo {
+    width: 100%;
+    height: 350px;
+}
