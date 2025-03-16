@@ -9,6 +9,11 @@ layout: base
 
   {{ content }}
 
+  <div class="promo">
+    <h2>Latest Posts</h2>
+    <p>Read the latest from the blog.</p>
+    <a href="/blog" class="button">View Blog</a>
+  </div>
 
   {% if site.paginate %}
     {% assign posts = paginator.posts %}
