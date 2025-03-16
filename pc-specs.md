@@ -4,4 +4,4 @@ title: PC Specifications
 permalink: /pc-specs/
 ---
 
-<img src="/assets/mbp11.png" draggable="false" width="50%" height="auto" style="margin:auto;">
+<img src="/assets/mbp11.png" draggable="false" height="auto" style="display: block; margin: auto; width: 50%;">
