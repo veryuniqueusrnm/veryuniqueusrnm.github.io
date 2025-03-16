@@ -45,3 +45,44 @@ hr {
     height: 1px;
     background-color: #c4c9cf;
 }
+
+.home .row-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+@media screen and (max-width: 500px)
+.home .row-2 {
+    grid-template-columns: 1fr;
+}
+
+.home .column {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.home .column section {
+    padding-bottom: 12px;
+}
+
+p {
+    hyphens: auto;
+}
+
+button.secondary, .button.secondary {
+    background-color: transparent;
+    border: 2px solid #2D46B9;
+    color: #111 !important;
+}
+
+button, .button {
+    border-radius: 5px;
+    color: white !important;
+    text-decoration: none !important;
+    padding: 5px 8px;
+    text-align: center;
+    display: inline-block;
+    box-shadow: rgba(0,0,0,0.15) 1.95px 1.95px 2.6px;
+}
