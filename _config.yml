@@ -39,6 +39,7 @@ minima:
   nav_pages:
     - about.md
     - blog.md
+    - pc-specs.md
 
   # Set to `true` to show excerpts on the homepage.
   show_excerpts: true
