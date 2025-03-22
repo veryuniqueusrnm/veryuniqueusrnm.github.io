@@ -46,7 +46,7 @@ div.container header a.logo {
     align-items: center;
     text-decoration: none;
     font-size: 24px;
-    color: #000;
+    color: #606060;
     /* background-image: url(/assets/i/Youhuu/Wave.svg); */
     background-size: contain;
     background-repeat: no-repeat;
@@ -73,6 +73,14 @@ div.container header .nav-btn:hover {
     background-color: #e0e0e0;
 }
 
+div.account {
+	position: relative;
+    padding: 10px;
+	color: #606060;
+    cursor: pointer;
+    font-size: 23px;
+}
+
 div.container header nav.links .hamburger {
     display: flex;
     flex-direction: column;
@@ -83,7 +91,7 @@ div.container header nav.links .hamburger {
 div.container header nav.links .bar {
     height: 3px;
     width: 25px;
-    background-color: #000;
+    background-color:#606060;;
     border-radius: 10px;
     margin: 3px 0;
     transition: 0.4s;
@@ -162,7 +170,7 @@ div.menu {
 
 div.menu a {
     display: block;
-    color: #000;
+    color: #606060;
     padding: 8px;
     text-decoration: none;
     white-space: nowrap;
@@ -183,7 +191,7 @@ div.submenu {
 
 div.submenu a {
     display: block;
-    color: #000;
+    color: #606060;
     padding: 8px;
     text-decoration: none;
     white-space: nowrap;
@@ -192,7 +200,7 @@ div.submenu a {
 a.menu-button-mobile {
     text-decoration: none;
     font-size: 18px;
-    color: #000;
+    color: #606060;
     transition: background-color 0.3s ease;
 }
 
