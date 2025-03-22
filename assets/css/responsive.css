@@ -30,10 +30,6 @@
         margin-bottom: 70px;
     }
 
-    div.card {
-        width: 100%;
-    }
-
     .menu-container {
         display: none;
     }
@@ -128,6 +124,13 @@
         display: none;
     }
 
+}
+
+@media only screen and (max-width: 1050px) {
+    div.card {
+        width: 100%;
+        margin-right: 0px;
+    }
 }
 
 @media screen and (max-width: 800px)

@@ -47,7 +47,7 @@ div.container header a.logo {
     text-decoration: none;
     font-size: 24px;
     color: #000;
-    background-image: url(/assets/i/logo.png);
+    /* background-image: url(/assets/i/Youhuu/Wave.svg); */
     background-size: contain;
     background-repeat: no-repeat;
     height: 50px;
@@ -497,6 +497,8 @@ footer p.footnote {
 
 /* Discord User Card by Sybrax */
 .card {
+    display: inline-block;
+	margin-right: 20px;
     background: #292b2f;
     width: 345px;
     max-height: 95%;
