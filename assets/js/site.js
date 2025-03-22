@@ -467,88 +467,9 @@ var site = function () {
                 }
             });
             $('div.cont .tabsheetHandler .force').trigger('click');
-
-            $('div.cont .webiroda .tab').click(function (e) {
-                e.preventDefault();
-                $('div.cont .webiroda .tab').each(function (e) {
-                    $(this).removeClass('active');
-                });
-                $(this).addClass('active');
-                if ($(this).find('a').attr('rel') == 'package') {
-                    $('#subscription').addClass('hidden');
-                    $('#subscription-result').addClass('hidden');
-                    $('#package').removeClass('hidden');
-                    $('#package-result').removeClass('hidden');
-                }
-                else {
-                    $('#package').addClass('hidden');
-                    $('#package-result').addClass('hidden');
-                    $('#subscription').removeClass('hidden');
-                    $('#subscription-result').removeClass('hidden');
-                }
-                return false;
-            });
-
-            var emailpromsoffice = $('div.cont .webiroda select[name=emailpromsoffice]');
-            var emailpro1gb = $('div.cont .webiroda select[name=emailpro1gb]');
-            var emailpro5gb = $('div.cont .webiroda select[name=emailpro5gb]');
-            var max = 0;
-            emailpromsoffice.change(function (e) {
-                //console.log('emailpromsoffice');
-                max = (emailpro1gb.val() < emailpro5gb.val())
-                    ? emailpro5gb.val()
-                    : emailpro1gb.val();
-                if (max < emailpromsoffice.val()) {
-                    emailpromsoffice.val(max);
-                }
-                /*console.log(emailpro1gb.val());
-                console.log(emailpro5gb.val());
-                console.log(emailpromsoffice.val());
-                console.log(max);*/
-            });
-            emailpro1gb.change(function (e) {
-                //console.log('emailpro1gb');
-                max = (emailpro1gb.val() < emailpro5gb.val())
-                    ? emailpro5gb.val()
-                    : emailpro1gb.val();
-                if (max < emailpromsoffice.val()) {
-                    emailpromsoffice.val(max);
-                }
-                /*console.log(emailpro1gb.val());
-                console.log(emailpro5gb.val());
-                console.log(emailpromsoffice.val());
-                console.log(max);*/
-            });
-            emailpro5gb.change(function (e) {
-                //console.log('emailpro5gb');
-                max = (emailpro1gb.val() < emailpro5gb.val())
-                    ? emailpro5gb.val()
-                    : emailpro1gb.val();
-                if (max < emailpromsoffice.val()) {
-                    emailpromsoffice.val(max);
-                }
-                /*console.log(emailpro1gb.val());
-                console.log(emailpro5gb.val());
-                console.log(emailpromsoffice.val());
-                console.log(max);*/
-            });
-
-            $('div.cont .webiroda .input input').click(function () {
-                $('div.cont .webiroda .input input').each(function () {
-                    if ($(this).val() == '') {
-                        $(this).val('0');
-                    }
-                });
-                if ($(this).val() == '0') {
-                    $(this).val('');
-                }
-            });
-
             // /tabsheet handling
 
-            //$('#soho-tabsheet .tab.t2').trigger('click');
-
-            // tabshee4 handling (becsukhato tabok)
+            // tabshee4 handling (closable tabs)
             if ($('div.cont .tabsheet4').length > 0) {
                 $('div.cont .tabsheet4 .openSearch, div.cont .tabsheet4 .tab').click(function (e) {
                     e.preventDefault();
@@ -567,20 +488,7 @@ var site = function () {
 
                 });
             }
-
-            // /tabshee4 handling (becsukhato tabok)
-
-            // popup (soho wizard akcio)
-            /*
-            $('a[href$="?embed=1"]').bind('click',function(e){
-                e.preventDefault();
-                var w = 800;
-                var h = 600;
-                var top = screen.height/2-h/2;
-                var left = screen.width/2-w/2;
-                var popup = window.open('https://web.archive.org/web/20130825160449/http://www.telenor.hu/'+$(this).attr('href').split('?')[0],'','width='+w+',height='+h+',left='+left+',top='+top);
-            });
-            */
+            // /tabshee4 handling (closable tabs)
 
             // slideDown
             $('.slide-content').wrap('<div class="slide-hide" style="display:none;"></div>');
@@ -656,48 +564,7 @@ var site = function () {
                         $(this).find('tr.details').addClass('closed');
                     }
                 });
-            /*$('div.content table[class!=normal]').each(function() {
-                if ($(this).parent().parent().parent().get(0).className != 'table') {
-                    $(this).wrap('<div class="table ' + this.className + '"><div><div></div></div></div>');
-                    site.IEfix();
-                }
-            });*/
             // /table handling
-
-            // sider align
-            /*
-            $('div.content div.sider').each(function() {
-                var h1 = $(this).parent().find('div.inner h1:first');
-                var promo = $(this).parent().find('div.inner div.promo:first');
-                if ((h1.length > 0) && (h1.outerWidth() > h1.parent().outerWidth())) {
-                    $(this).css({marginTop: String(h1.offset().top - h1.parent().offset().top + h1.outerHeight()) + 'px'});
-                }
-                if ((promo.length > 0) && (promo.outerWidth(true) - promo.width() < 0) && ($(this).offset().top + $(this).outerHeight(true) > promo.offset().top)) {
-                    $(this).css({marginTop: String(promo.offset().top - promo.parent().offset().top + promo.outerHeight()) + 'px'});
-                }
-            });
-            */
-            // /sider align
-
-            // head - search
-            obj = $('div.head div.search input#q').eq(0);
-            if (obj.get(0).value == '') {
-                obj.get(0).value = obj.get(0).title;
-            }
-            obj.focus(function () {
-                if (this.value == this.title) {
-                    this.value = '';
-                }
-            });
-            obj.blur(function () {
-                if (this.value == '') {
-                    this.value = this.title;
-                }
-            });
-            $('div.cont').click(function () {
-                $('div.head div.search').removeClass('result');
-            });
-            // /head - search
 
             // form handling
             if ($('div.content form').length > 0) {
@@ -721,21 +588,6 @@ var site = function () {
             });
             // /form handling
 
-            // package selector
-            if ($('div.packsel').length > 0) {
-                $('div.packsel input:radio').removeAttr('checked');
-                $('div.packsel label').click(function () {
-                    if ($(this).parents('div.packsel div.phase0').eq(0).length > 0) {
-                        $(this).parents('div.packsel').eq(0).find('li').removeClass('active');
-                        $(this).parents('div.packsel').eq(0).find('div.phase1 radio:checked').removeAttr('checked');
-                    } else {
-                        $(this).parents('ul').eq(0).find('li').removeClass('active');
-                    }
-                    $(this).parent().addClass('active');
-                });
-            }
-            // /package selector
-
             // rounded handling
             if (!IE6) {
                 $('div.cont div.promo').prepend('<div class="tl"></div><div class="bl"></div>');
@@ -747,41 +599,6 @@ var site = function () {
             }
             // /rounded handling
 
-
-            // phone page handling
-            if (($('div#phoneAttr').length > 0) && ($('div#phonePack').length > 0)) { /* <- removable this */
-                phone.initialize();
-            }
-
-
-            // /phone page handling
-            if ($('div#phonepage').length > 0) {
-                setTimeout(function () { phonepage.initialize(); }, 333);
-            }
-
-            // carnation
-            if ($(document).width() > 1080) {
-                $('div#carnation').show();
-            }
-            // /carnation
-
-            // h4 > a klikk
-            $('h4.orange:not(.nojs), h4.blue:not(.nojs), h4.green:not(.nojs), h4.purple:not(.nojs), h4.brown:not(.nojs)').live('click', function () {
-                window.location.href = $(this).find('a').attr('href');
-            });
-            // h4 > a klikk
-
-            /*
-                        // faq handling
-                        $('div.content div.faq dl dt a').click(function() {
-                            this.blur();
-                            var faqitem = $(this).parents('dl').eq(0);
-                            faqitem.toggleClass('open');
-                            site.IEfix();
-                            return false;
-                        });
-                        // /faq handling
-            */
             // hint
             $('.hashint[title!=""]').hover(
                 function (e) {
@@ -793,66 +610,7 @@ var site = function () {
             );
             // /hint
 
-
-
-            // tudakozo
-            var _tudakozo_first = $('div.tudnew #gsm1');
-            var _tudakozo_second = $('div.tudnew #gsm2');
-            var _tudakozo_all = $('div.tudnew #gsm');
-
-            $('div.tudnew #tudsubmit').click(function (e) {
-                e.preventDefault();
-                if (_tudakozo_all.val().length == 7) {
-                    _tudakozo_first.val(_tudakozo_all.val().substr(0, 3));
-                    _tudakozo_second.val(_tudakozo_all.val().substr(3, 4));
-                    $('div.tudnew #enquiry-form').submit();
-                } else {
-                    alert('Ellenőrizd a formátumot!');
-                }
-            });
-
-            /* OLD
-            var _tudakozo_first = $('div.enquiryBox input.first');
-            var _tudakozo_second = $('div.enquiryBox input.second');
-
-            _tudakozo_first.keyup(function(){
-                if($(this).val().length==3){
-                    _tudakozo_second.focus();
-                } else {
-                    _tudakozo_second.val('');
-                }
-            });
-
-            _tudakozo_second.keyup(function(e){
-                if (_tudakozo_first.val().length<3){
-                    $(this).val('');
-                    var chr = String.fromCharCode(e.which);
-                    _tudakozo_first.val(_tudakozo_first.val() + chr).focus();
-                } else {
-                    if($(this).val().length==0){
-                        _tudakozo_first.focus();
-                    }
-                }
-            });
-
-            _tudakozo_second.click(function(e){
-                if(_tudakozo_first.val().length<3){
-                    _tudakozo_first.focus();
-                }
-            });
-            //caret position ie fix
-            if(IE){
-                $('div.enquiryBox input:text').bind('focus',function(){
-                    var r = this.createTextRange();
-                    r.moveStart('character', this.value.length);
-                    r.select();
-                });
-            }
-            */
-
-
             // slider
-
             if ($('.slider').length > 0) {
 
                 var sliderMin = parseInt($('#min-price').val());
@@ -905,52 +663,6 @@ var site = function () {
 
             }
 
-
-
-            // keszulek kereso
-            if ($('div.mobile-holder').length > 0) {
-                $('div.mobile-holder ul li, div.brands ul li a').click(function (e) {
-                    e.preventDefault();
-                });
-                $('div.mobile-holder ul li, div.brands ul li').click(function (e) {
-
-                    if ($(this).hasClass('sel')) {
-                        $(this).removeClass('sel').find('input').attr('checked', false);
-                    } else {
-                        $(this).addClass('sel').find('input').attr('checked', true);
-                    }
-
-                });
-            }
-
-            // internet csomag valaszto gombok
-            if ($('#package_net').length > 0) {
-
-                var _package_net = $('#package_net');
-
-                Calculator.init();
-
-                $('button', _package_net).click(function (e) {
-                    $(this).addClass('sel').siblings('button').removeClass('sel');
-                    var idx = $(this).parents('div.value').find('button').index(this);
-                    $(this).parents('div.value').find('input:radio').eq(idx).click();
-
-                });
-            }
-
-            // fooldal akcios mobilok
-            if ($('body.indexpage div.mobile, body.mobilelist div.mobile').length > 0) {
-                $('body.indexpage div.mobile, body.mobilelist div.mobile').click(function (e) {
-
-                    if (IE) {
-                        window.location.href = '/' + $(this).find('a').attr('href');
-                    } else {
-                        window.location.href = $(this).find('a').attr('href');
-                    }
-
-                });
-            }
-
             // surveymonkey bezaro cucc
             $('#survey-close').click(function (e) {
                 e.preventDefault();
@@ -958,14 +670,12 @@ var site = function () {
                 setCookie($(this).attr("class"), 1, 365 * 5);
             });
 
-
-
-            // altalanos egykepes felugro
+            // one-image popup
             if ($('a.zoomable').length > 0) {
                 $('a.zoomable').click(function (e) {
                     e.preventDefault();
                     $('div#popupwrp a.next, div#popupwrp a.prev').css('visibility', 'hidden');
-                    $('div#popupwrp div.imageBox div.image img').attr({ 'src': $(this).attr('href'), 'title': 'Kattints a bezáráshoz' }).click(function (e) {
+                    $('div#popupwrp div.imageBox div.image img').attr({ 'src': $(this).attr('href'), 'title': 'Click anywhere to close' }).click(function (e) {
                         setTimeout(function () {
                             $('div#popupwrp a.prev, div#popupwrp a.next').show();
                             $('div#popupwrp div.info').css('margin-left', 0);
@@ -987,8 +697,7 @@ var site = function () {
                 });
             }
 
-
-            // galeria csukas
+            // gallery close
             $('#fader').live('click', function (e) {
                 setTimeout(function () {
                     var pw = $('#popupwrp');
@@ -996,129 +705,13 @@ var site = function () {
                     $('div.info', pw).css('margin-left', 0);
                 }, 500);
                 $("#popupwrp .popup .close").click();
-            });
-
-
-            // android tips and tricks
-            if ($('.android #tipstricks').length > 0) {
-
-                var tipstricks = $('.android #tipstricks');
-
-                $('ul li', tipstricks).click(function (e) {
-                    var th = $(this);
-                    th.addClass('open').siblings().find('p').slideUp(300, function () {
-                        th.find('p').slideDown(300, function () {
-                            th.siblings().removeClass('open');
-                        });
-                    });
-
-                });
-                $('ul li h4 a', tipstricks).click(function (e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    var th = $(this).parents('li:eq(0)');
-                    th.find('p').slideUp(300, function () {
-                        th.removeClass('open');
-                    });
-                });
-
-                setTimeout(function () {
-                    $('.android #tipstricks ul li:eq(0)').trigger('click');
-                }, 369);
-
-            }
-
-            // android apps
-            if ($('.androidApp').length > 0) {
-
-                $('.androidApp').appendTo('body');
-
-                $('.android a.install').click(function (e) {
-                    e.preventDefault();
-                    //var index = $(".android a.install").index(this);
-                    //var index = $(this).closest('.item').index();
-                    var index = $(this).parents(".item").index();
-                    site.showAndroidApp(index);
-                    if (IE6) {
-                        $(window).scrollTop(0);
-                    }
-
-
-                });
-
-                $('.androidApp a.close').click(function (e) {
-                    e.preventDefault();
-                    $(this).parents('.androidApp').fadeOut(500);
-                    $("#popupwrp .popup .close").click();
-
-                });
-            }
-
-
-
-            /*/*/
-            $('div.cont div.phone_listing div.result-list h3').each(function () {
-                if ($(this).height() > 52) {
-                    $(this).find('span.rating').addClass('inline');
-                }
-            });
-
-            $('div.cont div.phone_listing ul.order-type li.list a, div.cont div.phone_listing ul.order-type li.grid a').each(function () {
-                $(this).click(function (e) {
-                    e.preventDefault();
-                    $('div.cont div.phone_listing ul.order-type li.list, div.cont div.phone_listing ul.order-type li.grid').removeClass('active');
-                    $(this).parent().addClass('active');
-                    var is_list = $(this).parent().hasClass('list') ? true : false;
-                    $('div.cont div.phone_listing div.result-list div').each(function () {
-                        if (!$(this).hasClass('sticky') && is_list) {
-                            $(this).addClass('list');
-                        }
-                        else {
-                            $(this).removeClass('list');
-                        }
-                    });
-                    $('div.cont div.phone_listing div.result-list h3').each(function () {
-                        if ($(this).height() > 44) {
-                            $(this).find('span.rating').addClass('inline');
-                        }
-                    });
-                });
-            });
-
-            $('div.phone_listing div.left ul.manufacturers').each(function () {
-                $(this).buttonset();
-            });
-
-            $('div.phone_listing div.left ul.style').each(function () {
-                $(this).buttonset();
-            });
-
-            $('div.phone_listing div.left div.settings-box.price div.tariff').each(function () {
-                $(this).buttonset();
-            });
-
-            $('div.phone_listing div.left div.settings-box.properties').each(function () {
-                $(this).buttonset();
-            });
-
-            $('div.cont div.phone_listing select#order-select').each(function () {
-                $(this).selectmenu({
-                    select: function (event) {
-                        $('#order').val($('select#order-select').val());
-                        $('#search-form').submit();
-                    }
-                });
-            });
-            /*/*/
-
-
+            })
 
             $('ul#order-select-menu li').each(function () {
             });
 
-
-            if ($('#tollogin').length > 0) {
-                $('#tollogin').submit(function () {
+            if ($('#login').length > 0) {
+                $('#login').submit(function () {
                     this.blur();
                     var $UserName = $('#UserName');
                     var $Password = $('#Password');
@@ -1137,214 +730,14 @@ var site = function () {
             }
 
             site.selMainPage();
-
             scroller();
-
             site.IEfix();
             site.IE6fix();
             site.IE7fix();
-
-            site.devicegallery();
-
-            // phone listings functions
-
-            setTimeout(function () {
-                $('div.cont div.phone_listing div.result-list h3').each(function () {
-                    if ($(this).height() > 44) {
-                        $(this).find('span.rating').addClass('inline');
-                    }
-                })
-            }, 500);
-
             site.pageTracker();
-
-            // overlay handling
             Overlay.initialize();
-            // /overlay handling
-
-            /* TEST *
-            $('div.cont div.side div.menu a').click(function() {
-                this.blur();
-                $('div.cont div.side div.menu li:has(ul):has(a.active)').removeClass('open');
-                $('div.cont div.side div.menu a').removeClass('active');
-                $(this).addClass('active');
-                $('div.cont div.side div.menu li:has(ul):has(a.active)').addClass('open');
-                return false;
-            });
-            /* /TEST */
-
-            Basket.init();
 
         }, // /initialize
-
-        // GA tracker
-        pageTracker: function () {
-
-            // megadropdown promo
-            $('.head .menu .submenu .promo a').click(function () {
-                _gaq.push(['_trackEvent', 'Mega-drop-down', $('.head .smallmenu li.active').text() + ' / ' + $(this).parents('li').eq(0).find('a').eq(0).text(), $(this).find('.title').text()]);
-            });
-
-            // megadropdown kulcsszo
-            $('.head .menu .submenu .keywords a').click(function () {
-                _gaq.push(['_trackEvent', 'Mega-drop-down', $('.head .smallmenu li.active').text() + ' / ' + $(this).parents('li').eq(0).find('a').eq(0).text(), $(this).text()]);
-            });
-
-            // Tarifakereso
-            $('#tariff-search li a').click(function (e) {
-                _gaq.push(['_trackEvent', 'Tarifakereső ', $('.head .smallmenu li.active').text() + ' nyitó', $(this).text()]);
-            });
-
-            // keszulek kereso
-            $('.mobile-holder + .button button').click(function (e) {
-                _gaq.push(['_trackEvent', 'Készülékkereső ', $('.head .smallmenu li.active').text() + ' nyitó']);
-            });
-
-            // het kerdese
-            $('.questionlist > p > a').click(function (e) {
-                _gaq.push(['_trackEvent', $('.head .smallmenu li.active').text() + ' nyitó', 'Link', 'Hét kérdése']);
-            });
-
-            // nyito/linkek
-            $('.questionlist > ul > li > a').click(function (e) {
-                _gaq.push(['_trackEvent', $('.head .smallmenu li.active').text() + ' nyitó', 'Link', $(this).text()]);
-            });
-
-            // tudakozo
-            $('.tudakozo form > div > button').click(function (e) {
-                _gaq.push(['_trackEvent', $('.head .smallmenu li.active').text() + ' nyitó', 'Tudakozó', 'Keres']);
-            });
-
-            // tudakozo/reszletes kereses
-            $('.tudakozo form > div > a[target=_blank]').click(function (e) {
-                _gaq.push(['_trackEvent', $('.head .smallmenu li.active').text() + ' nyitó', 'Tudakozó', 'Részletes']);
-            });
-
-            // ujdonsagok
-            $('#news-scroll .items a').click(function (e) {
-                _gaq.push(['_trackEvent', $('.head .smallmenu li.active').text() + ' nyitó', 'Újdonságok', $(this).find('span:eq(1) strong').text()]);
-            });
-
-            // ajanlatkeres
-            $('#offer_request > div > button').click(function (e) {
-                _gaq.push(['_trackEvent', 'Vállalatok nyitó', 'Ajánlat kérés']);
-            });
-
-            // esettanulmanyok, lefedettseg
-            $('.coverage a').click(function (e) {
-                _gaq.push(['_trackEvent', $('.head .smallmenu li.active').text() + ' nyitó', $('.coverage > h2').text(), $(this).find('span').text()]);
-            });
-
-            // mobil/keszulekkereso
-            $('.keszulekkereso form .button button').click(function (e) {
-                var _type;
-                if ($('.smallmenu ul li:eq0').hasClass('active')) {
-                    _type = 'Lakossági';
-                } else {
-                    _type = 'Üzleti';
-                }
-                _gaq.push(['_trackEvent', 'Készülékkereső', _type + ' - Készülékek']);
-            });
-
-            // gyartolista
-            $('.manufacturers ul li a').click(function (e) {
-                var _type;
-                if ($('.smallmenu ul li:eq0').hasClass('active')) {
-                    _type = 'Lakossági';
-                } else {
-                    _type = 'Üzleti';
-                }
-                _gaq.push(['_trackEvent', 'Készülék', _type + ' - ' + $(this).text()]);
-            });
-
-            // keszulek kereso oldal
-            $('.mobilelist #search-form .button button').click(function (e) {
-                var _type;
-                if ($('.smallmenu ul li:eq0').hasClass('active')) {
-                    _type = 'Lakossági';
-                } else {
-                    _type = 'Üzleti';
-                }
-                _gaq.push(['_trackEvent', 'Készülékkereső', _type + ' - Kereső']);
-            });
-
-
-            // klk vegoldal / megrendelem
-            $('.submit_netshop').click(function (e) {
-                var _type;
-                if ($('.smallmenu ul li:eq0').hasClass('active')) {
-                    _type = 'Lakossági';
-                } else {
-                    _type = 'Üzleti';
-                }
-                _gaq.push(['_trackEvent', 'Készülék - Netshop', _type, $('div.package.selected .inside input[name=offer_name]').val()]);
-            });
-
-        },
-        // /GA tracker		
-
-        // general device gallery
-        devicegallery: function () {
-
-            $('.devicegallery').each(function () {
-                var dg = $(this);
-                var items = dg.find('.items');
-                var thumbnails = dg.find('.thumbnails');
-                var thumbs = thumbnails.find('.thumbs');
-                var prev = dg.find('.prev');
-                var next = dg.find('.next');
-
-                var itemWidth = $(".content.galaxys3-landing,.content.galaxys3-landing-v2").size() ? 422 : 320;
-                var thumbWidth = $(".content.galaxys3-landing,.content.galaxys3-landing-v2").size() ? $(thumbs).children('.thumb').first().width() : 100;
-
-                items.width(items.find('div.item').length * itemWidth);
-                thumbs.width(thumbs.find('div.thumb').length * thumbWidth);
-                if (thumbnails.width() < thumbs.width()) {
-                    thumbs.mousemove(function (e) {
-                        var ow = $(this).parent().width();
-                        var iw = $(this).width();
-                        var x = e.pageX - $(this).parent().offset().left;
-                        var l = (ow < iw) ? Math.round((Math.sin((x / ow - 1 / 2) * Math.PI) + 1) / 2 * (ow - iw)) : 0;
-                        //					var l = (ow < iw) ? Math.round((x/ow) * (ow-iw)) : 0;
-                        $(this).css({ left: l + 'px' });
-                    });
-                }
-                thumbs.find('div.thumb').each(function (i) {
-                    $(this).find('a').data('index', i);
-                    $(this).find('a').click(function () {
-                        items.animate({ left: String(0 - $(this).data('index') * itemWidth) + 'px' }, 'fast');
-                        thumbs.find('div.thumb').removeClass('active');
-                        $(this).parent().addClass('active');
-                        return false;
-                    });
-                });
-                if (thumbs.find('div.thumb').length > 1) {
-                    prev.click(function () {
-                        var tmp = thumbs.find('div.thumb.active');
-                        tmp = (tmp.prev().length != 1) ? tmp.parent().find('div.thumb:last') : tmp.prev();
-                        //						thumbs.animate({left: Math.round(Math.min(0, Math.max(thumbnails.width() - thumbs.width(), thumbnails.offset().left - (tmp.index()-1/2)*tmp.width()))) + 'px' }, 'fast');
-                        thumbs.animate({ left: Math.round(Math.min(0, Math.max(thumbnails.width() - thumbs.width(), thumbnails.width() / 2 - tmp.position().left - tmp.width() / 2))) + 'px' }, 'fast');
-                        //console.log(tmp.width());
-                        tmp.find('a').trigger('click');
-                    });
-                    next.click(function () {
-                        var tmp = thumbs.find('div.thumb.active');
-                        tmp = (tmp.next().length != 1) ? tmp.parent().find('div.thumb:first') : tmp.next();
-                        thumbs.animate({ left: Math.round(Math.min(0, Math.max(thumbnails.width() - thumbs.width(), thumbnails.width() / 2 - tmp.position().left - tmp.width() / 2))) + 'px' }, 'fast');
-                        tmp.find('a').trigger('click');
-                    });
-                } else {
-                    //prev.addClass('hidden');
-                    //next.addClass('hidden');
-                }
-                thumbs.find('div.thumb a:eq(0)').trigger('click');
-
-            });
-
-
-        }
-        // general device gallery
-
 
     }
     // /return
@@ -1353,24 +746,17 @@ var site = function () {
 // /site
 
 $.fn.embedVideoPlayer = function (videoData, thumbData, titleData) {
-    swfobject.embedSWF("swf/telenor_player.swf", "flashcontent", "390", "220", "9.0.0", "swf/expressInstall.swf", { video: videoData, thumb: thumbData, title: titleData, colors: "0B9CD5,FFFFFF", autoplay: true }, { allowfullscreen: true, wmode: "transparent", bgcolor: "#FFFFFF", menu: true }, { id: "telenor" });
+    swfobject.embedSWF("/assets/swf/player.swf", "flashcontent", "390", "220", "9.0.0", "/assets/swf/expressInstall.swf", { video: videoData, thumb: thumbData, title: titleData, colors: "0B9CD5,FFFFFF", autoplay: true }, { allowfullscreen: true, wmode: "transparent", bgcolor: "#FFFFFF", menu: true }, { id: "flashplayer" });
     return $(this);
 };
 
 $(function () {
-
-    // terkep
-    $('#mapoverlay').click(function (e) {
-        site.showMap();
-    });
-
-
-    // toolbar archivum dropdown select
+    // toolbar archive dropdown select
     $("div.cont div.content div.toolbar div.archive div.archiveList div.drop").click(function () {
         $(this).toggleClass('on');
     });
 
-    // altalanos popup bezaro
+    // popup closer
     $("#popupwrp .popup a.close").each(function () {
         $(this).click(function (e) {
             e.preventDefault();
@@ -1392,20 +778,7 @@ $(function () {
         });
     });
 
-    // sajtoszoba login popup
-    $(".cont .content .pressBox a.login").each(function () {
-        $(this).click(function (e) {
-            e.preventDefault();
-            $('<div id="fader"></div>').appendTo('body').fadeTo(500, 0.5, function () {
-                if (IE)
-                    $('#popupwrp .pressForm').show();
-                else
-                    $('#popupwrp .pressForm').fadeIn();
-            });
-        });
-    });
-
-    // galeria kep popup
+    // gallery image popup
     if ($(".cont .content .imageList").length > 0) {
         var _gallery = Array();
         var _selected = 0;
@@ -1428,7 +801,7 @@ $(function () {
                 else
                     $('#popupwrp .imageBox a.next').removeClass('last');
 
-                $('#popupwrp .imageBox .image img').attr({ 'src': $(this).attr('view'), 'title': 'Kattints a bezáráshoz' }).click(function (e) {
+                $('#popupwrp .imageBox .image img').attr({ 'src': $(this).attr('view'), 'title': 'Click anywhere to close' }).click(function (e) {
                     setTimeout(function () {
                         $('#popupwrp a.prev, #popupwrp a.next').show();
                         $('#popupwrp .info').css('margin-left', 0);
@@ -1461,7 +834,7 @@ $(function () {
                 $('#popupwrp .imageBox .info').fadeOut(function () {
                     $('#popupwrp .imageBox span.title').html(_gallery[_selected].attr('title'));
                     $('#popupwrp .imageBox span.description').html(_gallery[_selected].attr('alt'));
-                    $('#popupwrp .imageBox .image img').attr({ 'src': _gallery[_selected].attr('view'), 'title': 'Kattints a bezáráshoz' }).click(function (e) {
+                    $('#popupwrp .imageBox .image img').attr({ 'src': _gallery[_selected].attr('view'), 'title': 'Click anywhere to close' }).click(function (e) {
                         setTimeout(function () {
                             $('#popupwrp a.prev, #popupwrp a.next').show();
                             $('#popupwrp .info').css('margin-left', 0);
@@ -1491,7 +864,7 @@ $(function () {
                 $('#popupwrp .imageBox .info').fadeOut(function () {
                     $('#popupwrp .imageBox span.title').html(_gallery[_selected].attr('title'));
                     $('#popupwrp .imageBox span.description').html(_gallery[_selected].attr('alt'));
-                    $('#popupwrp .imageBox .image img').attr({ 'src': _gallery[_selected].attr('view'), 'title': 'Kattints a bezáráshoz' }).click(function (e) {
+                    $('#popupwrp .imageBox .image img').attr({ 'src': _gallery[_selected].attr('view'), 'title': 'Click anywhere to close' }).click(function (e) {
                         setTimeout(function () {
                             $('#popupwrp a.prev, #popupwrp a.next').show();
                             $('#popupwrp .info').css('margin-left', 0);
@@ -1509,7 +882,7 @@ $(function () {
         });
     }
 
-    // galeria video popup
+    // gallery video popup
     if ($(".cont .videoList").length > 0) {
         var _videoGallery = Array();
         var _selected = 0;
@@ -1599,38 +972,9 @@ $(function () {
             }
         });
     }
-
-    //  tesztel�shez
-    //	$(".order").click(function(){$(this).toggleClass('on');});
-
 });
-
-$(document).ready(function () {
-
-    if (IE6 && $('#browser').length > 0) {
-        var browser = $('#browser');
-        var txt = '<p>A Telenor.hu nem támogatja az Internet Explorer Ön által használt verzióját.</p>'
-            + '<p><b>Töltsön le innen egy újabb böngészőt!</b></p>'
-            + '<p><b>Your browser is no longer supported. Please upgrade a modern browser.</b></p>'
-            + '<a target="_blank" class="ie8" href="https://web.archive.org/web/20130825160449/http://www.microsoft.com/hun/windows/internet-explorer/" title="Internet Explorer 8">Internet Explorer 8</a>'
-            + '<a target="_blank" class="ff" href="https://web.archive.org/web/20130825160449/http://www.mozilla-europe.org/hu/firefox/" title="Mozilla Firefox">Mozilla Firefox</a>'
-            + '<a target="_blank" class="google" href="https://web.archive.org/web/20130825160449/http://www.google.com/chrome/?hl=hu" title="Google Chrome">Google Chrome</a>'
-            + '<a target="_blank" class="opera" href="https://web.archive.org/web/20130825160449/http://www.opera.com/" title="Opera Browser">Opera Browser</a>'
-            + '<a target="_blank" class="safari" href="https://web.archive.org/web/20130825160449/http://www.apple.com/hu/safari/download/" title="Safari">Safari</a>'
-            + '<a class="close" href="#" title="Bezár">Bezár</a>';
-        browser.html(txt);
-        $('a.close', browser).click(function (e) {
-            e.preventDefault();
-            browser.animate({ opacity: 0, marginTop: -130 }, 250);
-            $.cookie("TelenorIE6", 'closed');
-        });
-        browser.animate({ marginTop: 0 }, 250, "linear");
-    }
-});
-
 
 function scroller() {
-
     // scrollozhato tartalmak
     var scroll = $('#news-scroll, #apps-scroll');
 
@@ -1751,9 +1095,7 @@ function scroller() {
 
         });
     });
-
 }
-
 
 function setCookie(c_name, value, expiredays, path, domain) {
     expiredays = parseInt(expiredays);
@@ -1778,12 +1120,10 @@ function getCookie(c_name) {
     return "";
 }
 
-
 // overlay handling
 Overlay = new function () {
 
     var _tmp = null;
-
 
     // overlay main elements
     var _overlayTpl = '<div class="overlay"><div class="cover"></div></div>';
@@ -1824,8 +1164,6 @@ Overlay = new function () {
         if (_contentDOM != null) { _contentDOM.remove(); }
         _contentDOM = null;
     };
-
-
 
     // direct
     var _directItems = Array();
@@ -1910,8 +1248,6 @@ Overlay = new function () {
 
     }
     // /direct
-
-
 
     // media
     var _mediaItems = Array();
@@ -2081,8 +1417,6 @@ Overlay = new function () {
     };
     // /media
 
-
-
     // initialize
     this.initialize = function () {
         _tmp = 0;
@@ -2133,330 +1467,11 @@ Overlay = new function () {
                 return false;
             });
         });
-
     };
     // initialize
 
 }();
 // /overlay handling
-
-/* removable lines */
-
-var phone = new function () {
-
-    this.pContainer;
-    this.p0; // package
-    this.p1; // makeups
-    this.p2; // buying
-
-
-    this.phase0Handler = function () {
-
-        // package selection handler
-        phone.p0.find('div.packsel a').click(function () {
-            this.blur();
-            $(this).parents('ul:eq(0)').find('li').removeClass('active');
-            $(this).parents('div:eq(0)').find('ul.sheet:not(.s0) li').removeClass('active');
-            $(this).parent('li').addClass('active');
-            eval('var packsel = {' + this.rel + '}');
-            phone.p0.find('div.package.sheet').removeClass('s0');
-            for (var i = 0; i < packsel.packageIds.length; i++) {
-                phone.p0.find('div.package.sheet.id' + packsel.packageIds[i]).eq(0).addClass('s0');
-            }
-            return false;
-        });
-
-        // package events and settings
-        // jump to phase1 when selected a package
-        phone.p0.find('div.package div.inside p.btn a.btn, div.package div.inside div.prices a.basket').click(function () {
-            this.blur();
-
-            if ($(this).hasClass('gotoNetshop')) {
-                return true;
-            } else {
-                phone.phase1Handler(this.rel);
-                return false;
-            }
-        });
-
-        // url hash check for auto trigger
-        var urlHash = parseInt(String(location.hash).split('tariffId=')[1], 10);
-        if (urlHash > 0) {
-            phone.p0.find('div.package.id' + urlHash + ' div.inside p.btn a.btn, div.package.id' + urlHash + ' div.inside div.prices a.basket').eq(0).trigger('click');
-        }
-
-        // jump back here from phase1 or phase2 when selecting a new package
-        phone.p0.find('div.package div.inside a.btn.del').click(function () {
-            this.blur();
-            phone.pContainer.removeClass('ts0 ts1 ts2 ts3').addClass('ts0');
-            return false;
-        });
-
-        // insert selectable packages to select
-        phone.p0.find('div.package.packages select option').remove();
-        phone.p0.find('div.package.selectable.sheet h2').each(function (i) {
-            phone.p0.find('div.package.packages select').append('<option value=' + i + '>' + this.title + '</option>');
-        });
-
-        // show selected package
-        phone.p0.find('div.package.packages select').change(function () {
-            phone.p0.find('div.package.packages div.inside').remove();
-            phone.p0.find('div.package.selectable.sheet div.inside').eq(this.value).clone(true).appendTo(phone.p0.find('div.package.packages'));
-        });
-        phone.p0.find('div.package.packages select').trigger('change');
-
-        if (phone.p0.find('div.package.selectable.sheet.s0 div.inside').length == phone.p0.find('div.package.selectable.sheet div.inside').length) {
-            phone.p0.find('div.package.packages').hide();
-        }
-
-
-        // makeup events and settings
-        // makeup append to selected
-        phone.p1.find('div.package.sheet div.inside p.btn a.btn.add').click(function (e) {
-
-            e.preventDefault();
-
-            this.blur();
-            var makeupIndex = 'makeupIndex' + parseInt($(this).parents('div.inside:eq(0)').attr('class').split('makeupIndex')[1], 10);
-            if (!phone.p1.find('div.package div.inside.' + makeupIndex).hasClass('added')) {
-                $(this).parents('div.inside:eq(0)').addClass('added').clone(true).appendTo(phone.p1.find('div.package.selected'));
-                $(this).parents('div.inside:eq(0)').parent().addClass('added');
-            }
-            return false;
-        });
-
-        // makeup remove from selected
-        phone.p1.find('div.package.sheet div.inside a.btn.del').click(function () {
-            this.blur();
-            var makeupIndex = 'makeupIndex' + parseInt($(this).parents('div.inside:eq(0)').attr('class').split('makeupIndex')[1], 10);
-            phone.p1.find('div.package div.inside.added.' + makeupIndex).parent().removeClass('added');
-            phone.p1.find('div.package div.inside.added.' + makeupIndex).removeClass('added');
-            $(this).parents('div.inside:eq(0)').remove();
-            return false;
-        });
-
-        // add makeupIndex
-        phone.p1.find('div.package.sheet h2').each(function (i) {
-            $(this).parent().find('p.btn a.btn').attr('rel', function () { return this.rel + ', makeupIndex: ' + i; });
-            $(this).parent().addClass('makeupIndex' + i);
-        });
-
-        // select default package
-        //		if (phone.p0.find('div.package.iamtheone').length > 0) {
-        //			phone.p0.find('div.package.iamtheone p.btn a.btn').trigger('click');
-        //		}
-        // select default package/offer
-        phone.p0.find('div.package.selectable a.iamtheone:eq(0)').trigger('click');
-
-        // buying events and settings
-        phone.p1.find('div.insert a.button').click(function () {
-            this.blur();
-            phone.pContainer.removeClass('ts0 ts1 ts2 ts3').addClass('ts1 ts2');
-            phone.phase2Handler(true);
-            return false;
-        });
-
-        phone.p2.find('div.form a.button').click(function () {
-            this.blur();
-
-            var submitable = false;
-            var selected = phone.p1.find('div.package.selected').eq(0);
-
-            $('#packageID').val('');
-            $('#makeupIDs').val('');
-            $('#phoneOwnerName').val('');
-            $('#phoneNumber').val('');
-            $('#emailAddress').val('');
-            $('#submitType').val('');
-            $('#OfferID').val('');
-
-            selected.find('div.inside p.btn a.btn').each(function (i) {
-                eval('var pitem = {' + this.rel + '}');
-                if (i == 0) {
-                    $('#packageID').val((pitem.packageId) ? pitem.packageId : 'null');
-                    $('#OfferID').val((pitem.OfferID) ? pitem.OfferID : 'null');
-                } else {
-                    $('#makeupIDs').val((pitem.makeupId) ? $('#makeupIDs').val() + (($('#makeupIDs').val().length > 0) ? ',' : '') + pitem.makeupId : 'null');
-                }
-            });
-
-            //			$('#phoneNumber').val( phone.p2.find('div.form0 div.select select').val() + String(parseInt('0' + phone.p2.find('div.form0 div.input input').val(), 10)) );
-            $('#phoneOwnerName').val(phone.p2.find('div.form0 div.input input').eq(0).val());
-            $('#phoneNumber').val(phone.p2.find('div.form0 div.input input').eq(1).val());
-            $('#emailAddress').val(phone.p2.find('div.form2 div.input input').val());
-
-            if ($(this).hasClass('submit_phone')) {
-                $('#submitType').val('P');
-                if ($('#phoneNumber').val().length < 11) {
-                    phone.p2.find('div.form0').addClass('error');
-                } else {
-                    phone.p2.find('div.form0').removeClass('error');
-                    submitable = true;
-                    $(this).parents('div.submit:eq(0)').find('div.form0.thx0').addClass('s0');
-                    $(this).parents('div.form0:eq(0)').removeClass('s0');
-                    $(this).parents('div.submit:eq(0)').find('div.form1').removeClass('s0');
-                }
-            }
-
-            if ($(this).hasClass('submit_netshop')) {
-                $('#submitType').val('I');
-                submitable = true;
-            }
-
-            if ($(this).hasClass('submit_email')) {
-                $('#submitType').val('E');
-                if (($('#emailAddress').val().length < 6) || ($('#emailAddress').val().indexOf('@') < 0) || ($('#emailAddress').val().indexOf('.') < 0)) {
-                    phone.p2.find('div.form2').addClass('error');
-                } else {
-                    phone.p2.find('div.form2').removeClass('error');
-                    submitable = true;
-                    $(this).parents('div.submit:eq(0)').find('div.form2.thx2').addClass('s0');
-                    $(this).parents('div.form2:eq(0)').removeClass('s0');
-                }
-            }
-
-            if (submitable) {
-                $('form#packageForm').submit();
-            }
-
-            return false;
-        });
-
-        if ($('form#packageForm').length > 0) {
-            $('form#packageForm').ajaxForm({
-                success: function (data) {
-                    if (data != '') {
-                        if (data.match(/^http/)) {
-                            document.location = data;
-                        } else {
-                            $('#purchase').val(data);
-                        }
-                    }
-                }
-            });
-        }
-    };
-
-
-
-    this.phase1Handler = function (packageSelected) {
-
-        scroll(0, 0);
-
-        eval('var package = {' + packageSelected + '}');
-
-        if (package.makeupIds != null) {
-
-            if (package.makeupIds.length > 0) {
-
-                // show the selected package
-                phone.p1.find('div.package.selected div.inside').remove();
-                phone.p0.find('div#OfferID_' + package.OfferID + '.package.sheet div.inside').clone(true).appendTo(phone.p1.find('div.package.selected'));
-
-                // show suggested makeups for the selected packege
-                phone.p1.find('div.package.sheet').removeClass('s0');
-                for (var i = 0; i < package.makeupIds.length; i++) {
-                    phone.p1.find('div.package.sheet.id' + package.makeupIds[i]).eq(0).addClass('s0');
-                }
-
-                // insert all makeups to select
-                phone.p1.find('div.package.packages select option').remove();
-                phone.p1.find('div.package.sheet h2').each(function (i) {
-                    phone.p1.find('div.package.packages select').append('<option value=' + i + '>' + this.title + '</option>');
-                });
-
-                // show selected makeup
-                phone.p1.find('div.package.packages select').change(function () {
-                    phone.p1.find('div.package.packages div.inside').remove();
-                    phone.p1.find('div.package.sheet div.inside').eq(this.value).clone(true).appendTo(phone.p1.find('div.package.packages'));
-                });
-                phone.p1.find('div.package.packages select').trigger('change');
-
-                if (phone.p1.find('div.package.sheet.s0 div.inside').length == phone.p1.find('div.package.sheet div.inside').length) {
-                    phone.p1.find('div.package.packages').hide();
-                }
-                if (phone.p1.find('div.package.sheet div.inside').length == 0) {
-                    phone.p1.find('div.makeups').hide();
-                }
-
-                // set visible phase1
-                phone.pContainer.removeClass('ts0 ts1 ts2 ts3').addClass('ts1');
-
-
-            } else {
-
-                // show the selected package
-                phone.p1.find('div.package.selected div.inside').remove();
-                phone.p0.find('div#OfferID_' + package.OfferID + '.package.sheet div.inside').clone(true).appendTo(phone.p1.find('div.package.selected'));
-
-                // set visible phase1
-                phone.pContainer.removeClass('ts0 ts1 ts2 ts3').addClass('ts1 ts2');
-                phone.p1.find('div.makeups').hide();
-                phone.phase2Handler(false);
-
-            }
-
-        } else {
-
-            phone.p1.find('div.package.selected div.inside').remove();
-            phone.p0.find('div.package div.inside.onlydevice').eq(0).clone(true).appendTo(phone.p1.find('div.package.selected'));
-
-            phone.pContainer.removeClass('ts0 ts1 ts2 ts3').addClass('ts1 ts2 ts3');
-            phone.phase2Handler(false);
-
-        }
-
-    };
-
-    this.phase2Handler = function (ispackage) {
-
-        if (ispackage) {
-
-            phone.p1.find('div.makeups.open').removeClass('open');
-
-        } else {
-
-            //			phone.p1.find('').
-
-        }
-
-    }
-
-
-
-    this.initialize = function () {
-
-        if (($('div#phoneAttr').length > 0) && ($('div#phonePack').length > 0)) {
-
-            phone.pContainer = $('div#phonePack'); // form container
-            phone.p0 = $('div#phonePackPhase0'); // package
-            phone.p1 = $('div#phonePackPhase1'); // makeups
-            phone.p2 = $('div#phonePackPhase2'); // buying
-
-            var feature = $('div#phoneAttr div.feature');
-            var a = Array();
-            var tmp = null;
-            feature.find('div.item').each(function (i) {
-                if (a[$(this).offset().left]) {
-                    tmp = a[$(this).offset().left];
-                    $(this).css({ 'marginTop': - ($(this).offset().top - (tmp.offset().top + tmp.outerHeight())) + 'px' });
-                }
-                a[$(this).offset().left] = $(this);
-            });
-
-            $('div#phonePack div.packages h3').click(function () { $(this).parent().toggleClass('open'); });
-            $('div#phonePack div.makeups h5').click(function () { $(this).parent().toggleClass('open'); });
-
-            phone.phase0Handler();
-
-        }
-
-    };
-
-
-
-}(); // /phone
-/* /removable lines */
 
 function initRotator(xml) {
     $tpl = $('.rotator-holder #rotator .item').remove()

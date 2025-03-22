@@ -356,6 +356,12 @@ div.cont:before {
 	display: block;
 	position: absolute;
 	content: '';
+	background-color: #FFF;
+	width: 980px;
+	height: 55px;
+	margin-top: -55px;
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
 }
 
 div.cont:after {
