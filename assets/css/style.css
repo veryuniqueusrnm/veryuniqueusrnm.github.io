@@ -279,7 +279,7 @@ h2.headline.black {
 }
 
 div.center.errorpage {
-	min-height: 600px;
+	min-height: 1000px;
 }
 
 div.center.errorpage p, h1, h2, ul, li {
