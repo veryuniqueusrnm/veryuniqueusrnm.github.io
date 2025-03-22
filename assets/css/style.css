@@ -154,7 +154,7 @@ div.container .dropdown-menu {
     padding-top: 16px;
 }
 
-div.dropdown-menu .nav-btn {
+nav.dropdown-menu .nav-btn {
     text-decoration: none;
     font-size: 18px;
     color: #606060;
@@ -163,7 +163,7 @@ div.dropdown-menu .nav-btn {
     transition: background-color 0.3s ease;
 }
 
-div.dropdown-menu .nav-btn.active {
+nav.dropdown-menu .nav-btn.active {
     background-color: #e0e0e0;
 }
 
