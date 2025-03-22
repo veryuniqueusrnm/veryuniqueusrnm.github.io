@@ -2330,3 +2330,11 @@ footer p.footnote {
 .mc-cape-viewer-9x.spin>.wrapper>.cape {
 	animation: spin 12s infinite linear;
 }
+
+
+div.center-404 p, h1, h2, ul, li {
+	color: #FFF;
+	text-decoration: none;
+	list-style: none;
+	min-height: 400px;
+}
