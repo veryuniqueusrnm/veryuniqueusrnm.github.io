@@ -22,6 +22,28 @@ div.container {
 }
 /* /container */
 
+/* white styles */
+div.container div.white {
+    position: relative;
+    border-radius: 10px;
+    background-color: #FFF;
+    color: #000;
+    width: 100%;
+    z-index: 696969;
+}
+/* /white styles */
+
+/* black styles */
+div.black {
+    position: relative;
+    background-color: #000;
+    color: #FFF;
+    width: 100%;
+    min-height: 200px;
+    z-index: 1;
+}
+/* /black styles */
+
 /* header styles */
 div.container header {
     position: relative;
@@ -272,7 +294,7 @@ div.container div.hero div.description p.footnote {
     color: #FFF;
 }
 
-div.container div.hero div.description img.youhuu {
+div.container div.hero div.description img.promo {
     position: relative;
     width: 250px;
     height: 350px;
@@ -325,14 +347,6 @@ p.footnote a {
     text-decoration: none;
 }
 
-p#browserUpdateNotice {
-    display: none;
-}
-
-p#browserDetails {
-    display: none;
-}
-
 p.censored {
     display: initial;
     filter: blur(4px);
@@ -342,10 +356,6 @@ p.censored {
 p.censored:hover {
     filter: blur(0); 
     cursor: pointer;
-}
-
-p#youhuu {
-    display: initial;
 }
 
 .warning {
@@ -378,38 +388,10 @@ i.modrinth {
 li {
 	color: #000;
 }
-
-a {
-    color: #2a7ae2;
-    text-decoration: none;
-}
 /* /div styles */
 
-/* white styles */
-div.container div.white {
-    position: relative;
-    border-radius: 10px;
-    background-color: #FFF;
-    color: #000;
-    width: 100%;
-    z-index: 696969;
-}
-
-/* /white styles */
-
-/* black styles */
-div.black {
-    position: relative;
-    background-color: #000;
-    color: #FFF;
-    width: 100%;
-    min-height: 200px;
-    z-index: 1;
-}
-/* /black styles */
-
 /* pc specifications styles */
-table.table {
+table.specs {
     font-family: arial, sans-serif;
     border-collapse: collapse;
     width: 100%;
