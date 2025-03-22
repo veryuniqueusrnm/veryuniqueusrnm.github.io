@@ -109,6 +109,7 @@ div.container .dropdown {
     z-index: 696970;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
+	border-bottom: 1px solid #000;
 }
 
 div.container .dropdown-menu {
@@ -202,14 +203,14 @@ a.menu-button-mobile {
 /* header styles */
 
 /* hero styles */
-div.container section.hero {
+div.container div.hero {
     position: relative;
     width: 100%;
     height: 416px;
     z-index: 1;
 }
 
-div.container section.hero div.description {
+div.container div.hero div.description {
     position: relative;
     width: auto;
     min-height: 356px;
@@ -219,46 +220,46 @@ div.container section.hero div.description {
     padding-bottom: 30px;
 }
 
-div.container section.hero div.description h2.title {
+div.container div.hero div.description h2.title {
     position: relative;
     color: #FFF;
     font-size: 40px;
     margin-bottom: 10px;
 }
 
-div.container section.hero div.description p.subtitle {
+div.container div.hero div.description p.subtitle {
     color: #FFF;
     width: 400px;
 }
 
-div.container section.hero div.buttons {
+div.container div.hero div.buttons {
     display: grid;
     grid-gap: 15px;
 }
 
-div.container section.hero div.description a {
+div.container div.hero div.description a {
     color: #FFF;
     font-size: 20px;
     text-decoration: none;
     transition: text-shadow 0.3s ease;
 }
 
-div.container section.hero div.description a:hover {
+div.container div.hero div.description a:hover {
     text-shadow: 0 0 5px rgba(255, 255, 255, 0.8), 0 0 10px rgba(255, 255, 255, 0.6), 0 0 15px rgba(0, 0, 255, 0.8);
     transition: text-shadow 0.3s ease;
 }
 
-div.container section.hero div.description p.subtitle {
+div.container div.hero div.description p.subtitle {
     color: #FFF;
     width: 400px;
 }
 
-div.container section.hero div.description p.footnote {
+div.container div.hero div.description p.footnote {
     font-size: 10px;
     color: #FFF;
 }
 
-div.container section.hero div.description img.youhuu {
+div.container div.hero div.description img.youhuu {
     position: relative;
     width: 250px;
     height: 350px;
@@ -266,7 +267,7 @@ div.container section.hero div.description img.youhuu {
 }
 /* /hero styles */
 
-/* section styles */
+/* div styles */
 h2.headline {
     position: relative;
 }
@@ -350,10 +351,10 @@ i.modrinth {
     color: #000;
     margin-top: 3px;
 }
-/* /section styles */
+/* /div styles */
 
 /* about styles */
-div.container section.about {
+div.container div.about {
     position: relative;
     border-radius: 10px;
     background-color: #FFF;
@@ -362,7 +363,7 @@ div.container section.about {
     z-index: 696969;
 }
 
-div.container section.about img.youhuu {
+div.container div.about img.youhuu {
     float: right;
     margin-right: -10px;
     margin-top: -65px;
@@ -371,7 +372,7 @@ div.container section.about img.youhuu {
 /* /about styles */
 
 /* blog-home styles */
-section.blog-home {
+div.blog-home {
     position: relative;
     background-color: #000;
     color: #FFF;
@@ -380,36 +381,36 @@ section.blog-home {
     z-index: 1;
 }
 
-section.blog-home .row-2 {
+div.blog-home .row-2 {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 24px;
 }
 
-section.blog-home .column {
+div.blog-home .column {
     display: flex;
     flex-direction: column;
     flex: 1;
 }
 
-section.blog-home a {
+div.blog-home a {
     color: #FFF;
     text-decoration: none;
 }
 
-section.blog-home .post-content h4 {
+div.blog-home .post-content h4 {
     font-size: 20px;
 }
 
-section.blog-home .column section {
+div.blog-home .column div {
     padding-bottom: 12px;
 }
 
-section.blog-home p {
+div.blog-home p {
     hyphens: auto;
 }
 
-section.blog-home button, .button {
+div.blog-home button, .button {
     border-radius: 5px;
     color: #FFF !important;
     text-decoration: none !important;
@@ -419,7 +420,7 @@ section.blog-home button, .button {
     box-shadow: rgba(0,0,0,0.15) 1.95px 1.95px 2.6px;
 }
 
-section.blog-home button.secondary, .button.secondary {
+div.blog-home button.secondary, .button.secondary {
     background-color: transparent;
     border: 2px solid #FFF;
     color: #FFF !important;
@@ -428,7 +429,7 @@ section.blog-home button.secondary, .button.secondary {
 /* /blog-home styles */
 
 /* pc specifications styles */
-div.container section.pc-specs {
+div.container div.pc-specs {
     position: relative;
     background-color: #FFF;
     color: #000;
@@ -438,13 +439,13 @@ div.container section.pc-specs {
     border-radius: 10px;
 }
 
-div.container section.pc-specs table.table {
+div.container div.pc-specs table.table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
     width: 100%;
 }
 
-div.container section.pc-specs table.table td, th {
+div.container div.pc-specs table.table td, th {
     border: 1px solid #000;
     text-align: left;
     padding: 8px;
@@ -452,7 +453,7 @@ div.container section.pc-specs table.table td, th {
 /* /pc specifications styles */
 
 /* social styles */
-div.container section.social {
+div.container div.social {
     position: relative;
     background-color: #000;
     color: #FFF;
@@ -472,13 +473,13 @@ footer {
     min-height: 80px;
 }
 
-footer section.socialcontainer {
+footer div.socialcontainer {
     display: inline-flex;
     gap: 15px;
     font-size: 30px;
 }
 
-footer section.socialcontainer i {
+footer div.socialcontainer i {
     display: inline-flex;
     color: #000;
 }
