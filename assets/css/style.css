@@ -99,14 +99,6 @@ div.container header nav.links {
     background-color: #e0e0e0;
 }
 
-div.account {
-	position: relative;
-    padding: 5px;
-	color: #606060;
-    cursor: pointer;
-    font-size: 23px;
-}
-
 div.container header nav.links .hamburger {
     display: flex;
     flex-direction: column;
