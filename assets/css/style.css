@@ -318,8 +318,8 @@ div.errorpage {
 }
 
 div.errorpage p, h1, h2, ul, li {
-	color: #FFF;
-	text-decoration: none;
+	color: #FFF !important;
+	text-decoration: none !important;
 	list-style-type: circle;
 }
 
