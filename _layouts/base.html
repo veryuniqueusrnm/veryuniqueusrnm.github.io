@@ -3,19 +3,33 @@
 
   {%- include head.html -%}
 
-  <body>
+  <body class="indexpage">
 
-    {%- include header.html -%}
+    <!-- container -->
+    <div class="container">
 
-    <main class="page-content" aria-label="Content">
-      <div class="wrapper">
+      <noscript>
+        <div id="javascript-warning" class="warning warning-yellow">
+            Please enable JavaScript to use this site.
+        </div>
+      </noscript>
+
+      {%- include header.html -%}
+
+      <!-- cont -->
+      <div class="cont">
         {{ content }}
       </div>
-    </main>
+      <!-- /cont -->
 
-    {%- include footer.html -%}
+      <div class="clearboth footkeeper"></div>
 
-    {%- include sub-footer.html -%}
+      {%- include footer.html -%}
+
+    </div>
+    <!-- /container -->
+
+    {%- include popuwrp.html -%}
 
   </body>
 

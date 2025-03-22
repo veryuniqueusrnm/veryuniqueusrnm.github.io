@@ -2,45 +2,246 @@
 layout: base
 ---
 
-<div class="home">
-  {%- if page.title -%}
-    <h1 class="page-heading">{{ page.title }}</h1>
-  {%- endif -%}
+   {{ content }}
 
-  {{ content }}
+   <script type="text/javascript">
+      $(document).ready(function(){
+         $('div.mainPromoRotator').mainPromoRotator();
+      });
+   </script>
 
-  <div class="promo">
-    <h2>Welcome</h2>
-    <p>Welcome to VeryUniqueUsrnm's VeryUniqueWebsite, where you can find a whole bunch of links, resources and more.</p>
-    <a href="/blog/">Blog &amp; Updates</a>
-    <a href="https://github.com/veryuniqueusrnm" target="_blank">Github</a>
-    <a href="https://modrinth.com/user/VeryUniqueUsrnm" target="_blank">Modrinth</a>
-  </div>
-
-  <hr>
-   <section>
-   <h3>Archived Stuff</h3>
-   <ul>
-      <li><a href="https://archive.org/details/discord-for-legacy-windows" target="_blank">Discord for Windows 7, 8 and 8.1</a> - Latest version of Discord from their website.</li>
-   </ul>
-   </section>
-
-   <hr>
-   <section>
-      <h3>Latest Blog Posts</h3>
-      <div class="row-2">
-         {% for post in site.posts limit: 2 %}
-         <article class="column">
-            <a href="{{ post.url }}">
-               <h4>{{ post.title }}</h4>
-            </a>
-            <section>
-               <p>{{ post.content | strip_html | truncate: 310 }}</p>
-            </section>
-            <a class="button secondary" href="{{ post.url }}">Continue reading</a>
-         </article>
-         {% endfor %}
+   <div class="mainPromoRotator light-theme">
+      <span class="mask maskTop">&nbsp;</span>
+      <span class="mask maskBottom">&nbsp;</span>
+      <div class="promos">
+         <ul>
+            <li data-delay="0" class="light-theme">
+               <a href="#" class="lnkMore"><span>Learn more</span></a>
+               <img src="#" alt="promoImage" class="promoImage"/>
+            </li>
+         </ul>
       </div>
-   </section>
+      <div class="menuItemsContainer">
+         <ul class="menuItems">
+               <li><a href="#">placeholder</a></li>
+         </ul>
+      </div>
+   </div>
 
-</div>
+	<div class="loginbox notloggedin">
+		<h3 class="iconed-black">Sign in<span></span></h3>
+		<hr/>
+			<ul>
+				<li><a href="#">item</a></li>
+			</ul>
+		<hr/>
+      <h3 class="iconed-black">Already member?<span></span></h3>
+		<hr/>
+		<form id="login" method="post" action="#">
+			<fieldset>
+				<div class="field"><div class="input text"><input type="text" name="UserName" id="UserName" placeholder="Username" required/></div></div>
+				<div class="field"><div class="input text password"><input type="password" name="Password" id="Password" placeholder="Password" required/></div></div>
+				<div class="field">
+					<div class="input submit"><button type="submit">Sign in</button></div>
+					<ul class="links">
+						<li><a href="#">Forgot Password</a></li>
+						<li><a href="#">Registration</a></li>
+					</ul>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+	
+	<div class="loginbox logedin hidden">
+		<h3><span class="black">Signed in</span></h3>
+		<hr/>
+			<ul>
+				<li><a href="#">Sign out</a></li>
+      	</ul>
+		<hr/>
+		<h3 class="iconed-blue">My Stuff<span></span></h3>
+		<hr/>
+		<ul>
+			<li><a href="#">item</a></li>
+		</ul>
+	</div>
+
+   <script type="text/javascript">
+      $('div.loginbox input[type=text], div.loginbox input[type=password]').focus(function(){
+         $(this).parent().addClass('focus');
+      });
+      $('div.loginbox input[type=text], div.loginbox input[type=password]').blur(function(){
+         $(this).parent().removeClass('focus');
+      });
+   </script>
+
+	<div class="indexPromo wide">
+		<a href="#" target="_blank"><img src="#" alt="promoImage"/></a>
+	</div>
+
+   <div class="sidePromo">
+
+      <style>
+         #skin-viewer *{ background-image: url('/Skin128x_fixed.png'); }
+         #skin-viewer .cape{ background-image: url('./api/cloak/id/1/source'); }
+      </style>
+   
+      <div id="skin-viewer" class="mc-skin-viewer-11x spin">
+         <div class="player">
+            <!-- Head -->
+            <div class="head" >
+               <div class="top"></div>
+               <div class="left"></div>
+               <div class="front"></div>
+               <div class="right"></div>
+               <div class="back"></div>
+               <div class="bottom"></div>
+               <div class="accessory">
+                     <div class="top"></div>
+                     <div class="left"></div>
+                     <div class="front"></div>
+                     <div class="right"></div>
+                     <div class="back"></div>
+                     <div class="bottom"></div>
+               </div>
+            </div>
+            <!-- Body -->
+            <div class="body">
+               <div class="top"></div>
+               <div class="left"></div>
+               <div class="front"></div>
+               <div class="right"></div>
+               <div class="back"></div>
+               <div class="bottom"></div>
+               <div class="accessory">
+                     <div class="top"></div>
+                     <div class="left"></div>
+                     <div class="front"></div>
+                     <div class="right"></div>
+                     <div class="back"></div>
+                     <div class="bottom"></div>
+               </div>
+            </div>
+            <!-- Left Arm -->
+            <div class="left-arm">
+               <div class="top"></div>
+               <div class="left"></div>
+               <div class="front"></div>
+               <div class="right"></div>
+               <div class="back"></div>
+               <div class="bottom"></div>
+               <div class="accessory">
+                     <div class="top"></div>
+                     <div class="left"></div>
+                     <div class="front"></div>
+                     <div class="right"></div>
+                     <div class="back"></div>
+                     <div class="bottom"></div>
+               </div>
+            </div>
+            <!-- Right Arm -->
+            <div class="right-arm">
+               <div class="top"></div>
+               <div class="left"></div>
+               <div class="front"></div>
+               <div class="right"></div>
+               <div class="back"></div>
+               <div class="bottom"></div>
+               <div class="accessory">
+                     <div class="top"></div>
+                     <div class="left"></div>
+                     <div class="front"></div>
+                     <div class="right"></div>
+                     <div class="back"></div>
+                     <div class="bottom"></div>
+               </div>
+            </div>
+            <!-- Left Leg -->
+            <div class="left-leg">
+               <div class="top"></div>
+               <div class="left"></div>
+               <div class="front"></div>
+               <div class="right"></div>
+               <div class="back"></div>
+               <div class="bottom"></div>
+               <div class="accessory">
+                     <div class="top"></div>
+                     <div class="left"></div>
+                     <div class="front"></div>
+                     <div class="right"></div>
+                     <div class="back"></div>
+                     <div class="bottom"></div>
+               </div>
+            </div>
+            <!-- Right Leg -->
+            <div class="right-leg">
+               <div class="top"></div>
+               <div class="left"></div>
+               <div class="front"></div>
+               <div class="right"></div>
+               <div class="back"></div>
+               <div class="bottom"></div>
+               <div class="accessory">
+                     <div class="top"></div>
+                     <div class="left"></div>
+                     <div class="front"></div>
+                     <div class="right"></div>
+                     <div class="back"></div>
+                     <div class="bottom"></div>
+               </div>
+            </div>
+            <!-- Cape -->
+            <div class="cape">
+               <div class="top"></div>
+               <div class="left"></div>
+               <div class="front"></div>
+               <div class="right"></div>
+               <div class="back"></div>
+               <div class="bottom"></div>
+            </div>
+         </div>
+      </div>
+
+
+      
+   </div>
+
+   <div class="productFinder">
+      <ul class="products">
+         <li>
+            <div class="productImage">
+               <a href="#"><img style="height: auto" src="#" width="75" height="75" class="picture" alt="promoImage"/></a>
+            </div>
+            <a href="#"><h3>item</h3>
+            <h4> item</h4></a>
+            <div class="price">
+               <span class="value"><b>item</b></span><br/>
+            </div>
+            <a href="#" class="btnBasket"><span>Details</span></a>
+            <strong class="tarifa">item</strong>
+            <span class="loyality">
+               2 év tarifamegtartással
+            </span>
+         </li>
+         <script>$('.products > li h4').each(function(i, e) { if($(e).text().length > 21) { $(e).css('font-size',13) } });</script>
+      </ul>
+   </div>
+
+   <script type="text/javascript">
+      $(document).ready(function(){
+         $('div.promoCarousel').jcarousel();
+      });
+   </script>
+
+   <div class="promoCarousel">
+      <ul class="promos">
+         <li class="imagePromo">
+            <a href="#"><h2>item</h2></a>
+            <a href="#"><img src="#" alt="promoImage" class="promoImage"/></a>
+            <div class="textContent">
+               <p>item</p>
+            </div>
+            <a href="#" class="btnMore">Learn More</a>
+         </li>
+      </ul>
+   </div>
