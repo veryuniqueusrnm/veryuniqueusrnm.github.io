@@ -315,7 +315,6 @@ div.container div.center {
     padding-bottom: 20px;
 }
 
-
 p.footnote {
     font-size: 10px;
     color: #FFF;
@@ -375,6 +374,10 @@ i.modrinth {
     color: #000;
     margin-top: 3px;
 }
+
+li {
+	color: #000;
+}
 /* /div styles */
 
 /* white styles */
@@ -401,13 +404,13 @@ div.black {
 /* /black styles */
 
 /* pc specifications styles */
-div.container div.pc-specs table.table {
+table.table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
     width: 100%;
 }
 
-div.container div.pc-specs table.table td, th {
+table.table td, th {
     border: 1px solid #000;
     text-align: left;
     padding: 8px;
