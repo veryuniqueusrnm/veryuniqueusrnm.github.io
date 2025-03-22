@@ -291,17 +291,17 @@ h2.headline.black {
     position: relative;
 }
 
-div.center.errorpage {
+div.center-errorpage {
 	min-height: 500px !important;
 }
 
-div.center.errorpage p, h1, h2, ul, li {
+div.center-errorpage p, h1, h2, ul, li {
 	color: #FFF;
 	text-decoration: none;
 	list-style-type: circle;
 }
 
-div.center.errorpage a {
+div.center-errorpage a {
 	color: #FFF;
 	text-decoration: underline;
 }
