@@ -48,7 +48,7 @@ em.cufontext { 	display: none !important; }
 div.container {width: 980px; height: auto !important; min-height: 100% !important; height: 100%; margin: 0 auto; padding: 0px 0px 0px 0px; overflow: visible; z-index: 100; background: transparent url('/assets/i/bg/bg_container.png') center 47px no-repeat;}
 div.head {width: 980px; height: 112px; margin: 0 auto 0 auto; overflow: visible; z-index: 900;}
 div.cont {float: left; clear: both; width: 980px; margin: -10px 0px 0px 0px; padding: 0px 0px 40px 0px; overflow: visible; z-index: 200; background: #fff; min-height:300px;}
-div.cont:before {display: block; position: absolute; content: '';}
+div.cont:before {display: block; position: absolute; content: ''; background-color: #FFF; width: 980px; height: 55px; margin-top: -55px; border-top-left-radius: 10px; border-top-right-radius: 10px;}
 div.cont:after {content: '&nbsp;'; position: relative; display: block; float: none; clear: both; height: 0px; margin: 0px; padding: 0px; border: none 0px; overflow: hidden; visibility: hidden;}
 div.cont div.side {float: left; clear: none; width: 180px; margin: 0px 0px 0px 0px; padding: 0px 0px 0px 0px; overflow: hidden;}
 div.cont div.content {float: right; clear: none; width: 800px; margin: 6px 0px 0px 0px; padding: 0px 0px 0px 0px; overflow: hidden;}
@@ -115,7 +115,7 @@ div.head div.smallmenu ul li.active {margin: 0px -100px 0px -100px; padding: 0px
 div.head div.smallmenu ul li.active a {color: #fff;}
 div.head div.smallmenu ul li.counter {position:absolute; right:-300px;}
 div.head div.smallmenu ul li.counter a {padding-left: 16px; color: #ff5b00; background: url('/assets/i/head_smallmenu.png') 0px -87px no-repeat;}
-div.head div.smallmenu ul li.lang a {width: 46px; color: #fff; background: url('/assets/i/head_smallmenu.png') 0px -190px no-repeat;}
+div.head div.smallmenu ul li.lang a {width: 46px; color: #fff;}
 div.head div.smallmenu ul li.lang a b {width: 46px; padding-left: 0px; padding-right: 0px; text-align: center;}
 div.head div.smallmenu ul li.accessibility a {width: 36px; color: #fff; background: url('/assets/i/head_smallmenu.png') -92px -186px no-repeat;}
 div.head div.smallmenu ul li.accessibility a b {width: 20px; padding-left: 8px; padding-right: 8px; text-indent: -6969px;}
