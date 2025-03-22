@@ -82,7 +82,7 @@ div.container header nav.links {
     gap: 5px;
 }
 
-div.container header .nav-btn {
+ .nav-btn {
     text-decoration: none;
     font-size: 18px;
     color: #606060;
@@ -91,11 +91,11 @@ div.container header .nav-btn {
     transition: background-color 0.3s ease;
 }
 
-div.container header .nav-btn:hover {
+ .nav-btn:hover {
     background-color: #e0e0e0;
 }
 
-div.container header .nav-btn.active {
+ .nav-btn.active {
     background-color: #e0e0e0;
 }
 
@@ -152,14 +152,6 @@ div.container .dropdown-menu {
     flex-direction: column;
     padding: 10px 0;
     padding-top: 16px;
-}
-
-div.container .dropdown-menu .nav-btn {
-    text-decoration: none;
-    font-size: 18px;
-    color: #606060;
-    padding: 10px 15px;
-    transition: background-color 0.3s ease;
 }
 
 div.menu-container {
@@ -396,14 +388,15 @@ a {
 /* /div styles */
 
 /* pc specifications styles */
-table.specs {
+table.pc-specs {
     font-family: arial, sans-serif;
     border-collapse: collapse;
     width: 100%;
 }
 
-table.table td, th {
-    border: 1px solid #000;
+table.pc-specs td, th {
+    border: 1px solid #FFF;
+	color: #FFF;
     text-align: left;
     padding: 8px;
 }
