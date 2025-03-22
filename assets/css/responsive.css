@@ -14,7 +14,20 @@
     div.container header {
         border-top-left-radius: 10px;
         border-top-right-radius: 10px;
+        border: none;
         width: 100%;
+    }
+
+    div.container div.nextto {
+        position: relative;
+        display: block;
+        width: 100%;
+    }
+    
+    div.container div.nextto p {
+        width: 100%;
+        margin-right: 0px;
+        margin-bottom: 70px;
     }
 
     div.card {
@@ -30,8 +43,17 @@
     }
 }
 
-@media only screen and (max-width: 904px) {
+@media only screen and (max-width: 868px) {
     div.container header .smallmenu nav.links a {
+        display: none;
+    }
+
+    div.container header a.logo {
+        width: 50px;
+        padding-left: 0px;
+    }
+
+    div.container header a.logo span {
         display: none;
     }
 
@@ -41,6 +63,13 @@
 
     div.container div.hero div.description {
         text-align: center;
+    }
+
+    div.container div.hero div.description img.youhuu {
+        width: 50%;
+        margin: auto;
+        margin-left: 50px;
+        float: none;
     }
 
     div.container div.hero div.description h2.title {
@@ -53,27 +82,28 @@
         margin: auto;
     }
 
+    div.container div.hero div.buttons {
+        display: none;
+    }
+
     div.container div.hero div.description a {
         display: block;
         text-align: center;
-        padding-top: 5px;
+    }
+
+    div.container div.about img.youhuu {
+        float: right;
+        margin-right: -10px;
+        margin-top: -65px;
+        width: 180px;
     }
 
     div.menu-container {
         display: none;
     }
-
-    footer h2.copyright {
-        font-size: 100%;
-    }
-
-    div.game-library img.avatar {
-        width: 150px;
-        height: 330px;
-    }
 }
 
-@media only screen and (min-width: 905px) {
+@media only screen and (min-width: 869px) {
     div.container .dropdown {
         display: none;
     }
