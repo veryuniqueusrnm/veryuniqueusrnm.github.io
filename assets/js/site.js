@@ -734,7 +734,6 @@ var site = function () {
             site.IEfix();
             site.IE6fix();
             site.IE7fix();
-            site.pageTracker();
             Overlay.initialize();
 
         }, // /initialize
