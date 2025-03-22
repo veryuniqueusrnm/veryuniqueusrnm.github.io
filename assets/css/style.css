@@ -462,7 +462,7 @@ div.container div.social {
     border-radius: 10px;
 }
 
-div.social iframe {
+div.social iframe, div.twitter-timeline, div.twitter-timeline-twitter-timeline-rendered {
 	display: inline-block !important;
 	position: relative !important;
 	top: -7px !important;
