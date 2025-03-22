@@ -2,3 +2,26 @@
 layout: base
 ---
 
+{{ content }}
+
+<div class="content"><h1>Error 404</h1>
+    <p>The requested resource is not found on the server.</p>
+    <p><strong>What caused this:</strong></p>
+    <ul>
+    <li>A typo or a broken link</li>
+    <li>The resource has been moved or removed</li>
+    <li>The resource is unavailable at the moment.</li>
+    </ul>
+    <p><strong>Tips to continue:</strong></p>
+    <ul>
+    <li><a href="search/">Search</a> in the top right corner</li>
+    <li><a href="sitemap/">Sitemap</a> to take a look at the content on this website.</li>
+    <li><a href="/">Go</a> to the main page</li>
+    <li><a href="javascript:history.back();">Go</a> back to the previous page</li>
+    </ul>
+    <h2 class="mark">Latest blog posts</h2>
+    {% for post in site.posts limit: 2 %}
+    <p><a href="{{ post.url }}" target="_self">{{ post.title }}</a></p>
+    <p><a href="{{ post.url }}" target="_self">{{ post.title }}</a></p>
+    {% endfor %}
+</div>
