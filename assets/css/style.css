@@ -23,13 +23,17 @@ div.container {
 /* /container */
 
 /* white styles */
-div.container div.white {
+div.white {
     position: relative;
     border-radius: 10px;
     background-color: #FFF;
     color: #000;
     width: 100%;
     z-index: 696969;
+}
+
+p.footnote.white {
+    color: #FFF;
 }
 /* /white styles */
 
@@ -41,6 +45,10 @@ div.black {
     width: 100%;
     min-height: 200px;
     z-index: 1;
+}
+
+p.footnote.black {
+    color: #000;
 }
 /* /black styles */
 
@@ -82,7 +90,7 @@ div.container header nav.links {
     gap: 5px;
 }
 
- .nav-btn {
+div.container header .nav-btn {
     text-decoration: none;
     font-size: 18px;
     color: #606060;
@@ -91,11 +99,11 @@ div.container header nav.links {
     transition: background-color 0.3s ease;
 }
 
- .nav-btn:hover {
+div.container header .nav-btn:hover {
     background-color: #e0e0e0;
 }
 
- .nav-btn.active {
+div.container header .nav-btn.active {
     background-color: #e0e0e0;
 }
 
@@ -146,6 +154,19 @@ div.container .dropdown-menu {
     padding-top: 16px;
 }
 
+div.dropdown-menu .nav-btn {
+    text-decoration: none;
+    font-size: 18px;
+    color: #606060;
+    padding: 10px 15px;
+    border-radius: 0px;
+    transition: background-color 0.3s ease;
+}
+
+div.dropdown-menu .nav-btn.active {
+    background-color: #e0e0e0;
+}
+
 div.menu-container {
     position: relative;
     display: inline-block;
@@ -158,10 +179,6 @@ a.menu-button {
     color: #606060;
     padding: 10px 0px;
     cursor: pointer;
-}
-
-a.menu-button i {
-    transition: transform 0.3s ease;
 }
 
 div.menu {
@@ -422,21 +439,24 @@ footer p.footnote {
 /* /footer styles */
 
 /* PC Specs page */
+
+div.pc-specs p {
+	color: #FFF;
+}
+
 img.mbp11 {
-	display: inline-block;
-	position: relative;
-	width: 50%;
-	height: 50%;
-	clear: both;
+	display: block;
+  	margin: auto;
+  	width: 80%;
 }
 
 table.pc-specs {
-	display: inline-block;
+    display: block;
 	position: relative;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     border-collapse: collapse;
-    width: 50%;
-	clear: both;
+  	margin: auto;
+  	width: 80%;
 }
 
 table.pc-specs td, th {
