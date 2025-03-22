@@ -2286,11 +2286,16 @@ footer p.footnote {
 }
 
 div.center.errorpage {
-	min-height: 400px;
+	min-height: 600px;
 }
 
 div.center.errorpage p, h1, h2, ul, li {
 	color: #FFF;
 	text-decoration: none;
-	list-style: none;
+	list-style-type: circle;
+}
+
+div.center.errorpage a {
+	color: #FFF;
+	text-decoration: underline;
 }
