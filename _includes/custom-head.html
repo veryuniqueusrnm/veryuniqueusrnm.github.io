@@ -5,12 +5,16 @@
   2. Customize default _includes/custom-head.html in your source directory and insert the given code snippet.
 {% endcomment %}
 
-<script type="text/javascript" src="/assets/js/thirdparty.js"></script>
-<script src="/assets/js/modules.js"></script>
-<script type="text/javascript" src="/assets/js/site.js"></script>	
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script type="text/javascript" src="/assets/js/script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/5.0.0/anchor.min.js"></script>
+<script>
+  anchors.add();
+</script>
 
 <script>
   if (window.self !== window.top) {
       window.location.href = "/blocked";
   }
 </script>
+

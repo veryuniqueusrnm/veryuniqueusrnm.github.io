@@ -3,10 +3,10 @@
 
   {%- include head.html -%}
 
-  <body class="indexpage">
-
-    <!-- container -->
+  <body>
     <div class="container">
+
+      {%- include header.html -%}
 
       <noscript>
         <div id="javascript-warning" class="warning warning-yellow">
@@ -14,22 +14,15 @@
         </div>
       </noscript>
 
-      {%- include header.html -%}
+      {{ content }}
 
-      <!-- cont -->
-      <div class="cont">
-        {{ content }}
-      </div>
-      <!-- /cont -->
-
-      <div class="clearboth footkeeper"></div>
+    </div>
 
       {%- include footer.html -%}
 
-    </div>
-    <!-- /container -->
+      {%- include sub-footer.html -%}
 
-    {%- include popuwrp.html -%}
+    </div>
 
   </body>
 

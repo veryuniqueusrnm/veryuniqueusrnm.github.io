@@ -1,0 +1,101 @@
+@media only screen and (max-width: 1050px) {
+    html, body {
+        background: #000;
+        margin-top: 5px;
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+
+    div.container {
+        width: 98%;
+        height: 100%;
+    }
+
+    div.container header {
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        width: 100%;
+    }
+
+    div.card {
+        width: 100%;
+    }
+
+    .menu-container {
+        display: none;
+    }
+
+    footer p.footnote {
+        max-width: 100%;
+    }
+}
+
+@media only screen and (max-width: 904px) {
+    div.container header .smallmenu nav.links a {
+        display: none;
+    }
+
+    div.container div.hero {
+        height: 100%;
+    }
+
+    div.container div.hero div.description {
+        text-align: center;
+    }
+
+    div.container div.hero div.description h2.title {
+        font-size: 30px;
+    }
+
+    div.container div.hero div.description p.subtitle {
+        text-align: center;
+        width: 80%;
+        margin: auto;
+    }
+
+    div.container div.hero div.description a {
+        display: block;
+        text-align: center;
+        padding-top: 5px;
+    }
+
+    div.menu-container {
+        display: none;
+    }
+
+    footer h2.copyright {
+        font-size: 100%;
+    }
+
+    div.game-library img.avatar {
+        width: 150px;
+        height: 330px;
+    }
+}
+
+@media only screen and (min-width: 905px) {
+    div.container .dropdown {
+        display: none;
+    }
+    
+    div.container .dropdown-menu {
+        display: none;
+    }
+    
+    div.container header .dropdown-menu .nav-btn {
+        display: none;
+    }
+    
+    div.container header .show {
+        display: none;
+    }
+
+    div.container header nav.links .hamburger {
+        display: none;
+    }
+    
+    div.container header nav.links .bar {
+        display: none;
+    }
+
+}

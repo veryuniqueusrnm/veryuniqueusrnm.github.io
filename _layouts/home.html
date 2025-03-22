@@ -4,80 +4,71 @@ layout: base
 
    {{ content }}
 
-   <script type="text/javascript">
-      $(document).ready(function(){
-         $('div.mainPromoRotator').mainPromoRotator();
-      });
-   </script>
-
-   <div class="mainPromoRotator light-theme">
-      <span class="mask maskTop">&nbsp;</span>
-      <span class="mask maskBottom">&nbsp;</span>
-      <div class="promos">
-         <ul>
-            <li data-delay="0" class="light-theme">
-               <a href="#" class="lnkMore"><span>Learn more</span></a>
-               <img src="#" alt="promoImage" class="promoImage"/>
-            </li>
-         </ul>
+   <div class="hero">
+      <div class="description">
+          <h2 class="title">Welcome!</h2>
+          <p class="subtitle">Welcome to my website where you can find a whole bunch of files, projects and more!</p>
+          <div class="buttons">
+              <a href="https://github.com/veryuniqueusrnm?tab=repositories" target="_blank">Looking for my projects? <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          </div>
+          <p class="footnote">This website was made by VeryUniqueUsrnm.</p>
       </div>
-      <div class="menuItemsContainer">
-         <ul class="menuItems">
-               <li><a href="#">placeholder</a></li>
-         </ul>
+  </div>
+  <div class="about">
+      <div class="center">
+          <h2 id="about-me" class="headline">About me</h2>
+          <p>My name is VeryUniqueUsrnm, a web developer from Hungary.</p>
       </div>
-   </div>
-
-	<div class="loginbox notloggedin">
-		<h3 class="iconed-black">Sign in<span></span></h3>
-		<hr/>
-			<ul>
-				<li><a href="#">item</a></li>
-			</ul>
-		<hr/>
-      <h3 class="iconed-black">Already member?<span></span></h3>
-		<hr/>
-		<form id="login" method="post" action="#">
-			<fieldset>
-				<div class="field"><div class="input text"><input type="text" name="UserName" id="UserName" placeholder="Username" required/></div></div>
-				<div class="field"><div class="input text password"><input type="password" name="Password" id="Password" placeholder="Password" required/></div></div>
-				<div class="field">
-					<div class="input submit"><button type="submit">Sign in</button></div>
-					<ul class="links">
-						<li><a href="#">Forgot Password</a></li>
-						<li><a href="#">Registration</a></li>
-					</ul>
-				</div>
-			</fieldset>
-		</form>
-	</div>
-	
-	<div class="loginbox logedin hidden">
-		<h3><span class="black">Signed in</span></h3>
-		<hr/>
-			<ul>
-				<li><a href="#">Sign out</a></li>
-      	</ul>
-		<hr/>
-		<h3 class="iconed-blue">My Stuff<span></span></h3>
-		<hr/>
-		<ul>
-			<li><a href="#">item</a></li>
-		</ul>
-	</div>
-
-   <script type="text/javascript">
-      $('div.loginbox input[type=text], div.loginbox input[type=password]').focus(function(){
-         $(this).parent().addClass('focus');
-      });
-      $('div.loginbox input[type=text], div.loginbox input[type=password]').blur(function(){
-         $(this).parent().removeClass('focus');
-      });
-   </script>
-
-	<div class="indexPromo wide">
-		<a href="#" target="_blank"><img src="#" alt="promoImage"/></a>
-	</div>
+  </div>
+  <div class="game-library">
+      <div class="center">
+          <h2 class="headline">Games I play</h2>
+          <img src="/assets/i/game-covers/your-game-avatar.png" draggable="false" class="avatar">
+          <img src="/assets/i/game-covers/your-game-avatar2.png" draggable="false" class="avatar">
+          <img src="/assets/i/game-covers/your-game-avatar3.png" draggable="false" class="avatar">
+      </div>
+  </div>
+  <div class="pc-specs">
+      <div class="center">
+          <h2 id="pc-specs" class="headline">PC specifications</h2>
+          <p>I use a Potato PC for downloading stuff, code and gaming.</p>
+          <table class="table">
+              <tr>
+                <td>CPU</td>
+                <td>Intel Pentium III</td>
+              </tr>
+              <tr>
+                  <td>GPU</td>
+                  <td>NVIDIA GEFORCE 2 MX AGP 64 MB</td>
+              </tr>
+              <tr>
+                  <td>RAM</td>
+                  <td>Kingston 1 GB DDR2</td>
+              </tr>
+              <tr>
+                  <td>Hard Disk</td>
+                  <td>Samsung IDE 60 GB</td>
+              </tr>
+              <tr>
+                  <td>Operating System</td>
+                  <td>Windows XP Professional</td>
+              </tr>
+          </table>
+      </div>
+  </div>
+  <div class="social">
+      <div class="center">
+          <h2 class="headline">Social media</h2>
+          <div class="calendar">
+              Loading the data just for you.
+          </div>
+          <script>
+              GitHubCalendar(".calendar", "veryuniqueusrnm");
+              // or enable responsive functionality
+              GitHubCalendar(".calendar", "veryuniqueusrnm", { responsive: true });
+          </script>
+      </div>
+  </div>
 
    <div class="sidePromo">
 
@@ -206,42 +197,3 @@ layout: base
       
    </div>
 
-   <div class="productFinder">
-      <ul class="products">
-         <li>
-            <div class="productImage">
-               <a href="#"><img style="height: auto" src="#" width="75" height="75" class="picture" alt="promoImage"/></a>
-            </div>
-            <a href="#"><h3>item</h3>
-            <h4> item</h4></a>
-            <div class="price">
-               <span class="value"><b>item</b></span><br/>
-            </div>
-            <a href="#" class="btnBasket"><span>Details</span></a>
-            <strong class="tarifa">item</strong>
-            <span class="loyality">
-               2 év tarifamegtartással
-            </span>
-         </li>
-         <script>$('.products > li h4').each(function(i, e) { if($(e).text().length > 21) { $(e).css('font-size',13) } });</script>
-      </ul>
-   </div>
-
-   <script type="text/javascript">
-      $(document).ready(function(){
-         $('div.promoCarousel').jcarousel();
-      });
-   </script>
-
-   <div class="promoCarousel">
-      <ul class="promos">
-         <li class="imagePromo">
-            <a href="#"><h2>item</h2></a>
-            <a href="#"><img src="#" alt="promoImage" class="promoImage"/></a>
-            <div class="textContent">
-               <p>item</p>
-            </div>
-            <a href="#" class="btnMore">Learn More</a>
-         </li>
-      </ul>
-   </div>

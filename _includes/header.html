@@ -1,57 +1,52 @@
-<!-- head -->
-<div class="head">
-  <strong><a href="/"><span>VeryUniqueUsrnm</span></a></strong>
+<header>
   <div class="smallmenu">
-    <ul>
-      <li class="{% if page.url contains '/' %}active{% else %}{% endif %}"><a href="/"><b>Home</b></a></li>
-      <li class="{% if page.url contains '/blog' %}active{% else %}{% endif %}"><a href="/blog"><b>Blog</b></a></li>
-      <li class=""><a href="#"><b>item</b></a></li>
-      <li class=""><a href="#"><b>item</b></a></li>
-      <li class="lang"><a href="index.html?lang=hu"><b>HU</b></a></li>
-      <li class="counter"><a href="#"><b id="counter">Loading counter....</b></a></li>
-    </ul>
-  </div>
-  <div class="logedin-topbox hidden">
-    <strong><span class="nar"></span><span class="lock"></span>Signed in</strong>
-    <ul>
-      <li><a href="#">Sign out</a></li>
-    </ul>
-  </div>
-  <div class="search">
-    <form id="head_search_form" action="/search" method="get">
-      <fieldset>
-        <div class="field keyword"><input type="text" id="q" name="q" class="autocomplete" value="" placeholder="Type here to search..."/></div>
-        <div class="field submit"><input type="submit" value="Submit" placeholder="Submit"/></div>
-      </fieldset>
-    </form>
-    <div class="results" id="search_result"></div>
-  </div>
-  <div class="menu">
-    <ul>
-      <li>
-        <a rel="Menu" href="#"><b>Menu</b></a>
-        <div class="submenu">
-          <div class="menuitems">
-            <ul>
-              <li><a href="#"><b>item</b></a></li>
-            </ul>
+      <a href="/" title="Home" class="logo">Home</a>
+      <nav class="links">
+          <a href="#about-me" class="nav-btn">About</a>
+          <div class="menu-container">
+              <a href="#" class="menu-button">Good-to-know <i class="fas fa-chevron-down"></i></a>
+              <div class="menu">
+                  <a href="#">Item No.1</a>
+                  <a href="#">Item No.2</a>
+                  <a href="#">Item No.3</a>
+              </div>
           </div>
-          <div class="additional">
-            <div class="promo">
-              <a href="#">
-                <span class="text">
-                  <big class="title">placeholder</big>
-                  Change the big element to h1 or h2
-                </span>
-                <span class="img"><img src="#" alt="" width="144" height="81"/><span></span></span>
-              </a>
-            </div>
+          <a href="#pc-specs" class="nav-btn">PC Specs</a>
+          <div class="menu-container">
+              <a href="#" class="menu-button">Projects <i class="fas fa-chevron-down"></i></a>
+              <div class="menu" style="left: -50px;">
+                  <a href="#">Item No.1</a>
+                  <a href="#">Item No.2</a>
+                  <a href="#">Item No.3</a>
+              </div>
           </div>
-          <div class="bg"></div>
-          <div class="submenu-end"></div>
-        </div>
-      </li>
-    </ul>
+          <div class="hamburger">
+              <span class="bar"></span>
+              <span class="bar"></span>
+              <span class="bar"></span>
+          </div>
+      </nav>
   </div>
+</header>
+<div class="dropdown" style="display: none;">
+  <nav class="dropdown-menu">
+      <a href="#about-me" class="nav-btn">About</a>
+      <div class="menu-container-mobile">
+          <a href="#" class="menu-button-mobile">Good-to-know <i class="fas fa-chevron-down"></i></a>
+          <div class="submenu">
+              <a href="#">Item No.1</a>
+              <a href="#">Item No.2</a>
+              <a href="#">Item No.3</a>
+          </div>
+      </div>
+      <a href="#pc-specs" class="nav-btn">PC Specs</a>
+      <div class="menu-container-mobile">
+          <a href="#" class="menu-button-mobile">Projects <i class="fas fa-chevron-down"></i></a>
+          <div class="submenu">
+              <a href="#">Item No.1</a>
+              <a href="#">Item No.2</a>
+              <a href="#">Item No.3</a>
+          </div>
+      </div>
+  </nav>
 </div>
-<!-- /head -->
