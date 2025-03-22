@@ -44,13 +44,8 @@
         display: none;
     }
 
-    div.container header a.logo {
-        width: 50px;
-        padding-left: 0px;
-    }
-
-    div.container header a.logo span {
-        display: none;
+    div.account {
+        padding: 10px;
     }
 
     div.container div.hero {
