@@ -79,7 +79,9 @@
     }
 
     div.container div.hero div.buttons {
-        display: none;
+        display: block;
+        font-size: 125%;
+        margin-top: 15px;
     }
 
     div.container div.hero div.description a {
