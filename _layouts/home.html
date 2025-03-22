@@ -4,7 +4,7 @@ layout: base
 
    {{ content }}
 
-   <div class="hero">
+   <section class="hero">
       <div class="description">
           <h2 class="title">Welcome!</h2>
           <p class="subtitle">Welcome to my website where you can find a whole bunch of files, projects and more!</p>
@@ -13,22 +13,32 @@ layout: base
           </div>
           <p class="footnote">This website was made by VeryUniqueUsrnm.</p>
       </div>
-  </div>
-  <div class="about">
+  </section>
+  <section class="about">
       <div class="center">
           <h2 id="about-me" class="headline">About me</h2>
           <p>My name is VeryUniqueUsrnm, a web developer from Hungary.</p>
       </div>
-  </div>
-  <div class="game-library">
+   </section>
+  <section class="blog-home">
       <div class="center">
-          <h2 class="headline">Games I play</h2>
-          <img src="/assets/i/game-covers/your-game-avatar.png" draggable="false" class="avatar">
-          <img src="/assets/i/game-covers/your-game-avatar2.png" draggable="false" class="avatar">
-          <img src="/assets/i/game-covers/your-game-avatar3.png" draggable="false" class="avatar">
+          <h2 class="headline">Latest blog posts</h2>
+          <div class="row-2">
+            {% for post in site.posts limit: 2 %}
+            <article class="column">
+               <a href="{{ post.url }}">
+                  <h4>{{ post.title }}</h4>
+               </a>
+               <section>
+                  <p>{{ post.content | strip_html | truncate: 310 }}</p>
+               </section>
+               <a class="button secondary" href="{{ post.url }}">Continue reading</a>
+            </article>
+            {% endfor %}
+         </div>
       </div>
-  </div>
-  <div class="pc-specs">
+   </section>
+  <section class="pc-specs">
       <div class="center">
           <h2 id="pc-specs" class="headline">PC specifications</h2>
           <p>I use an Apple MacBook Pro Early 2011 13-inch to code, download stuff, play games and school.</p>
@@ -56,8 +66,8 @@ layout: base
           </table>
           <p class="footnote"><a href="https://support.apple.com/en-us/112600" target="_blank">Click here to learn more</a></p>
       </div>
-  </div>
-  <div class="social">
+   </section>
+  <section class="social">
       <div class="center">
           <h2 class="headline">Social media</h2>
           <div class="calendar">
@@ -69,7 +79,7 @@ layout: base
               GitHubCalendar(".calendar", "veryuniqueusrnm", { responsive: true });
           </script>
       </div>
-  </div>
+   </section>
 
    <div class="sidePromo">
 
