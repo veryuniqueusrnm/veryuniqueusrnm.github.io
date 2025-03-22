@@ -73,6 +73,10 @@ div.container header .nav-btn:hover {
     background-color: #e0e0e0;
 }
 
+div.container header .nav-btn.active {
+    background-color: #e0e0e0;
+}
+
 div.account {
 	position: relative;
     padding: 5px;
@@ -373,8 +377,8 @@ i.modrinth {
 }
 /* /div styles */
 
-/* about styles */
-div.container div.about {
+/* white styles */
+div.container div.white {
     position: relative;
     border-radius: 10px;
     background-color: #FFF;
@@ -383,16 +387,10 @@ div.container div.about {
     z-index: 696969;
 }
 
-div.container div.about img.youhuu {
-    float: right;
-    margin-right: -10px;
-    margin-top: -65px;
-    width: 250px;
-}
-/* /about styles */
+/* /white styles */
 
-/* blog-home styles */
-div.blog-home {
+/* black styles */
+div.black {
     position: relative;
     background-color: #000;
     color: #FFF;
@@ -400,19 +398,9 @@ div.blog-home {
     min-height: 200px;
     z-index: 1;
 }
-/* /blog-home styles */
+/* /black styles */
 
 /* pc specifications styles */
-div.container div.pc-specs {
-    position: relative;
-    background-color: #FFF;
-    color: #000;
-    width: 100%;
-    min-height: 200px;
-    z-index: 1;
-    border-radius: 10px;
-}
-
 div.container div.pc-specs table.table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
@@ -427,16 +415,7 @@ div.container div.pc-specs table.table td, th {
 /* /pc specifications styles */
 
 /* social styles */
-div.container div.social {
-    position: relative;
-    background-color: #000;
-    color: #FFF;
-    width: 100%;
-    z-index: 1;
-    border-radius: 10px;
-}
-
-div.social iframe, div.twitter-timeline, div.twitter-timeline.twitter-timeline-rendered {
+div.twitter-timeline, div.twitter-timeline.twitter-timeline-rendered {
 	display: inline-block !important;
 	position: relative !important;
 	top: -5px !important;

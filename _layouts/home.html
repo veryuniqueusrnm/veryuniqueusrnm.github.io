@@ -13,21 +13,35 @@ layout: base
          </div>
       </div>
    </div>
-   <div class="about">
+   <div class="white">
       <div class="center">
-          <h2 id="about-me" class="headline black">About me</h2>
-          <p>My name is VeryUniqueUsrnm, a web developer from Hungary.</p>
+         <h2 class="headline black">Archived Stuff</h2>
+         <ul>
+            <li><a target="_blank" href="https://archive.org/details/discord-for-legacy-windows">Discord Legacy</a> for Windows 7, 8 and 8.1.</li>
+         </ul>
       </div>
    </div>
-   <div class="social">
+   <div class="black">
       <div class="center">
-         <h2 class="headline white">temp div</h2>
-      
+         <h2 class="headline white">Latest Blog Posts</h2>
+         <div class="row-2">
+            {% for post in site.posts limit: 2 %}
+            <article class="column">
+               <a href="{{ post.url }}">
+                  <h4>{{ post.title }}</h4>
+               </a>
+               <section>
+                  <p>{{ post.content | strip_html | truncate: 310 }}</p>
+               </section>
+               <a class="button secondary" href="{{ post.url }}">Continue reading</a>
+            </article>
+            {% endfor %}
+         </div>
       </div>
    </div>
-   <div class="pc-specs">
+   <div class="white">
       <div class="center">
-          <h2 id="pc-specs" class="headline black">PC specifications</h2>
+          <h2 id="pc-specs" class="headline black">PC Specifications</h2>
           <p>I use an Apple MacBook Pro Early 2011 13-inch to code, download stuff, play games and school.</p>
           <table class="table">
               <tr>
@@ -54,9 +68,9 @@ layout: base
           <p class="footnote"><a href="https://support.apple.com/en-us/112600" target="_blank">Click here to learn more</a></p>
       </div>
    </div>
-   <div class="social">
+   <div class="black">
       <div class="center">
-         <h2 class="headline white">Social media</h2>
+         <h2 class="headline white">Social Media</h2>
          <div class="card">
             <div class="card-header">
               <div class="banner"></div>

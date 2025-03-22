@@ -130,7 +130,7 @@
         margin-bottom: 20px;
     }
 
-    div.social iframe, div.twitter-timeline, div.twitter-timeline.twitter-timeline-rendered {
+    div.twitter-timeline, div.twitter-timeline.twitter-timeline-rendered {
         top: 0px !important;
         width: 100% !important;
     }
