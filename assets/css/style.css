@@ -268,8 +268,29 @@ div.container div.hero div.description img.youhuu {
 /* /hero styles */
 
 /* div styles */
-h2.headline {
+h2.headline.white {
+	color: #FFF;
     position: relative;
+}
+
+h2.headline.black {
+	color: #000;
+    position: relative;
+}
+
+div.center.errorpage {
+	min-height: 600px;
+}
+
+div.center.errorpage p, h1, h2, ul, li {
+	color: #FFF;
+	text-decoration: none;
+	list-style-type: circle;
+}
+
+div.center.errorpage a {
+	color: #FFF;
+	text-decoration: underline;
 }
 
 div.container div.center {
@@ -281,16 +302,6 @@ div.container div.center {
     padding-bottom: 20px;
 }
 
-div.container div.nextto {
-    position: relative;
-    display: inline-flex;
-    width: 100%;
-}
-
-div.container div.nextto p {
-    width: 60%;
-    margin-right: 20px;
-}
 
 p.footnote {
     font-size: 10px;
@@ -2283,19 +2294,4 @@ footer p.footnote {
 
 .mc-cape-viewer-9x.spin>.wrapper>.cape {
 	animation: spin 12s infinite linear;
-}
-
-div.center.errorpage {
-	min-height: 600px;
-}
-
-div.center.errorpage p, h1, h2, ul, li {
-	color: #FFF;
-	text-decoration: none;
-	list-style-type: circle;
-}
-
-div.center.errorpage a {
-	color: #FFF;
-	text-decoration: underline;
 }
