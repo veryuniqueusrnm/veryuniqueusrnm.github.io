@@ -3,8 +3,8 @@
   <strong><a href="/"><span>VeryUniqueUsrnm</span></a></strong>
   <div class="smallmenu">
     <ul>
-      <li class="active"><a href="/"><b>Home</b></a></li>
-      <li class=""><a href="#"><b>item</b></a></li>
+      <li class="{% if page.url contains '/' %}active{% else %}{% endif %}"><a href="/"><b>Home</b></a></li>
+      <li class="{% if page.url contains '/blog' %}active{% else %}{% endif %}"><a href="/blog"><b>Blog</b></a></li>
       <li class=""><a href="#"><b>item</b></a></li>
       <li class=""><a href="#"><b>item</b></a></li>
       <li class="lang"><a href="index.html?lang=hu"><b>HU</b></a></li>
