@@ -132,6 +132,10 @@
         margin-right: 0px;
         margin-bottom: 20px;
     }
+
+    div.social iframe {
+        width: 100%;
+    }
 }
 
 @media screen and (max-width: 800px)
