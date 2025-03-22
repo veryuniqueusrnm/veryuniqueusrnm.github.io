@@ -465,7 +465,7 @@ div.container div.social {
 div.social iframe, div.twitter-timeline, div.twitter-timeline-twitter-timeline-rendered {
 	display: inline-block !important;
 	position: relative !important;
-	top: -7px !important;
+	top: -5px !important;
 	width: 345px !important;
 }
 /* /social styles */
