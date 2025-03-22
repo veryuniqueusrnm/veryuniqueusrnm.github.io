@@ -133,13 +133,9 @@
         margin-bottom: 20px;
     }
 
-    div.social iframe, div.twitter-timeline, div.twitter-timeline-twitter-timeline-rendered {
+    div.social iframe, div.twitter-timeline, div.twitter-timeline.twitter-timeline-rendered {
         top: 0px !important;
         width: 100% !important;
     }
 }
 
-@media screen and (max-width: 800px)
-.post-content h4 {
-    font-size: 18px;
-}
