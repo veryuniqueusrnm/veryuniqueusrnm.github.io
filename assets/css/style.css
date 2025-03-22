@@ -51,7 +51,8 @@ div.container header a.logo {
     background-size: contain;
     background-repeat: no-repeat;
     height: 50px;
-    width: 50px;
+    /* width: 50px; */
+	width: auto;
 }
 
 div.container header nav.links {
@@ -279,7 +280,7 @@ h2.headline.black {
 }
 
 div.center.errorpage {
-	min-height: 1000px;
+	min-height: 800px !important;
 }
 
 div.center.errorpage p, h1, h2, ul, li {
