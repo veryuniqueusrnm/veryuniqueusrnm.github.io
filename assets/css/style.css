@@ -613,10 +613,10 @@ div.head {}
 div.head strong {
 	position: absolute;
 	display: block;
-	left: 9px;
-	top: 53px;
-	width: 121px;
-	height: 55px;
+	left: 10px;
+	top: 52px;
+    width: 55px;
+    height: 55px;
 	overflow: hidden;
 	z-index: 800;
 }
@@ -629,7 +629,9 @@ div.head strong a {
 	width: 100%;
 	height: 100%;
 	overflow: hidden;
-	background: url("/assets/i/logo.png") 0px 0px no-repeat;
+	background: url("/assets/i/logo.png");
+	background-repeat: no-repeat;
+    background-size: contain;
 }
 
 div.head div.smallmenu {
@@ -2739,7 +2741,6 @@ div.sidePromo {
 	height: 174px;
 	/*180*/
 	background: transparent url(/assets/i/bg_sidepromo.png) no-repeat center top;
-	background-attachment: fixed;
 	background-size: 100% 100%;
 }
 
