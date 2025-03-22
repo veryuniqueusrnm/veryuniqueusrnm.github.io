@@ -378,6 +378,11 @@ i.modrinth {
 li {
 	color: #000;
 }
+
+a {
+    color: #2a7ae2;
+    text-decoration: none;
+}
 /* /div styles */
 
 /* white styles */
