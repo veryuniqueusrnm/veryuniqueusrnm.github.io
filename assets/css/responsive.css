@@ -131,6 +131,7 @@
     }
 
     div.twitter-timeline, div.twitter-timeline.twitter-timeline-rendered {
+        display: block !important;
         top: 0px !important;
         width: 100% !important;
     }
