@@ -282,13 +282,13 @@ section.white {
     color:#000;
     background-color: #FFF;
     border-radius: 10px;
-    min-height: 300px;
+    min-height: 100px;
 }
 
 section.back {
     color: #FFF;
     background-color: #000;
-    min-height: 300px;
+    min-height: 100px;
 }
 
 h2.headline.white {
@@ -310,6 +310,10 @@ div.container div.center {
     padding-bottom: 20px;
 }
 
+a.link-btn.blue {
+    color: #2a7ae2;
+    text-decoration: none;
+}
 
 .warning {
     text-align: center;
