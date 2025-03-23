@@ -2090,7 +2090,7 @@ audio, canvas, embed, iframe, img, object, svg, video {
     background-color: rgb(253 242 248/var(--tw-bg-opacity,1));
 }
 .rounded-lg {
-    border-radius: var(--radius);
+    border-radius: 10px;
 }
 
 .justify-between {
