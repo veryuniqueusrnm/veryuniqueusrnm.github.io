@@ -12,14 +12,14 @@ $(document).ready(function () {
 
     $('.menu-button-mobile').click(function (e) {
         e.preventDefault();
-        
+
         $('.submenu').not($(this).next('.submenu')).slideUp(300);
-        $(this).next('.submenu').slideToggle(300);
+        $('.menu-button-mobile i').not($(this).find('i')).removeClass('fa-chevron-up').addClass('fa-chevron-down');
         
+        $(this).next('.submenu').slideToggle(300);
         $(this).find('i').toggleClass('fa-chevron-down fa-chevron-up');
     });
 });
-
 
 // Jquery menu (desktop)
 $(document).ready(function () {
