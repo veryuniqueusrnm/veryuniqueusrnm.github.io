@@ -109,7 +109,18 @@
 
 }
 
-@media only screen and (max-width: 850px) {
+@media only screen and (max-width: 930px) {
+    img.mbp11 {
+        position: relative;
+        width: 50%;
+        margin: auto;
+        clear: both;
+    }
+
+    table.pc-specs {
+        font-size: 50%;
+    }
+
     div.card {
         width: 100%;
         margin-right: 0px;
@@ -125,20 +136,7 @@
     }
 
     div#social {
-        width: 1000px;
-    }
-}
-
-@media only screen and (max-width: 930px) {
-    img.mbp11 {
-        position: relative;
-        width: 50%;
-        margin: auto;
-        clear: both;
-    }
-
-    table.pc-specs {
-        font-size: 50%;
+        height: 1000px;
     }
 }
 

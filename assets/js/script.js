@@ -48,13 +48,15 @@ $(document).ready(function () {
 
 // Get commit info
 $(document).ready(function () {
-    // Change to your Github repository if you plan to use the "latest commit" line in the footer.
     const username = "veryuniqueusrnm";
     const repo = "veryuniqueusrnm.github.io";
     const apiUrl = `https://api.github.com/repos/${username}/${repo}/commits`;
 
     $.getJSON(apiUrl, function (data) {
-        if (!data || data.length === 0) return;
+        if (!data || data.length === 0) {
+            $("#commit-info").html("Failed to load commit info.");
+            return;
+        }
 
         const latestCommit = data[0];
         const commitId = latestCommit.sha.substring(0, 7);
@@ -66,5 +68,6 @@ $(document).ready(function () {
         );
     }).fail(function () {
         console.error("Failed to fetch commit data.");
+        $("#commit-info").html("Failed to load commit info.");
     });
 });
