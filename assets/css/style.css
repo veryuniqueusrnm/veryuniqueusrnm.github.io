@@ -408,9 +408,4 @@ img.mbp11 {
     position: absolute;
     width: 420px;
 }
-
-iframe div.twitter-timeline, div.twitter-timeline.twitter-timeline-rendered {
-    float: right;
-    width: 55% !important;
-}
 /* /home styles */

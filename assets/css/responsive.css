@@ -130,14 +130,9 @@
 
     iframe div.twitter-timeline,
     div.twitter-timeline.twitter-timeline-rendered {
-        position: relative;
-        top: 0px !important;
         width: 100% !important;
     }
 
-    section#social {
-        height: 1000px;
-    }
 }
 
 @media only screen and (max-width: 560px) {
