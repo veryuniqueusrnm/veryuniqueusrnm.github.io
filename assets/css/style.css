@@ -278,14 +278,17 @@ div.container div.hero div.description img.promo {
 /* /hero styles */
 
 /* div styles */
-div.white {
+section.white {
     color:#000;
     background-color: #FFF;
+    border-radius: 10px;
+    min-height: 300px;
 }
 
-div.back {
+section.back {
     color: #FFF;
     background-color: #000;
+    min-height: 300px;
 }
 
 h2.headline.white {
