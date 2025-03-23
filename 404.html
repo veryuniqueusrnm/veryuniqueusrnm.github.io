@@ -10,7 +10,11 @@ layout: base
             min-height: 500px !important;
         }
 
-        body.error p, h1, h2, ul.list, li.list-item {
+        body.error p,
+        h1,
+        h2,
+        ul.list,
+        li.list-item {
             color: #FFF;
             text-decoration: none;
             list-style-type: circle;
@@ -20,27 +24,24 @@ layout: base
             color: #FFF;
             text-decoration: underline;
         }
+
         /* /error page styles */
     </style>
 
-{{ content }}
-<div class="center">
-    <div class="errorpage">
+    {{ content }}
+    <div class="center">
         <h1>Error 404</h1>
         <p>The requested resource is not found on the server.</p>
         <p><strong>What caused this:</strong></p>
         <ul>
-        <li>A typo or a broken link</li>
-        <li>The resource has been moved or removed</li>
-        <li>The resource is unavailable at the moment</li>
+            <li>A typo or a broken link</li>
+            <li>The resource has been moved or removed</li>
+            <li>The resource is unavailable at the moment</li>
         </ul>
         <p><strong>Tips to continue:</strong></p>
         <ul class="list">
-            <li class="list-item"><a class="link-errorpage" href="/">Go</a> to the main page</li>
-            <li class="list-item"><a class="link-errorpage" href="javascript:history.back();">Go</a> back to the previous page</li>
+            <li><a href="/">Go</a> to the main page</li>
+            <li><a href="javascript:history.back();">Go</a> back to the previous page</li>
         </ul>
     </div>
-</div>
-    
 </body>
-
