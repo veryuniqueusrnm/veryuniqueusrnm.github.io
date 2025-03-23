@@ -4,11 +4,11 @@ layout: base
 
 <style>
     /* error page styles */
-    div.center {
+    div.center.errorpage {
         min-height: 500px !important;
     }
 
-    div.center > p,
+    div.center.errorpage p,
     h1,
     h2,
     ul,
@@ -18,7 +18,7 @@ layout: base
         list-style-type: circle;
     }
 
-    div.center a {
+    div.center.errorpage a {
         color: #FFF;
         text-decoration: underline;
     }
@@ -26,7 +26,7 @@ layout: base
     /* /error page styles */
 </style>
 
-<div class="center">
+<div class="center errorpage">
     <h1>Error 404</h1>
     <p>The requested resource is not found on the server.</p>
     <p><strong>What caused this:</strong></p>
