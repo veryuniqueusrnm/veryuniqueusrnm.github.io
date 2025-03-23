@@ -4,8 +4,28 @@ layout: base
 
 <body class="error">
 
+    <style>
+        /* error page styles */
+        body.error {
+            min-height: 500px !important;
+        }
+
+        body.error p, h1, h2, ul.list, li.list-item {
+            color: #FFF;
+            text-decoration: none;
+            list-style-type: circle;
+        }
+
+        body.error a.link-errorpage {
+            color: #FFF;
+            text-decoration: underline;
+        }
+        /* /error page styles */
+    </style>
+
 {{ content }}
 <div class="center">
+    <div class="errorpage">
         <h1>Error 404</h1>
         <p>The requested resource is not found on the server.</p>
         <p><strong>What caused this:</strong></p>
@@ -15,10 +35,11 @@ layout: base
         <li>The resource is unavailable at the moment</li>
         </ul>
         <p><strong>Tips to continue:</strong></p>
-        <ul>
+        <ul class="list">
             <li class="list-item"><a class="link-errorpage" href="/">Go</a> to the main page</li>
             <li class="list-item"><a class="link-errorpage" href="javascript:history.back();">Go</a> back to the previous page</li>
         </ul>
+    </div>
 </div>
     
 </body>
