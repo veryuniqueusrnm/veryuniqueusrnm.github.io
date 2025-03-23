@@ -382,8 +382,8 @@ body.error {
 }
 
 body.error p, h1, h2, ul, li {
-	color: #FFF !important;
-	text-decoration: none !important;
+	color: #FFF;
+	text-decoration: none;
 	list-style-type: circle;
 }
 
