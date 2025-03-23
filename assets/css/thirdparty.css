@@ -1,7 +1,7 @@
 /* Discord User Card by Sybrax */
 .card {
-    display: block;
-    position: absolute;
+    display: inline-block;
+    position: relative;
 	margin-right: 20px;
     background: #292b2f;
     width: 345px;
