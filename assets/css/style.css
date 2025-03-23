@@ -375,3 +375,20 @@ i.modrinth {
     margin-top: 3px;
 }
 /* /footer styles */
+
+/* error page styles */
+body.error {
+	min-height: 500px !important;
+}
+
+body.error p, h1, h2, ul, li {
+	color: #FFF !important;
+	text-decoration: none !important;
+	list-style-type: circle;
+}
+
+body.error a {
+	color: #FFF;
+	text-decoration: underline;
+}
+/* /error page styles */
