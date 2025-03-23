@@ -381,13 +381,13 @@ body.error {
 	min-height: 500px !important;
 }
 
-body.error p, h1, h2, ul, li {
+body.error p, h1, h2, ul, li.list-item {
 	color: #FFF;
 	text-decoration: none;
 	list-style-type: circle;
 }
 
-body.error a {
+body.error a.link-errorpage {
 	color: #FFF;
 	text-decoration: underline;
 }
