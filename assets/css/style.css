@@ -7,6 +7,16 @@ html, body {
     user-select: none;
     margin: 0px;
 }
+
+a.white {
+    color: #FFF;
+    text-decoration: none;
+}
+
+a.black {
+    color: #000;
+    text-decoration: none;
+}
 /* /layout */
 
 /* container */
@@ -59,7 +69,7 @@ div.container div.center {
     padding-bottom: 20px;
 }
 
-a.link-btn.blue {
+a {
     color: #2a7ae2;
     text-decoration: none;
 }
