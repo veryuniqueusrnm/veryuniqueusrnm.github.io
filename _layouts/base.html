@@ -1,17 +1,12 @@
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | default: 'en' }}">
-
   {%- include head.html -%}
-
+  <body>
     <div class="container">
       {%- include header.html -%}
-      <noscript>
-        <div id="javascript-warning" class="warning warning-yellow">
-          Please enable JavaScript to use this site.
-        </div>
-      </noscript>
       {{ content }}
       {%- include footer.html -%}
     </div>
     {%- include sub-footer.html -%}
+  </body>
 </html>

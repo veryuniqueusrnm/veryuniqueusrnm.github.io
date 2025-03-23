@@ -1,13 +1,14 @@
 @media only screen and (max-width: 1050px) {
-    html, body {
-        background: #000;
+
+    html,
+    body {
         margin-top: 5px;
         margin-left: 5px;
         margin-right: 5px;
     }
 
     div.container {
-        width: 98%;
+        width: 100%;
         height: 100%;
     }
 
@@ -16,18 +17,6 @@
         border-top-right-radius: 10px;
         border: none;
         width: 100%;
-    }
-
-    div.container div.nextto {
-        position: relative;
-        display: block;
-        width: 100%;
-    }
-    
-    div.container div.nextto p {
-        width: 100%;
-        margin-right: 0px;
-        margin-bottom: 70px;
     }
 
     .menu-container {
@@ -44,42 +33,38 @@
         display: none;
     }
 
-    div.account {
-        padding: 10px;
-    }
-
-    div.container div.hero {
+    div.container section.hero {
         height: 100%;
     }
 
-    div.container div.hero div.description {
+    div.container section.hero div.description {
         text-align: center;
     }
 
-    div.container div.hero div.description img.youhuu {
+    div.container section.hero div.description img.youhuu {
         width: 50%;
         margin: auto;
         margin-left: 50px;
         float: none;
     }
 
-    div.container div.hero div.description h2.title {
+    div.container section.hero div.description h2.title {
         font-size: 30px;
     }
 
-    div.container div.hero div.description p.subtitle {
+    div.container section.hero div.description p.subtitle {
         text-align: center;
         width: 80%;
         margin: auto;
     }
 
-    div.container div.hero div.buttons {
+    div.container section.hero div.buttons {
         display: block;
         font-size: 125%;
         margin-top: 15px;
     }
 
-    div.container div.hero div.description a {
+    div.container section.hero div.description a {
         display: block;
         text-align: center;
     }
@@ -100,15 +85,15 @@
     div.container .dropdown {
         display: none;
     }
-    
+
     div.container .dropdown-menu {
         display: none;
     }
-    
+
     div.container header .dropdown-menu .nav-btn {
         display: none;
     }
-    
+
     div.container header .show {
         display: none;
     }
@@ -116,7 +101,7 @@
     div.container header nav.links .hamburger {
         display: none;
     }
-    
+
     div.container header nav.links .bar {
         display: none;
     }
@@ -128,12 +113,41 @@
         width: 100%;
         margin-right: 0px;
         margin-bottom: 20px;
+        position: relative;
     }
 
-    div.twitter-timeline, div.twitter-timeline.twitter-timeline-rendered {
-        display: block !important;
+    iframe div.twitter-timeline,
+    div.twitter-timeline.twitter-timeline-rendered {
+        position: relative;
         top: 0px !important;
         width: 100% !important;
     }
 }
 
+@media only screen and (max-width: 930px) {
+    img.mbp11 {
+        position: relative;
+        width: 50%;
+        margin: auto;
+        clear: both;
+    }
+
+    table.pc-specs {
+        font-size: 50%;
+    }
+}
+
+@media only screen and (max-width: 560px) {
+    img.mbp11 {
+        position: relative;
+        width: 100%;
+        margin: auto;
+        clear: both;
+    }
+
+    table.pc-specs {
+        position: relative;
+        display: contents;
+        width: 100% !important;
+    }
+}

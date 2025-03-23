@@ -31,7 +31,10 @@ $(document).ready(function () {
 // Function to handle screen width changes
 $(document).ready(function () {
     function checkScreenWidth() {
-        console.log("CheckScreenWidth");
+        const width = window.innerWidth;
+        const height = window.innerHeight;
+        
+        console.log(`Current Resolution: ${width}x${height}`);
     }
 
     checkScreenWidth();
