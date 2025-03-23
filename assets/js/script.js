@@ -28,7 +28,6 @@ $(document).ready(function () {
     });
 });
 
-
 // Jquery menu (desktop)
 $(document).ready(function () {
     $(".menu-container").hover(function () {
