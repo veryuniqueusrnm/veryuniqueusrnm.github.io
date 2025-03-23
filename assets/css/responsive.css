@@ -2,6 +2,7 @@
 
     html,
     body {
+        background-color: #000;
         margin-top: 5px;
         margin-left: 5px;
         margin-right: 5px;
@@ -121,6 +122,10 @@
         position: relative;
         top: 0px !important;
         width: 100% !important;
+    }
+
+    div#social {
+        width: 1000px;
     }
 }
 
