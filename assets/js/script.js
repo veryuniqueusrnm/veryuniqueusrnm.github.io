@@ -2,7 +2,13 @@
 $(document).ready(function () {
     $('.hamburger').click(function () {
         $(this).toggleClass('active');
-        $('.dropdown').slideToggle(300);
+        $('.dropdown').slideToggle(300, function () {
+            // If dropdown is hidden, close all submenus
+            if ($('.dropdown').css('display') === 'none') {
+                $('.submenu').slideUp(300);
+                $('.menu-button-mobile i').removeClass('fa-chevron-up').addClass('fa-chevron-down');
+            }
+        });
     });
 
     $('.dropdown a').not('.menu-button-mobile').click(function () {
@@ -12,7 +18,8 @@ $(document).ready(function () {
 
     $('.menu-button-mobile').click(function (e) {
         e.preventDefault();
-
+        
+        // Close any open submenu before opening the clicked one
         $('.submenu').not($(this).next('.submenu')).slideUp(300);
         $('.menu-button-mobile i').not($(this).find('i')).removeClass('fa-chevron-up').addClass('fa-chevron-down');
         
@@ -20,6 +27,7 @@ $(document).ready(function () {
         $(this).find('i').toggleClass('fa-chevron-down fa-chevron-up');
     });
 });
+
 
 // Jquery menu (desktop)
 $(document).ready(function () {
