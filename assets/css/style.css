@@ -442,7 +442,7 @@ img.post-image {
     border-top-right-radius: 10px;
 }
 
-img.post-image:after {
+div.blur {
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
