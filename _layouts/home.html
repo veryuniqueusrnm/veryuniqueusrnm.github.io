@@ -102,42 +102,19 @@ layout: base
           </div>
      </div>
      <a class="twitter-timeline" data-height="500" data-width="345" data-chrome="noheader nofooter noscrollbar" href="https://twitter.com/rackajuhu?ref_src=twsrc%5Etfw">Tweets by rackajuhu</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-     <h3>Latest Blog Posts</h3>
       <!--div class="row-2">
          {% for post in site.posts limit: 2 %}
          <article class="column">
-            <a href="{{ post.url }}">
-               <h4>{{ post.title }}</h4>
+            <a href="{{ post.url }}" class="post">
+               <img src="/assets/i/" draggable="false" alt="" class="post-image">
             </a>
             <section>
-               <p>{{ post.content | strip_html | truncate: 310 }}</p>
+               <h4>{{ post.title }}</h4>
+                <p>{{ post.content | strip_html | truncate: 310 }}</p>
             </section>
-            <a class="button secondary" href="{{ post.url }}">Continue reading</a>
+            <a class="post-more" href="{{ post.url }}">Continue reading</a>
          </article>
          {% endfor %}
       </div-->
-      <div class="row-2">
-         
-        <article class="column">
-           <a href="/">
-              <h4>title</h4>
-           </a>
-           <section>
-              <p>description</p>
-           </section>
-           <a class="button secondary" href="/">Continue reading</a>
-        </article>
-        
-        <article class="column">
-            <a href="/" class="post">
-                <img src="/assets/i/Screen%20Shot%202024-12-17%20at%20PM%2011.03.03.png" draggable="false" alt="" class="post-image">
-            </a>
-            <section>
-                <h4>title</h4>
-                <p>description</p>
-            </section>
-            <a class="post-more" href="/">Continue reading</a>
-         </article>
-     </div>
     </div>
 </section>
