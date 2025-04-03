@@ -428,3 +428,7 @@ img.mbp11 {
 .post-content h4 {
     font-size: 20px;
 }
+
+.column section {
+    padding-bottom: 12px;
+}
