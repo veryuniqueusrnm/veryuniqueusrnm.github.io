@@ -337,10 +337,10 @@ div.container section.hero div.description p.footnote {
 }
 
 div.container section.hero div.description img.promo {
-    position: relative;
-    width: 250px;
-    height: 350px;
+    position: inherit;
     float: right;
+    display: block;
+    width: 30%;
 }
 /* /hero styles */
 
