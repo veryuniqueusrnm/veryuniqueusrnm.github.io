@@ -434,7 +434,6 @@ img.mbp11 {
     border-top-right-radius: 10px;
     padding-bottom: 12px;
     margin-top: -80px;
-    z-index: 696969;
     background-color: #FFF;
 }
 
@@ -446,20 +445,9 @@ img.post-image {
     border-top-right-radius: 10px;
 }
 
-div.blur {
-    position: relative;
-    margin-top: -80px;
-    height: 80px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-}
-
 h4.post-title {
     position: relative;
-    z-index: 696969;
-    color: #FFF;
+    color: #000;
     text-align: center;
 }
 
