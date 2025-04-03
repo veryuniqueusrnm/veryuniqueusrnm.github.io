@@ -471,6 +471,13 @@ a.post-more {
     color: #111 !important;
 }
 
+iframe div.twitter-timeline,
+    div.twitter-timeline.twitter-timeline-rendered {
+        display: block;
+        position: inherit;
+        float: right;
+    }
+
 p.post-description {
     padding: 10px;
 }

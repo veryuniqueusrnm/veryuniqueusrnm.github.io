@@ -140,6 +140,7 @@
     iframe div.twitter-timeline,
     div.twitter-timeline.twitter-timeline-rendered {
         width: 100% !important;
+        float: none !important;
     }
 
 }
