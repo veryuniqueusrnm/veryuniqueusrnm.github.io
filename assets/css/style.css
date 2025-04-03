@@ -410,3 +410,15 @@ img.mbp11 {
     width: 420px;
 }
 /* /home styles */
+
+.row-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}

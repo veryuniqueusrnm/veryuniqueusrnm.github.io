@@ -102,7 +102,7 @@ layout: base
           </div>
      </div>
      <h3>Latest Blog Posts</h3>
-      <div class="row-2">
+      <!--div class="row-2">
          {% for post in site.posts limit: 2 %}
          <article class="column">
             <a href="{{ post.url }}">
@@ -114,7 +114,30 @@ layout: base
             <a class="button secondary" href="{{ post.url }}">Continue reading</a>
          </article>
          {% endfor %}
-      </div>
+      </div-->
+      <div class="row-2">
+         
+        <article class="column">
+           <a href="/">
+              <h4>title</h4>
+           </a>
+           <section>
+              <p>description</p>
+           </section>
+           <a class="button secondary" href="/">Continue reading</a>
+        </article>
+        
+        <article class="column">
+            <a href="/">
+               <h4>title</h4>
+            </a>
+            <section>
+               <p>description</p>
+            </section>
+            <a class="button secondary" href="/">Continue reading</a>
+         </article>
+        
+     </div>
      <a class="twitter-timeline" data-height="500" data-width="345" data-chrome="noheader nofooter noscrollbar" href="https://twitter.com/rackajuhu?ref_src=twsrc%5Etfw">Tweets by rackajuhu</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     </div>
 </section>
