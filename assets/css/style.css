@@ -423,6 +423,7 @@ img.mbp11 {
     display: flex;
     flex-direction: column;
     flex: 1;
+    padding: 10px;
 }
 
 .post-content h4 {
@@ -431,4 +432,37 @@ img.mbp11 {
 
 .column section {
     padding-bottom: 12px;
+}
+
+img.post-image {
+    position: relative;
+    display: block;
+    width: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+img.post-image:after {
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+h4.post-title {
+    color: #000;
+    text-decoration: none !important;
+    margin: auto;
+    text-align: center;
+}
+
+a.post-more {
+    border-radius: 5px;
+    text-decoration: none !important;
+    padding: 5px 8px;
+    text-align: center;
+    display: inline-block;
+    box-shadow: rgba(0,0,0,0.15) 1.95px 1.95px 2.6px;
+    background-color: transparent;
+    border: 2px solid #000;
+    color: #111 !important;
 }
