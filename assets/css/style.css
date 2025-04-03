@@ -423,7 +423,6 @@ img.mbp11 {
     display: flex;
     flex-direction: column;
     flex: 1;
-    padding: 10px;
 }
 
 .post-content h4 {
@@ -443,26 +442,39 @@ img.post-image {
 }
 
 div.blur {
+    position: revert;
+    margin-top: -45px;
+    height: 60px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
 }
 
 h4.post-title {
-    color: #000;
-    text-decoration: none !important;
-    margin: auto;
+    margin-top: -40px !important;
+    position: relative;
+    z-index: 696969;
+    color: #FFF;
     text-align: center;
 }
 
 a.post-more {
-    border-radius: 5px;
-    text-decoration: none !important;
+    margin: 10px;
+    border-radius: 10px;
     padding: 5px 8px;
+    text-decoration: none;
     text-align: center;
     display: inline-block;
     box-shadow: rgba(0,0,0,0.15) 1.95px 1.95px 2.6px;
     background-color: transparent;
     border: 2px solid #000;
     color: #111 !important;
+}
+
+p.description {
+    padding: 10px;
+}
+
+a.post {
+    text-decoration: none;
 }
