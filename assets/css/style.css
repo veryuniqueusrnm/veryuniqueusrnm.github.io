@@ -418,7 +418,13 @@ img.mbp11 {
 }
 
 .column {
+    background-color: #FFF;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
     flex: 1;
+}
+
+.post-content h4 {
+    font-size: 20px;
 }
