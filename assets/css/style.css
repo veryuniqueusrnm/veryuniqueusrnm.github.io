@@ -430,10 +430,10 @@ img.mbp11 {
 }
 
 .column section {
+    padding: 10px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     padding-bottom: 12px;
-    margin-top: -80px;
     background-color: #FFF;
 }
 
@@ -443,12 +443,6 @@ img.post-image {
     width: 100%;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-}
-
-h4.post-title {
-    position: relative;
-    color: #000;
-    text-align: center;
 }
 
 a.post-more {
@@ -469,10 +463,6 @@ iframe div.twitter-timeline,
         display: block;
         position: inherit;
         float: right;
-    }
-
-p.post-description {
-    padding: 10px;
 }
 
 a.post {
