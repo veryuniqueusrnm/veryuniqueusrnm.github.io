@@ -442,9 +442,9 @@ img.post-image {
 }
 
 div.blur {
-    position: revert;
-    margin-top: -45px;
-    height: 60px;
+    position: relative;
+    margin-top: -80px;
+    height: 120px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
