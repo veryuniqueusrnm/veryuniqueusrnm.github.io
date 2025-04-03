@@ -37,7 +37,9 @@
     div.container section.hero div.description img.promo {
         display: block;
         margin: auto;
-        width: 35%;
+        width: 30%;
+        position: relative;
+        float: none;
     }
 
     div.container section.hero {
