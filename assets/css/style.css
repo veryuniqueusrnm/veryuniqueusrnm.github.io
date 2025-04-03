@@ -430,7 +430,12 @@ img.mbp11 {
 }
 
 .column section {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
     padding-bottom: 12px;
+    margin-top: -80px;
+    z-index: 696969;
+    background-color: #FFF;
 }
 
 img.post-image {
@@ -451,10 +456,9 @@ div.blur {
 }
 
 h4.post-title {
-    margin-top: -40px !important;
     position: relative;
     z-index: 696969;
-    color: #FFF;
+    color: #000;
     text-align: center;
 }
 
