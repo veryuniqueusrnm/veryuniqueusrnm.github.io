@@ -343,6 +343,50 @@ div.container section.hero div.description img.promo {
     width: 30%;
     height: 378px;
 }
+
+.promos {
+        overflow: hidden;
+        position: relative;
+    }
+    
+    .slider-wrapper {
+        width: 100%;
+        overflow: hidden;
+    }
+    
+    .slider {
+        display: flex;
+        width: 100%;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        transition: transform 0.5s ease;
+    }
+    
+    .slider li {
+        flex: 0 0 100%;
+        width: 100%;
+    }
+    
+    .dots-container {
+        display: flex;
+        justify-content: center;
+        padding: 15px 0;
+        gap: 8px;
+    }
+    
+    .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #ccc;
+        cursor: pointer;
+        transition: background 0.3s ease;
+    }
+    
+    .dot.active {
+        background: #333;
+    }
 /* /hero styles */
 
 /* footer styles */
@@ -375,7 +419,6 @@ footer p.footnote {
     font-size: 15px;
     max-width: 100%;
 }
-
 
 i.modrinth {
     position: relative;
