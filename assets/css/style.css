@@ -16,6 +16,10 @@ fieldset,form {
     vertical-align: top;
 }
 
+input {
+    border: none;
+}
+
 a.white {
     color: #FFF;
     text-decoration: none;
