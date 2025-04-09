@@ -188,7 +188,6 @@ header .hamburger.active .bar:nth-child(3) {
     z-index: 696970;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-	border-bottom: 1px solid #000;
 }
 
 .dropdown-menu {
