@@ -2,11 +2,11 @@
 <html lang="{{ page.lang | default: site.lang | default: 'en' }}">
   {%- include head.html -%}
   <body>
-      {%- include header.html -%}
     <div class="container">
+      {%- include header.html -%}
       {{ content }}
-    </div>
       {%- include footer.html -%}
+    </div>
     {%- include sub-footer.html -%}
   </body>
 </html>
