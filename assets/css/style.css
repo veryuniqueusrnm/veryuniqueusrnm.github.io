@@ -61,12 +61,6 @@ div.container div.center {
     padding-bottom: 20px;
 }
 
-div.content {
-  position: relative;
-  display: block;
-  top: 80px;
-}
-
 .warning {
     text-align: center;
     padding:6px;
