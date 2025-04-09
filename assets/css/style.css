@@ -97,7 +97,7 @@ p.footnote.black {
 /* /layout */
 
 /* header styles */
-div.container header {
+header {
     position: relative;
     background: #FFF;
     width: 100%;
@@ -107,7 +107,7 @@ div.container header {
     z-index: 696969;
 }
 
-div.container header .smallmenu {
+header .smallmenu {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -115,7 +115,7 @@ div.container header .smallmenu {
     padding: 0 20px;
 }
 
-div.container header a.logo {
+header a.logo {
     display: flex;
     align-items: center;
     text-decoration: none;
@@ -129,12 +129,12 @@ div.container header a.logo {
 	width: auto;
 }
 
-div.container header nav.links {
+header nav.links {
     display: flex;
     gap: 5px;
 }
 
-div.container header .nav-btn {
+header .nav-btn {
     text-decoration: none;
     font-size: 18px;
     color: #000;
@@ -143,22 +143,22 @@ div.container header .nav-btn {
     transition: background-color 0.3s ease;
 }
 
-div.container header .nav-btn:hover {
+header .nav-btn:hover {
     background-color: #e0e0e0;
 }
 
-div.container header .nav-btn.active {
+header .nav-btn.active {
     background-color: #e0e0e0;
 }
 
-div.container header nav.links .hamburger {
+header nav.links .hamburger {
     display: flex;
     flex-direction: column;
     cursor: pointer;
     padding: 10px;
 }
 
-div.container header nav.links .bar {
+header nav.links .bar {
     height: 3px;
     width: 25px;
     background-color:#000;;
@@ -167,19 +167,19 @@ div.container header nav.links .bar {
     transition: 0.4s;
 }
 
-div.container header .hamburger.active .bar:nth-child(1) {
+header .hamburger.active .bar:nth-child(1) {
     transform: rotate(-45deg) translate(-7px, 6px);
 }
 
-div.container header .hamburger.active .bar:nth-child(2) {
+header .hamburger.active .bar:nth-child(2) {
     opacity: 0;
 }
 
-div.container header .hamburger.active .bar:nth-child(3) {
+header .hamburger.active .bar:nth-child(3) {
     transform: rotate(45deg) translate(-6px, -6px);
 }
 
-div.container .dropdown {
+.dropdown {
     display: none;
     position: absolute;
     top: 72px;
@@ -191,7 +191,7 @@ div.container .dropdown {
 	border-bottom: 1px solid #000;
 }
 
-div.container .dropdown-menu {
+.dropdown-menu {
     display: flex;
     flex-direction: column;
     padding: 10px 0;
