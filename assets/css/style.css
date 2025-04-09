@@ -295,6 +295,47 @@ a.menu-button-mobile {
     display: inline-block;
     padding: 10px 15px;
 }
+
+div.search {
+    position: relative;
+    width: 160px;
+    padding: 10px;
+    border: 1px solid #606060;
+    border-radius: 10px;
+}
+
+div.search-mobile {
+    position: relative;
+    width: 87%;
+    margin: auto;
+    margin-top: 15px;
+    padding: 10px;
+    border: 1px solid #606060;
+    border-radius: 10px;
+}
+
+div.search form fieldset {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+div.search form fieldset div.field.keyword input {
+    position: relative;
+    display: block;
+    width: 160px;
+    height: 15px;
+    margin: 0px;
+    padding: 3px 0px 2px 0px;
+    overflow: hidden;
+    border: none 0px;
+    color: #606060;
+    background: transparent;
+    font-size: 13px;
+    line-height: 16px;
+}
 /* header styles */
 
 /* hero styles */
