@@ -108,3 +108,78 @@ var x = setInterval(function() {
     document.getElementById("counter").innerHTML = "EXPIRED";
   }
 }, 1000);
+
+// HeroRotator
+$(document).ready(function() {
+    const $slider = $('.slider');
+    const $slides = $('.slider li');
+    const $dotsContainer = $('.dots-container');
+    let currentIndex = 0;
+    let autoRotate;
+    let touchStartX = 0;
+    let touchEndX = 0;
+    const slideCount = $slides.length;
+    const ROTATION_INTERVAL = 5000;
+
+    $slides.each((index) => {
+        $dotsContainer.append(`<div class="dot" data-index="${index}"></div>`);
+    });
+    const $dots = $('.dot');
+    updateSlider();
+    
+    $slider.on('touchstart', function(e) {
+        touchStartX = e.originalEvent.touches[0].clientX;
+        clearInterval(autoRotate);
+    });
+    
+    $slider.on('touchend', function(e) {
+        touchEndX = e.originalEvent.changedTouches[0].clientX;
+        handleSwipe();
+        resetAutoRotate();
+    });
+    
+    function handleSwipe() {
+        const swipeThreshold = 50;
+        
+        if (touchStartX - touchEndX > swipeThreshold) {
+            goToSlide((currentIndex + 1) % slideCount);
+        } else if (touchEndX - touchStartX > swipeThreshold) {
+            goToSlide((currentIndex - 1 + slideCount) % slideCount);
+        }
+    }
+    
+    function goToSlide(index) {
+        currentIndex = index;
+        updateSlider();
+    }
+    
+    function updateSlider() {
+        $slider.css('transform', `translateX(-${currentIndex * 100}%)`);
+        $dots.removeClass('active');
+        $dots.eq(currentIndex).addClass('active');
+    }
+    
+    function startAutoRotate() {
+        autoRotate = setInterval(() => {
+            goToSlide((currentIndex + 1) % slideCount);
+        }, ROTATION_INTERVAL);
+    }
+    
+    function resetAutoRotate() {
+        clearInterval(autoRotate);
+        startAutoRotate();
+    }
+    
+    $dots.on('click', function() {
+        goToSlide($(this).data('index'));
+        resetAutoRotate();
+    });
+    
+    // Pause on hover
+    $('.promos').hover(
+        () => clearInterval(autoRotate),
+        () => resetAutoRotate()
+    );
+    
+    startAutoRotate();
+});
