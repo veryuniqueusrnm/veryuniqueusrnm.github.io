@@ -27,15 +27,15 @@
     footer p.footnote {
         max-width: 100%;
     }
-  
-    div.search {
-        display: none !important;
-    }
 }
 
 @media only screen and (max-width: 868px) {
     div.container header .smallmenu nav.links a {
         display: none;
+    }
+  
+    div.search {
+        display: none !important;
     }
 
     div.container section.hero div.description img.promo {
