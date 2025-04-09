@@ -27,6 +27,10 @@
     footer p.footnote {
         max-width: 100%;
     }
+  
+    div.search {
+        display: none !important;
+    }
 }
 
 @media only screen and (max-width: 868px) {
