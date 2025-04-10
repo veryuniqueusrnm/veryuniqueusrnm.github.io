@@ -82,6 +82,7 @@
     div.container section.hero div.description a {
         display: block;
         text-align: center;
+        width: auto;
     }
 
     div.container div.about img.youhuu {
