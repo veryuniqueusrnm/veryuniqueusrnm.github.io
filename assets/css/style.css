@@ -421,6 +421,10 @@ div.search form fieldset div.field.keyword input {
 .search-result-link:hover h3 {
     text-decoration: underline;
 }
+
+input#q_mobile {
+  width: 100%;
+}
 /* header styles */
 
 /* hero styles */
