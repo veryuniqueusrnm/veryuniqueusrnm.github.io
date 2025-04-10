@@ -471,6 +471,7 @@ div.container section.hero div.description p.subtitle {
 }
 
 div.container section.hero div.buttons {
+    width: 50%;
     display: grid;
     grid-gap: 15px;
 }
