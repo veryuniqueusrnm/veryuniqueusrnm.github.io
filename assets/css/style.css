@@ -653,6 +653,8 @@ iframe div.twitter-timeline,
 }
 
 /* logged out styles (header) */
-div.menu-container.account.loggedout, a {
-  color: #50C878;
+.nav-btn.loggedout {
+  border-radius: 5px;
+  border: 1px solid #228B22;
+  background-color: #50C878;
 }
