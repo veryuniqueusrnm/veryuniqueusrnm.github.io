@@ -525,18 +525,17 @@ div.container section.hero div.description img.promo {
 }
 
 .controls-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 15px 0;
-    }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
     
-    .dots-container {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        margin-right: 15px; /* Space between dots and button */
-    }
+.dots-container {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-right: 15px; /* Space between dots and button */
+}
 
 .dot {
   width: 10px;
@@ -551,22 +550,20 @@ div.container section.hero div.description img.promo {
   background: #ccc;
 }
 
-
-    
 .play-pause-btn {
-        background: none;
-        border: none;
-        color: #333;
-        font-size: 16px;
-        cursor: pointer;
-        width: 24px;
-        height: 24px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: all 0.3s ease;
-        padding: 0;
-    }
+  background: none;
+  border: none;
+  color: #333;
+  font-size: 16px;
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  padding: 0;
+}
     
 .play-pause-btn:hover {
   color: #FFF;
