@@ -5,18 +5,18 @@
             <div class="menu-container">
                 <a class="menu-button">Projects <i class="fas fa-chevron-down"></i></a>
                 <div class="menu" style="left: -40px;">
-                    <a href="https://github.com/veryuniqueusrnm/bedloader" target="_blank">BedLoader (Soon)</a>
-                    <a href="https://modrinth.com/resourcepack/nofreezeoverlay" target="_blank">No Freeze Overlay</a>
-                    <a href="https://modrinth.com/resourcepack/equipment-hider" target="_blank">Equipment Hider</a>
-                    <a href="https://modrinth.com/resourcepack/classic-damage-sounds" target="_blank">Classic Damage Sound Pack (Deprecated)</a>
-                    <a href="https://github.com/veryuniqueusrnm/jquery-include-html" target="_blank">Jquery Include HTML (Deprecated)</a>
-                    <a href="https://github.com/veryuniqueusrnm/embed-blocker" target="_blank">Embed Blocker</a>
+                    <a href="https://github.com/veryuniqueusrnm/bedloader" target="_blank" rel="noopener noreferrer">BedLoader (Soon)</a>
+                    <a href="https://modrinth.com/resourcepack/nofreezeoverlay" target="_blank" rel="noopener noreferrer">No Freeze Overlay</a>
+                    <a href="https://modrinth.com/resourcepack/equipment-hider" target="_blank" rel="noopener noreferrer">Equipment Hider</a>
+                    <a href="https://modrinth.com/resourcepack/classic-damage-sounds" target="_blank" rel="noopener noreferrer">Classic Damage Sound Pack (Deprecated)</a>
+                    <a href="https://github.com/veryuniqueusrnm/jquery-include-html" target="_blank" rel="noopener noreferrer">Jquery Include HTML (Deprecated)</a>
+                    <a href="https://github.com/veryuniqueusrnm/embed-blocker" target="_blank" rel="noopener noreferrer">Embed Blocker</a>
                 </div>
             </div>
             <div class="search">
-                <form id="head_search_form" action="/search" method="get">
+                <form id="head_search_form">
                     <fieldset>
-                        <div class="field keyword"><input type="text" id="q" name="q" autocomplete="off" value="" placeholder="Coming soon"/></div>
+                        <div class="field keyword"><input type="text" id="q" name="q" autocomplete="off" value="" placeholder="Type here to search..."/></div>
                     </fieldset>
                 </form>
                 <div class="results" id="search_result"></div>
@@ -34,21 +34,23 @@
         <div class="menu-container-mobile">
             <a class="menu-button-mobile">Projects <i class="fas fa-chevron-down"></i></a>
             <div class="submenu">
-                <a href="https://github.com/veryuniqueusrnm/bedloader" target="_blank">BedLoader (Soon)</a>
-                <a href="https://modrinth.com/resourcepack/nofreezeoverlay" target="_blank">No Freeze Overlay</a>
-                <a href="https://modrinth.com/resourcepack/equipment-hider" target="_blank">Equipment Hider</a>
-                <a href="https://modrinth.com/resourcepack/classic-damage-sounds" target="_blank">Classic Damage Sound Pack (Deprecated)</a>
-                <a href="https://github.com/veryuniqueusrnm/jquery-include-html" target="_blank">Jquery Include HTML (Deprecated)</a>
-                <a href="https://github.com/veryuniqueusrnm/embed-blocker" target="_blank">Embed Blocker</a>
+                <a href="https://github.com/veryuniqueusrnm/bedloader" target="_blank" rel="noopener noreferrer">BedLoader (Soon)</a>
+                <a href="https://modrinth.com/resourcepack/nofreezeoverlay" target="_blank" rel="noopener noreferrer">No Freeze Overlay</a>
+                <a href="https://modrinth.com/resourcepack/equipment-hider" target="_blank" rel="noopener noreferrer">Equipment Hider</a>
+                <a href="https://modrinth.com/resourcepack/classic-damage-sounds" target="_blank" rel="noopener noreferrer">Classic Damage Sound Pack (Deprecated)</a>
+                <a href="https://github.com/veryuniqueusrnm/jquery-include-html" target="_blank" rel="noopener noreferrer">Jquery Include HTML (Deprecated)</a>
+                <a href="https://github.com/veryuniqueusrnm/embed-blocker" target="_blank" rel="noopener noreferrer">Embed Blocker</a>
             </div>
         </div>
         <div class="search-mobile">
-            <form id="head_search_form" action="/search" method="get">
-                <fieldset>
-                    <div class="field keyword"><input type="text" id="q" name="q" autocomplete="off" value="" placeholder="Coming soon"/></div>
-                </fieldset>
+            <form id="head_search_form">
+              <fieldset>
+                <div class="field keyword">
+                  <input type="text" id="q_mobile" name="q" autocomplete="off" value="" placeholder="Type here to search..."/>
+                </div>
+              </fieldset>
             </form>
-            <div class="results" id="search_result"></div>
+            <div class="results" id="search_result_mobile"></div>
         </div>
     </nav>
 </div>
