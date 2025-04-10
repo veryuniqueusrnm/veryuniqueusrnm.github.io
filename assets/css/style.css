@@ -496,7 +496,7 @@ div.container section.hero div.description img.promo {
     float: right;
     display: block;
     width: 30%;
-    height: 378px;
+    height: auto;
 }
 
 .promos {
