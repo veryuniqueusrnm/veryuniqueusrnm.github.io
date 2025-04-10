@@ -495,8 +495,9 @@ div.container section.hero div.description img.promo {
     position: inherit;
     float: right;
     display: block;
-    width: 30%;
+    width: auto;
     height: auto;
+    max-height: 378px;
 }
 
 .promos {
