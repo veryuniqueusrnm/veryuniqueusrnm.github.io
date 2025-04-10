@@ -8,6 +8,12 @@ html, body {
     margin: 0px;
 }
 
+/* iOS "page jumping" bugfix No. 1 */
+.slider {
+    -webkit-overflow-scrolling: touch;
+}
+/* /iOS "page jumping" bugfix No. 1 */
+
 fieldset,form {
     margin: 0px;
     padding: 0px;
