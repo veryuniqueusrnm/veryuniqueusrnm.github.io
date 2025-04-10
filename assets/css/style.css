@@ -534,6 +534,7 @@ div.container section.hero div.description img.promo {
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  margin-right: 10px;
 }
 
 .dot {
@@ -562,6 +563,7 @@ div.container section.hero div.description img.promo {
   justify-content: center;
   transition: all 0.3s ease;
   padding: 0;
+  transform: scale(0.0);
 }
     
 .play-pause-btn:hover {
