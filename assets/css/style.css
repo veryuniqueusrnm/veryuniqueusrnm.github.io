@@ -8,11 +8,18 @@ html, body {
     margin: 0px;
 }
 
-/* iOS "page jumping" bugfix No. 1 */
+/* iOS "page jumping" bugfix */
 .slider {
     -webkit-overflow-scrolling: touch;
 }
-/* /iOS "page jumping" bugfix No. 1 */
+
+.slider li {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+/* /iOS "page jumping" bugfix */
 
 fieldset,form {
     margin: 0px;
