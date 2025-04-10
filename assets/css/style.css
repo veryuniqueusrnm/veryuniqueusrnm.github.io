@@ -655,7 +655,29 @@ iframe div.twitter-timeline,
 /* logged out styles (header) */
 .nav-btn.loggedout {
   color: #FFF;
-  border-radius: 5px;
+  border-radius: 10px;
   border: 1px solid #228B22;
   background-color: #50C878;
+  transition: background-color 0.3s
+}
+
+.nav-btn.loggedout:hover {
+  color: #FFF;
+  background-color: #228B22;
+  border: 1px solid #50C878;
+}
+
+.nav-btn.loggedin {
+  color: #FFF;
+  border-radius: 10px;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  color: #721c24;
+  transition: background-color 0.3s
+}
+
+.nav-btn.loggedin:hover {
+  color: #FFF;
+  background-color: #f5c6cb;
+  border: 1px solid #f8d7da;
 }
