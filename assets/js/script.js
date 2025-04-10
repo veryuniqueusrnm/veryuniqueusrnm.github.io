@@ -30,12 +30,26 @@ $(document).ready(function () {
 
 // Jquery menu (desktop)
 $(document).ready(function () {
-    $(".menu-container").hover(function () {
-        $(this).find(".menu").stop(true, true).fadeIn(300);
-        $(this).find(".menu-button i").css("transform", "rotate(180deg)");
-    }, function () {
-        $(this).find(".menu").stop(true, true).fadeOut(300);
-        $(this).find(".menu-button i").css("transform", "rotate(0deg)");
+    $(".menu-button").click(function (e) {
+        e.stopPropagation();
+        var menuContainer = $(this).closest(".menu-container");
+        var menu = menuContainer.find(".menu");
+        
+        if (menu.is(":visible")) {
+            menu.stop(true, true).fadeOut(300);
+            menuContainer.find(".menu-button i").css("transform", "rotate(0deg)");
+        } else {
+            $(".menu").stop(true, true).fadeOut(300);
+            $(".menu-button i").css("transform", "rotate(0deg)");
+            
+            menu.stop(true, true).fadeIn(300);
+            menuContainer.find(".menu-button i").css("transform", "rotate(180deg)");
+        }
+    });
+
+    $(document).click(function() {
+        $(".menu").stop(true, true).fadeOut(300);
+        $(".menu-button i").css("transform", "rotate(0deg)");
     });
 });
 
