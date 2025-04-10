@@ -651,3 +651,8 @@ iframe div.twitter-timeline,
         position: inherit;
         float: right;
 }
+
+/* logged out styles (header) */
+div.menu-container.account.loggedout, a {
+  color: #50C878;
+}
