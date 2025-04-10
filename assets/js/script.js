@@ -132,7 +132,7 @@ $(document).ready(function() {
     let currentIndex = 0;
     let autoRotate;
     let isPlaying = true;
-    const ROTATION_INTERVAL = 3000;
+    const ROTATION_INTERVAL = 5000;
 
     // Initialize dots
     $slides.each((index) => {
