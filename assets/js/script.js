@@ -197,3 +197,10 @@ $(document).ready(function() {
     
     startAutoRotate();
 });
+
+// "page jumping" bugfix
+document.ontouchmove = function(e) {
+    if ($('.slider').has(e.target).length > 0) {
+        e.preventDefault();
+    }
+};
