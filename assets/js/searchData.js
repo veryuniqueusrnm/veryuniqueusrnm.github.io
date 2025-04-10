@@ -17,14 +17,20 @@ $(document).ready(function() {
     } //add comma if needed
   ];
 
-  // Search function
-  function performSearch(query, resultsContainer) {
-    const $resultsContainer = $(resultsContainer); // Convert to jQuery object
+  const lastSearchQueries = {
+    desktop: '',
+    mobile: ''
+  };
+
+  function performSearch(query, resultsContainer, type) {
+    const $resultsContainer = $(resultsContainer);
     if (!query) {
       $resultsContainer.removeClass('active').empty();
+      lastSearchQueries[type] = '';
       return;
     }
     
+    lastSearchQueries[type] = query;
     const lowerQuery = query.toLowerCase();
     const results = searchData.filter(item => {
       return (
@@ -36,7 +42,6 @@ $(document).ready(function() {
     displayResults(results, $resultsContainer);
   }
   
-  // Display results
   function displayResults(results, $resultsContainer) {
     $resultsContainer.empty();
     
@@ -62,7 +67,6 @@ $(document).ready(function() {
     $resultsContainer.html(html).addClass('active');
   }
 
-  // Debounce function
   function debounce(func, wait) {
     let timeout;
     return function() {
@@ -74,14 +78,20 @@ $(document).ready(function() {
     };
   }
 
-  // Desktop search
   const $desktopSearchInput = $('.search .field.keyword input');
   const $desktopResultsContainer = $('.search .results');
   
   if ($desktopSearchInput.length && $desktopResultsContainer.length) {
     $desktopSearchInput.on('input', debounce(function() {
-      performSearch($(this).val().trim(), $desktopResultsContainer.get(0));
+      performSearch($(this).val().trim(), $desktopResultsContainer.get(0), 'desktop');
     }, 300));
+    
+    // Show results when focusing back on input
+    $desktopSearchInput.on('focus', function() {
+      if (lastSearchQueries.desktop) {
+        performSearch(lastSearchQueries.desktop, $desktopResultsContainer.get(0), 'desktop');
+      }
+    });
     
     $(document).on('click', function(e) {
       if (!$(e.target).closest('.search').length) {
@@ -90,7 +100,6 @@ $(document).ready(function() {
     });
   }
 
-  // Mobile search
   const $mobileSearchInput = $('.search-mobile #q_mobile');
   const $mobileResultsContainer = $('.search-mobile .results');
   const $mobileSearchForm = $('#head_search_form');
@@ -98,18 +107,25 @@ $(document).ready(function() {
   if ($mobileSearchInput.length && $mobileResultsContainer.length && $mobileSearchForm.length) {
     $mobileSearchForm.on('submit', function(e) {
       e.preventDefault();
-      performSearch($mobileSearchInput.val().trim(), $mobileResultsContainer.get(0));
+      performSearch($mobileSearchInput.val().trim(), $mobileResultsContainer.get(0), 'mobile');
       return false;
     });
     
     $mobileSearchInput.on('input', debounce(function() {
-      performSearch($(this).val().trim(), $mobileResultsContainer.get(0));
+      performSearch($(this).val().trim(), $mobileResultsContainer.get(0), 'mobile');
     }, 300));
+    
+    // Show results when focusing back on input
+    $mobileSearchInput.on('focus', function() {
+      if (lastSearchQueries.mobile) {
+        performSearch(lastSearchQueries.mobile, $mobileResultsContainer.get(0), 'mobile');
+      }
+    });
     
     $mobileSearchInput.on('keydown', function(e) {
       if (e.key === 'Enter') {
         e.preventDefault();
-        performSearch($(this).val().trim(), $mobileResultsContainer.get(0));
+        performSearch($(this).val().trim(), $mobileResultsContainer.get(0), 'mobile');
         return false;
       }
     });
