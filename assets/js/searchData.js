@@ -1,158 +1,122 @@
 $(document).ready(function() {
-  // Configuration
+  // Configuration - UPDATE THESE TO MATCH YOUR PAGE STRUCTURE
   const config = {
-    // Elements to include in search (adjust based on your page structure)
-    contentSelectors: 'main, article, .content-area, .post-content',
-    
-    // Elements to exclude from search
-    excludeSelectors: 'header, footer, nav, aside, .no-search, script, style',
-    
-    // Headers to use as titles (h1-h3)
-    headerSelectors: 'h1, h2, h3',
-    
-    // Minimum content length to index (characters)
-    minContentLength: 50,
-    
-    // Maximum content to store (characters)
-    maxContentLength: 500,
-    
-    // Should we index links?
-    indexLinks: true,
-    
-    // Only index links with these href patterns
-    allowedLinkPatterns: [/^\/[^\/]/, /^#[^\/]/]  // Matches internal links and anchors
+    contentSelectors: 'main, article, .content, .post', // Elements containing searchable content
+    headerSelectors: 'h1, h2, h3, h4, .title, .heading', // Elements to use as titles
+    minContentLength: 30, // Minimum characters to index
+    maxContentLength: 300 // Maximum characters to store
   };
 
-  // Build search index from current page content
+  // Build search index from visible page content
   function buildSearchIndex() {
     const searchData = [];
     let idCounter = 1;
 
-    // Helper function to clean text
+    // Helper to clean text
     const cleanText = (text) => {
-      return text.replace(/\s+/g, ' ').trim();
+      return text ? text.replace(/\s+/g, ' ').trim() : '';
     };
 
     // Index content sections
-    $(config.contentSelectors).not(config.excludeSelectors).each(function() {
-      const $section = $(this).clone();
+    $(config.contentSelectors).each(function() {
+      const $section = $(this);
+      let title = 'Page Content';
       
-      // Remove excluded elements from the clone
-      $section.find(config.excludeSelectors).remove();
-      
-      // Get section title from headers
-      let title = 'Untitled Section';
-      const $firstHeader = $section.find(config.headerSelectors).first();
-      if ($firstHeader.length) {
-        title = cleanText($firstHeader.text());
-        $firstHeader.remove(); // Remove header from content
-      }
-      
-      // Get clean content
-      let content = cleanText($section.text());
+      // Find the first heading to use as title
+      $(config.headerSelectors).first().each(function() {
+        title = cleanText($(this).text()) || title;
+      });
+
+      const content = cleanText($section.text());
       
       if (content.length >= config.minContentLength) {
         searchData.push({
           id: idCounter++,
           title: title,
           content: content.substring(0, config.maxContentLength),
-          url: window.location.pathname + window.location.search,
-          sectionId: $section.attr('id') || null,
-          openInNewTab: false,
-          type: 'content'
+          url: window.location.pathname,
+          openInNewTab: false
         });
       }
     });
 
-    // Index links if enabled
-    if (config.indexLinks) {
-      $('a').not(config.excludeSelectors).each(function() {
-        const $link = $(this);
-        const href = $link.attr('href');
-        
-        // Check if link should be indexed
-        const shouldIndex = config.allowedLinkPatterns.some(pattern => 
-          href && pattern.test(href)
-        );
-        
-        if (shouldIndex) {
-          const linkText = cleanText($link.text());
-          const parentText = cleanText($link.parent().text());
-          
-          if (linkText.length > 3) {
-            searchData.push({
-              id: idCounter++,
-              title: linkText,
-              content: parentText.substring(0, config.maxContentLength),
-              url: href,
-              openInNewTab: $link.attr('target') === '_blank',
-              type: 'link'
-            });
-          }
-        }
-      });
-    }
-
+    console.log('Search index built with', searchData.length, 'items'); // Debug log
     return searchData;
   }
 
-  // Search functionality
+  // Search application
   const searchApp = {
     data: [],
-    lastSearchQueries: { desktop: '', mobile: '' },
+    lastQuery: '',
     
     init: function() {
       this.data = buildSearchIndex();
-      this.initDesktopSearch();
-      this.initMobileSearch();
+      this.setupEventHandlers();
     },
     
-    performSearch: function(query, $resultsContainer, type) {
+    setupEventHandlers: function() {
+      // Desktop search
+      $('.search input[type="text"]').on('input', this.debounce(function() {
+        searchApp.performSearch($(this).val().trim());
+      }, 300));
+      
+      // Mobile search
+      $('.search-mobile input[type="text"]').on('input', this.debounce(function() {
+        searchApp.performSearch($(this).val().trim());
+      }, 300));
+      
+      // Prevent form submission
+      $('form').on('submit', function(e) {
+        e.preventDefault();
+      });
+    },
+    
+    performSearch: function(query) {
       if (!query) {
-        $resultsContainer.removeClass('active').empty();
-        this.lastSearchQueries[type] = '';
+        $('.results').removeClass('active').empty();
         return;
       }
       
-      this.lastSearchQueries[type] = query;
+      this.lastQuery = query;
       const lowerQuery = query.toLowerCase();
-      
       const results = this.data.filter(item => {
-        return (
-          item.title.toLowerCase().includes(lowerQuery) ||
-          item.content.toLowerCase().includes(lowerQuery)
-        );
+        return item.title.toLowerCase().includes(lowerQuery) || 
+               item.content.toLowerCase().includes(lowerQuery);
       });
       
-      this.displayResults(results, $resultsContainer);
+      this.displayResults(results);
     },
     
-    displayResults: function(results, $resultsContainer) {
-      $resultsContainer.empty();
+    displayResults: function(results) {
+      const $resultsContainer = $('.results').empty();
       
-      if (results.length === 0) {
-        $resultsContainer.html('<p class="no-results">No results found. Try different keywords.</p>')
-          .addClass('active');
+      if (!results.length) {
+        $resultsContainer.html(
+          '<div class="search-message">Found no matching content. Try different keywords.</div>'
+        ).addClass('active');
         return;
       }
       
-      let html = '<ul class="search-results-list">';
+      let html = '<div class="search-results">';
       results.forEach(item => {
-        const targetAttr = item.openInNewTab ? ' target="_blank" rel="noopener noreferrer"' : '';
-        const url = item.url.startsWith('#') ? window.location.pathname + item.url : item.url;
-        
         html += `
-          <li class="search-result-item" data-type="${item.type}">
-            <a href="${url}" class="search-result-link"${targetAttr}>
-              <h3 class="result-title">${item.title}</h3>
-              ${item.content ? `<p class="result-snippet">${item.content.substring(0, 150)}...</p>` : ''}
+          <div class="search-result">
+            <a href="${item.url}" class="search-link">
+              <h3>${item.title}</h3>
+              <p>${this.highlight(item.content.substring(0, 150), this.lastQuery)}...</p>
             </a>
-          </li>
+          </div>
         `;
       });
-      html += '</ul>';
+      html += '</div>';
       
       $resultsContainer.html(html).addClass('active');
+    },
+    
+    highlight: function(text, query) {
+      if (!query) return text;
+      const regex = new RegExp(`(${query})`, 'gi');
+      return text.replace(regex, '<mark>$1</mark>');
     },
     
     debounce: function(func, wait) {
@@ -164,94 +128,9 @@ $(document).ready(function() {
           func.apply(context, args);
         }, wait);
       };
-    },
-    
-    initDesktopSearch: function() {
-      const $desktopSearchInput = $('.search .field.keyword input');
-      const $desktopResultsContainer = $('.search .results');
-      
-      if ($desktopSearchInput.length && $desktopResultsContainer.length) {
-        $desktopSearchInput.on('input', this.debounce(function() {
-          searchApp.performSearch(
-            $(this).val().trim(), 
-            $desktopResultsContainer, 
-            'desktop'
-          );
-        }, 300));
-        
-        $desktopSearchInput.on('focus', function() {
-          if (searchApp.lastSearchQueries.desktop) {
-            searchApp.performSearch(
-              searchApp.lastSearchQueries.desktop, 
-              $desktopResultsContainer, 
-              'desktop'
-            );
-          }
-        });
-        
-        $(document).on('click', function(e) {
-          if (!$(e.target).closest('.search').length) {
-            $desktopResultsContainer.removeClass('active');
-          }
-        });
-      }
-    },
-    
-    initMobileSearch: function() {
-      const $mobileSearchInput = $('.search-mobile #q_mobile');
-      const $mobileResultsContainer = $('.search-mobile .results');
-      const $mobileSearchForm = $('#head_search_form');
-      
-      if ($mobileSearchInput.length && $mobileResultsContainer.length && $mobileSearchForm.length) {
-        $mobileSearchForm.on('submit', function(e) {
-          e.preventDefault();
-          searchApp.performSearch(
-            $mobileSearchInput.val().trim(), 
-            $mobileResultsContainer, 
-            'mobile'
-          );
-          return false;
-        });
-        
-        $mobileSearchInput.on('input', this.debounce(function() {
-          searchApp.performSearch(
-            $(this).val().trim(), 
-            $mobileResultsContainer, 
-            'mobile'
-          );
-        }, 300));
-        
-        $mobileSearchInput.on('focus', function() {
-          if (searchApp.lastSearchQueries.mobile) {
-            searchApp.performSearch(
-              searchApp.lastSearchQueries.mobile, 
-              $mobileResultsContainer, 
-              'mobile'
-            );
-          }
-        });
-        
-        $mobileSearchInput.on('keydown', function(e) {
-          if (e.key === 'Enter') {
-            e.preventDefault();
-            searchApp.performSearch(
-              $(this).val().trim(), 
-              $mobileResultsContainer, 
-              'mobile'
-            );
-            return false;
-          }
-        });
-        
-        $(document).on('click', function(e) {
-          if (!$(e.target).closest('.search-mobile').length) {
-            $mobileResultsContainer.removeClass('active');
-          }
-        });
-      }
     }
   };
 
-  // Initialize the search application
+  // Initialize
   searchApp.init();
 });
