@@ -604,6 +604,7 @@ footer div.socialcontainer {
 
 footer div.socialcontainer a {
     transform: scale(1.0);
+    transition: all 0.3s ease;
 }
 
 footer div.socialcontainer a:hover {
