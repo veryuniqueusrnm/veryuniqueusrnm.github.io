@@ -479,6 +479,11 @@ div.container section.hero div.buttons {
 div.container section.hero div.description a {
     font-size: 20px;
     text-decoration: none;
+    transform: scale(1.0);
+}
+
+div.container section.hero div.description a:hover {
+    transform: scale(1.1);
 }
 
 div.container section.hero div.description p.subtitle {
@@ -595,6 +600,14 @@ footer div.socialcontainer {
     display: inline-flex;
     gap: 15px;
     font-size: 30px;
+}
+
+footer div.socialcontainer a {
+    transform: scale(1.0);
+}
+
+footer div.socialcontainer a:hover {
+    transform: scale(1.1);
 }
 
 footer div.socialcontainer i {
