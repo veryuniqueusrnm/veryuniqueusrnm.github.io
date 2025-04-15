@@ -1,58 +1,3 @@
-// jQuery menu (mobile)
-$(document).ready(function () {
-    $('.hamburger').click(function () {
-        $(this).toggleClass('active');
-        $('.dropdown').slideToggle(300, function () {
-            // If dropdown is hidden, close all submenus
-            if ($('.dropdown').css('display') === 'none') {
-                $('.submenu').slideUp(300);
-                $('.menu-button-mobile i').removeClass('fa-chevron-up').addClass('fa-chevron-down');
-            }
-        });
-    });
-
-    $('.dropdown a').not('.menu-button-mobile').click(function () {
-        $('.dropdown').slideUp(300);
-        $('.hamburger').removeClass('active');
-    });
-
-    $('.menu-button-mobile').click(function (e) {
-        e.preventDefault();
-        
-        // Close any open submenu before opening the clicked one
-        $('.submenu').not($(this).next('.submenu')).slideUp(300);
-        $('.menu-button-mobile i').not($(this).find('i')).removeClass('fa-chevron-up').addClass('fa-chevron-down');
-        
-        $(this).next('.submenu').slideToggle(300);
-        $(this).find('i').toggleClass('fa-chevron-down fa-chevron-up');
-    });
-});
-
-// Jquery menu (desktop)
-$(document).ready(function () {
-    $(".menu-button").click(function (e) {
-        e.stopPropagation();
-        var menuContainer = $(this).closest(".menu-container");
-        var menu = menuContainer.find(".menu");
-        
-        if (menu.is(":visible")) {
-            menu.stop(true, true).fadeOut(300);
-            menuContainer.find(".menu-button i").css("transform", "rotate(0deg)");
-        } else {
-            $(".menu").stop(true, true).fadeOut(300);
-            $(".menu-button i").css("transform", "rotate(0deg)");
-            
-            menu.stop(true, true).fadeIn(300);
-            menuContainer.find(".menu-button i").css("transform", "rotate(180deg)");
-        }
-    });
-
-    $(document).click(function() {
-        $(".menu").stop(true, true).fadeOut(300);
-        $(".menu-button i").css("transform", "rotate(0deg)");
-    });
-});
-
 // Function to handle screen width changes
 $(document).ready(function () {
     function checkScreenWidth() {
@@ -65,32 +10,6 @@ $(document).ready(function () {
     checkScreenWidth();
 
     $(window).on('resize', checkScreenWidth);
-});
-
-// Get commit info
-$(document).ready(function () {
-    const username = "veryuniqueusrnm";
-    const repo = "veryuniqueusrnm.github.io";
-    const apiUrl = `https://api.github.com/repos/${username}/${repo}/commits`;
-
-    $.getJSON(apiUrl, function (data) {
-        if (!data || data.length === 0) {
-            $("#commit-info").html("Failed to load commit info.");
-            return;
-        }
-
-        const latestCommit = data[0];
-        const commitId = latestCommit.sha.substring(0, 7);
-        const commitDate = new Date(latestCommit.commit.author.date).toLocaleDateString();
-        const commitUrl = latestCommit.html_url;
-
-        $("#commit-info").html(
-            `Latest commit: <strong><a class="black" href="${commitUrl}" target="_blank" rel="noopener noreferrer">${commitId} <i class="fa-solid fa-arrow-up-right-from-square"></i></a></strong> | ${commitDate}`
-        );
-    }).fail(function () {
-        console.error("Failed to fetch commit data.");
-        $("#commit-info").html("Failed to load commit info.");
-    });
 });
 
 // JavaScript countdown (W3Schools)
@@ -123,100 +42,9 @@ var x = setInterval(function() {
   }
 }, 1000);
 
-// HeroRotator
-$(document).ready(function() {
-    const $slider = $('.slider');
-    const $slides = $('.slider li');
-    const $dotsContainer = $('.dots-container');
-    const $playPauseBtn = $('.play-pause-btn');
-    let currentIndex = 0;
-    let autoRotate;
-    let isPlaying = true;
-    const ROTATION_INTERVAL = 5000;
-
-    // Initialize dots
-    $slides.each((index) => {
-        $dotsContainer.append(`<div class="dot" data-index="${index}"></div>`);
-    });
-    const $dots = $('.dot');
-    updateSlider();
-    
-    startAutoRotate();
-
-    // Play/Pause button functionality
-    $playPauseBtn.on('click', function() {
-        togglePlayPause();
-    });
-
-    function togglePlayPause() {
-        isPlaying = !isPlaying;
-        if (isPlaying) {
-            startAutoRotate();
-            $playPauseBtn.html('<i class="fas fa-pause"></i>');
-            $playPauseBtn.attr('aria-label', 'Pause slider');
-        } else {
-            clearInterval(autoRotate);
-            $playPauseBtn.html('<i class="fas fa-play"></i>');
-            $playPauseBtn.attr('aria-label', 'Play slider');
-        }
-    }
-
-    function startAutoRotate() {
-        clearInterval(autoRotate); // Clear any existing interval
-        autoRotate = setInterval(() => {
-            goToSlide((currentIndex + 1) % $slides.length);
-        }, ROTATION_INTERVAL);
-    }
-
-    function goToSlide(index) {
-        currentIndex = index;
-        updateSlider();
-    }
-
-    function updateSlider() {
-        $slider.css('transform', `translateX(-${currentIndex * 100}%)`);
-        $dots.removeClass('active');
-        $dots.eq(currentIndex).addClass('active');
-    }
-
-    $dots.on('click', function() {
-        goToSlide($(this).data('index'));
-        if (isPlaying) resetAutoRotate();
-    });
-
-    function resetAutoRotate() {
-        clearInterval(autoRotate);
-        startAutoRotate();
-    }
-
-    let touchStartX = 0;
-    let touchEndX = 0;
-    
-    $slider.on('touchstart', function(e) {
-        touchStartX = e.originalEvent.touches[0].clientX;
-        if (isPlaying) clearInterval(autoRotate);
-    });
-    
-    $slider.on('touchend', function(e) {
-        touchEndX = e.originalEvent.changedTouches[0].clientX;
-        handleSwipe();
-        if (isPlaying) resetAutoRotate();
-    });
-    
-    function handleSwipe() {
-        const swipeThreshold = 50;
-        if (touchStartX - touchEndX > swipeThreshold) {
-            goToSlide((currentIndex + 1) % $slides.length);
-        } else if (touchEndX - touchStartX > swipeThreshold) {
-            goToSlide((currentIndex - 1 + $slides.length) % $slides.length);
-        }
-    }
-  
-});
-
 // "Page jumping" bugfix
 document.ontouchmove = function(e) {
-    if ($('.slider').has(e.target).length > 0) {
+    if ($('body').has(e.target).length > 0) {
         e.preventDefault();
     }
 };
