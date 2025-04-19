@@ -6,7 +6,7 @@ title: Search
 <style>
 div.search {
     position: relative;
-    width: 160px;
+    width: 100%;
     padding: 10px;
     border: 1px solid #606060;
     border-radius: 10px;

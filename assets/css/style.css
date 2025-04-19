@@ -648,8 +648,8 @@ div.container table.pc-specs {
 }
 
 div.container table.pc-specs td, th {
-    border: 1px solid #FFF;
-    color: #FFF;
+    border: 1px solid #000;
+    color: #000;
     text-align: left;
     padding: 8px;
 }
