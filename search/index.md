@@ -52,12 +52,12 @@ div.search form fieldset div.field.keyword input {
     display: none;
 }
 
-div.center {
+div.center.searchpage {
     min-height: 500px !important;
 }
 </style>
 
-<div class="center">
+<div class="center searchpage">
     <div class="search">
         <form id="head_search_form">
             <fieldset>
