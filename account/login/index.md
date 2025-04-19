@@ -1,12 +1,10 @@
-<!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: 'en' }}">
-  {%- include head.html -%}
-  <body>
-    <div class="container">
-      <link rel="stylesheet" href="/assets/css/online.css">
-      <div id="window">
+---
+layout: base
+---
+<link rel="stylesheet" href="/assets/css/online.css">
+<div id="window">
         <div class="center">
-            <a href="/" class="black">Home</a>
+          <a href="/" class="black">Home</a>
             <h2 class="headline black">Sign in</h2>
             <form id="login" method="post" action="#">
                 <fieldset>
@@ -41,8 +39,4 @@
                 </button>
               </div>
         </div>
-      </div>
     </div>
-    {%- include sub-footer.html -%}
-  </body>
-</html>
