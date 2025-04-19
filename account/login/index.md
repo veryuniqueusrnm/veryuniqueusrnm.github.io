@@ -1,5 +1,6 @@
 ---
 layout: base
+title: Sign in
 ---
 <link rel="stylesheet" href="/assets/css/online.css">
 <div id="window">
