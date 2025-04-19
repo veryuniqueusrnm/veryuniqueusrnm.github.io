@@ -2,22 +2,159 @@
 layout: base
 ---
 
-<style>
-    .box {
-        padding: 20px;
-        background-color: #f8d7da;
-        color: #721c24;
-        border: 1px solid #f5c6cb;
-        border-radius: 5px;
-        text-align: center;
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        margin: 10px 0;
-    }
-</style>
-
-<div class="box">
-    <p>This website is rebranding and will be available in August if everything goes as planned. Please check back later.</p>
-    <p id="counter"></p>
-</div>
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/5KnFcsSIzbg?si=MtuATI_un-W_T-pB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<section class="hero">
+    <div class="promos">
+        <div class="slider-wrapper">
+            <ul class="slider">
+                <!-- First item -->
+              <li>
+                    <div class="description">
+                        <img src="/assets/i/renders/New%20Project0.png" draggable="false" alt="" class="promo">
+                        <h2 class="title">Welcome friend!</h2>
+                        <p class="subtitle">Welcome to my website where you can find a whole bunch of files, links and more!</p>
+                        <div class="buttons">
+                            <a class="white" href="https://github.com/veryuniqueusrnm?tab=repositories" target="_blank" rel="noopener noreferrer">Looking for my projects? <i class="fa-solid fa-chevron-right"></i></a>
+                        </div>
+                    </div>
+                </li>
+                <!-- First item -->
+                <li>
+                    <div class="description">
+                        <img src="/cdn/New Project0.png" draggable="false" alt="" class="promo">
+                        <h2 class="title">Pack update!</h2>
+                        <p class="subtitle">Check out what's new.</p>
+                        <div class="buttons">
+                            <a class="white" href="https://modrinth.com/resourcepack/equipment-hider" target="_blank" rel="noopener noreferrer">Learn more <i class="fa-solid fa-chevron-right"></i></a>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="description">
+                        <img src="/assets/i/renders/New%20Project8.png" draggable="false" alt="" class="promo">
+                        <h2 class="title">Monthly rollup: April 2025</h2>
+                        <p class="subtitle">Client-side search engine, news rotator, bugfixes and more!</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="controls-container">
+            <div class="dots-container"></div>
+            <button class="play-pause-btn" aria-label="Pause slider">
+                <i class="fas fa-pause"></i>
+            </button>
+        </div>
+    </div>
+</section>
+<section class="white">
+  <div class="center">
+      <h2 class="headline black">Archived Stuff</h2>
+      <ul>
+          <li><a class="blue" href="https://archive.org/details/discord-for-legacy-windows" target="_blank" rel="noopener noreferrer">Discord Legacy</a> for Windows 7, 8 and 8.1.</li>
+          <li><a class="blue" href="https://archive.org/details/vscode_for_legacy_windows" target="_blank" rel="noopener noreferrer">VSCode Legacy</a> for Windows 7, 8 and 8.1.</li>
+          <li><a class="blue" href="https://archive.org/details/tmobile-magyarorszag-reklamok" target="_blank" rel="noopener noreferrer">T-Mobile Magyarország reklámok</a> T-Mobile Hungary TV ads.</li>
+      </ul>
+  </div>
+</section>
+<section class="black" style="min-height: 700px;">
+  <div class="center">
+      <h2 class="headline white">Laptop Specifications</h2>
+      <img src="/assets/i/mbp11.png" draggable="false" class="mbp11">
+      <table class="pc-specs">
+          <tr>
+              <td>&nbsp;</td>
+              <td>Apple MacBook Pro Early 2011 13"</td>
+          </tr>
+          <tr>
+              <td>CPU</td>
+              <td>Intel core i7-2620M 2.7 GHz Dual-Core (Sandy Bridge)</td>
+          </tr>
+          <tr>
+              <td>GPU</td>
+              <td>Intel HD Graphics 3000 512MB</td>
+          </tr>
+          <tr>
+              <td>RAM</td>
+              <td>Kingston 2x8 GB DDR3 1600 MHz</td>
+          </tr>
+          <tr>
+              <td>Hard Disk</td>
+              <td>Samsung 850 Pro 256 GB SATA SSD</td>
+          </tr>
+          <tr>
+              <td>Operating System</td>
+              <td>macOS High Sierra 10.13.6 / Windows 10 Pro 20H2</td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>Accessories</td>
+            </tr>
+            <tr>
+                <td>Mouse</td>
+                <td>SteelSeries Rival 3</td>
+            </tr>
+            <tr>
+                <td>Headphones</td>
+                <td>JBL Quantum 800</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>16 GB "TransFlash" (Extra storage / backup for important things)</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>4 GB Philips DVD-RW disc (Extra storage)</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>A bag of sunflower seeds :D</td>
+            </tr>
+      </table>
+  </div>
+</section>
+<section class="white">
+  <div class="center">
+      <h2 id="projects" class="headline black">Projects</h2>
+      <ul>
+          <li><a class="blue" href="https://github.com/veryuniqueusrnm/bedloader" target="_blank" rel="noopener noreferrer">BedLoader (Minecraft)</a> A client-side mod to restore Bedrock Edition player's skins when playing on the same server.</li>
+          <li><a class="blue" href="https://modrinth.com/resourcepack/nofreezeoverlay" target="_blank" rel="noopener noreferrer">No Freeze Overlay (Minecraft)</a> No more snowflakes!</li>
+          <li><a class="blue" href="https://modrinth.com/resourcepack/equipment-hider" target="_blank" rel="noopener noreferrer">Equipment Hider (Minecraft)</a> An all-in-one solution to hide every type of equipment that you can wear!</li>
+          <li><a class="blue" href="https://modrinth.com/resourcepack/classic-damage-sounds" target="_blank" rel="noopener noreferrer">Classic Damage Sound Pack (Minecraft / Deprecated)</a> This resource pack brings back the old sound effects when the player takes damage from pre-Minecraft versions.</li>
+          <li><a class="blue" href="https://github.com/veryuniqueusrnm/jquery-include-html" target="_blank" rel="noopener noreferrer">Jquery Include HTML (JavaScript / Deprecated)</a> A better way to include documents when using HTML.</li>
+          <li><a class="blue" href="https://github.com/veryuniqueusrnm/embed-blocker" target="_blank" rel="noopener noreferrer">Embed Blocker (JavaScript)</a> Block others ability to embed your website on client-side.</li>
+      </ul>
+  </div>
+</section>
+<section class="black" style="min-height: 550px;">
+  <div class="center">
+      <h2 class="headline white">Social Media &amp; News</h2>
+      <div class="card">
+          <div class="card-header">
+              <div class="banner"></div>
+          </div>
+          <div class="card-body">
+              <div class="profile-header">
+                  <div class="profil-logo">
+                      <a href="#" target="_blank">
+                          <img src="https://cdn.discordapp.com/avatars/1227980915683364955/33403527470dd0c3a32a40c1f748b8ca?size=1024" draggable="false"/>
+                      </a>
+                  </div>
+              </div>
+              <div class="profile-body">
+                  <div class="username">rackajuhu</div>
+                  <hr/>
+                  <div class="basic-infos">
+                      <div class="category-title">About Me</div>
+                      <p>18 // Asexual // Not interested in anything<br/>
+                      Master of typos<br/>
+                      Baton owner, don’t come to my residence‼️</p>
+                  </div>
+                  <div class="basic-infos">
+                      <div class="category-title">Member Since</div>
+                      <p>Apr 20, 2019</p>
+                  </div>
+              </div>
+          </div>
+     </div>
+     <a class="twitter-timeline" data-height="500" data-width="345" data-chrome="noheader nofooter noscrollbar" href="https://twitter.com/rackajuhu?ref_src=twsrc%5Etfw">Tweets by rackajuhu</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </div>
+</section>
