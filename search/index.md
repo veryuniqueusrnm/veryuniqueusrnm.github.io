@@ -51,6 +51,10 @@ div.search form fieldset div.field.keyword input {
     z-index: 1000;
     display: none;
 }
+
+div.center {
+    min-height: 500px !important;
+}
 </style>
 
 <div class="center">
