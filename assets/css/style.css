@@ -660,9 +660,8 @@ img.mbp11 {
 }
 /* /home styles */
 
-iframe div.twitter-timeline,
-    div.twitter-timeline.twitter-timeline-rendered {
-        display: block;
-        position: inherit;
-        float: right;
+iframe div.twitter-timeline, div.twitter-timeline.twitter-timeline-rendered {
+    display: block;
+    position: inherit;
+    float: right;
 }
